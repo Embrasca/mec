@@ -33,7 +33,9 @@ orientar o restante do sistema.
 
 ## Como rodar
 
-1. Crie um projeto no Neon e ative o **Neon Auth** (Auth → Enable).
+1. Crie um projeto no Neon e ative o **Neon Auth** (Auth → Enable). Em Auth → Email &
+   password, **desligue o cadastro público** (sign-up): as contas são criadas só pela
+   administração. Em produção, desligue também "Allow localhost".
 2. Copie `.env.example` para `.env` e preencha `DATABASE_URL` (dono do banco) e
    `VITE_NEON_AUTH_URL`.
 3. Instale e aplique as migrações:
@@ -55,6 +57,13 @@ orientar o restante do sistema.
 
 5. `npm run dev` e entre com essa conta. As demais contas são criadas em **Usuários**.
 
+## Ambiente de desenvolvimento atual
+
+- Projeto Neon: `embrasca-mec` (`misty-mode-94997270`, região São Paulo), com Neon Auth
+  ativado, cadastro público desligado e a migração `0001_fundacao.sql` aplicada.
+- Contas de teste: `admin@`, `gestora@` e `leitor@mec-teste.org` (as senhas não ficam no
+  repositório). Há também eventos e contas `equipe…@mec-teste.org` criados pelos testes.
+
 ## Testes
 
 ```bash
@@ -67,6 +76,11 @@ npm test
   (PGlite) com as migrações reais.
 
 Os casos de referência são extraídos das planilhas por `scripts/extrair-metodologia.py`.
+
+Depois do build, `npm run verify:bundle` confere que nenhum código do servidor foi parar no
+pacote do navegador. Toda função de servidor deve ser escrita como
+`createServerFn(...)...handler(...)` direto, sem funções auxiliares em volta: é assim que o
+compilador a reconhece e a mantém no servidor.
 
 ## Estrutura
 

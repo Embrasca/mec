@@ -162,7 +162,7 @@ function Conta() {
   if (!perfil) return null;
   const iniciais = perfil.nome
     .split(/[ .@]/)
-    .filter(Boolean)
+    .filter((p) => /^\p{L}/u.test(p))
     .slice(0, 2)
     .map((p) => p[0])
     .join("")

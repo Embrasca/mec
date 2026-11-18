@@ -53,7 +53,10 @@ export function ProvedorDeSessao({ children }: { children: ReactNode }) {
 
   const entrar = useCallback(async (email: string, senha: string) => {
     const auth = await loadAuthClient(neonAuthUrl());
-    const r = await auth.signIn.email({ email: email.trim().toLowerCase(), password: senha });
+    // Mensagem única para qualquer recusa: não revela se o e-mail existe.
+    const r = await auth.signIn
+      .email({ email: email.trim().toLowerCase(), password: senha })
+      .catch(() => ({ error: true }));
     if (r.error) throw new Error("E-mail ou senha incorretos.");
     esquecerToken();
     const p = await minhaSessao();

@@ -251,8 +251,10 @@ export function divergenciasDeComplexidade(c: Caracterizacao, dias: number | nul
     },
     {
       i: 3,
-      minimo: n(c.percentualAereo) > 20 || n(c.vooInternacional) > 0 ? 3 : null,
-      motivo: `${n(c.percentualAereo)}% com viagem aérea e ${n(c.vooInternacional)} com voo internacional`,
+      // Só o percentual: o exemplo oficial da Ferramenta tem 6 voos internacionais e
+      // escolhe "Outros estados ou até 20% aéreo".
+      minimo: n(c.percentualAereo) > 20 ? 3 : null,
+      motivo: `${n(c.percentualAereo)}% dos participantes com viagem aérea`,
     },
     {
       i: 4,

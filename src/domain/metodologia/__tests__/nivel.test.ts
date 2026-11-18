@@ -89,6 +89,21 @@ describe.each([
   });
 });
 
+describe("avisos de complexidade nas planilhas", () => {
+  it("o exemplo preenchido (Nível 3) não gera aviso", () => {
+    const { ficha, periodo } = daPlanilha(exemplo);
+    expect(calcularEnquadramento(ficha, periodo).divergencias).toEqual([]);
+  });
+
+  it("a cópia de demonstração aponta 600 porções marcadas como até 500", () => {
+    const { ficha, periodo } = daPlanilha(demonstracao as unknown as Fixture);
+    const d = calcularEnquadramento(ficha, periodo).divergencias;
+    expect(d.map((x) => [x.criterio, x.indicadaPelosDados])).toEqual([
+      ["Alimentação", "De 501 a 2.000 porções no total"],
+    ]);
+  });
+});
+
 describe("regras de fronteira", () => {
   const periodo = { dataInicio: "2026-01-10", dataFim: "2026-01-10" };
   const base = (over: Partial<Caracterizacao>): Caracterizacao => ({

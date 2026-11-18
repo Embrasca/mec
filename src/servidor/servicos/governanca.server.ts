@@ -25,7 +25,7 @@ async function lerFicha(sql: Sql, eventoId: string): Promise<FichaDoEvento> {
   if (evento.metodologia !== METODOLOGIA_ID)
     throw new ErroDeNegocio(`Metodologia ${evento.metodologia} não suportada nesta versão.`);
   const [linha] = await sql<{ dados: unknown; versao: number; em: string; por: string }>(
-    `select c.dados, c.versao, to_char(c.atualizado_em, 'YYYY-MM-DD"T"HH24:MI:SSOF') as em, u.nome as por
+    `select c.dados, c.versao, to_char(c.atualizado_em at time zone 'UTC', 'YYYY-MM-DD"T"HH24:MI:SS"Z"') as em, u.nome as por
      from caracterizacoes c left join usuarios u on u.id = c.atualizado_por
      where c.evento_id = $1`,
     [eventoId],
@@ -185,7 +185,7 @@ export async function listarEnquadramentos(atorId: string, eventoId: string) {
               e.resultado->>'determinante' as determinante,
               e.o_que_mudou as "oQueMudou", e.limitacao_declarada as "limitacaoDeclarada",
               e.responsavel, u.nome as "registradoPor",
-              to_char(e.registrado_em, 'YYYY-MM-DD"T"HH24:MI:SSOF') as "registradoEm"
+              to_char(e.registrado_em at time zone 'UTC', 'YYYY-MM-DD"T"HH24:MI:SS"Z"') as "registradoEm"
        from enquadramentos e join usuarios u on u.id = e.registrado_por
        where e.evento_id = $1 order by e.registrado_em desc`,
       [eventoId],
@@ -295,7 +295,7 @@ export interface LinhaDeAuditoria {
 export async function listarAuditoria(atorId: string, eventoId: string | null, limite = 200) {
   return comoUsuario(atorId, (sql) =>
     sql<LinhaDeAuditoria>(
-      `select a.id::text, to_char(a.em, 'YYYY-MM-DD"T"HH24:MI:SSOF') as em, u.nome as usuario,
+      `select a.id::text, to_char(a.em at time zone 'UTC', 'YYYY-MM-DD"T"HH24:MI:SS"Z"') as em, u.nome as usuario,
               e.nome as evento, a.acao, a.entidade, a.entidade_id as "entidadeId"
        from auditoria a
        left join usuarios u on u.id = a.usuario_id

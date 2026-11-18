@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "db:migrate": "node scripts/migrate.mjs",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "verify:bundle": "node scripts/verificar-pacote.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
