@@ -1,0 +1,534 @@
+{
+  "fonte": "FERRAMENTA DE CÁLCULO DE EMISSÕES DE EVENTOS  |  MEC | GIZ",
+  "versao": "3.16",
+  "formatos": [
+    "Presencial",
+    "Hibrido",
+    "Virtual"
+  ],
+  "simNao": [
+    "Sim",
+    "Não"
+  ],
+  "alegacoes": [
+    "Emissões quantificadas",
+    "Medidas de redução adotadas",
+    "Emissões residuais compensadas",
+    "Evento carbono neutro"
+  ],
+  "logistica": [
+    "Municipal",
+    "Intermunicipal",
+    "Interestadual",
+    "Internacional"
+  ],
+  "criteriosComplexidade": [
+    {
+      "rotulo": "Duração",
+      "opcoes": [
+        "1 dia",
+        "2 dias",
+        "3 a 4 dias",
+        "5 dias ou mais"
+      ],
+      "tresPontos": "5 dias ou mais"
+    },
+    {
+      "rotulo": "Abrangência",
+      "opcoes": [
+        "Local",
+        "Regional",
+        "Nacional",
+        "Internacional"
+      ],
+      "tresPontos": "Internacional"
+    },
+    {
+      "rotulo": "Formato e estruturas",
+      "opcoes": [
+        "Sem estrutura temporaria",
+        "Estrutura permanente",
+        "Estrutura temporaria até 500 m²",
+        "Varios locais ou acima de 500 m²"
+      ],
+      "tresPontos": "Varios locais ou acima de 500 m2"
+    },
+    {
+      "rotulo": "Mobilidade e viagens",
+      "opcoes": [
+        "Público local",
+        "Deslocamentos intermunicipais",
+        "Outros estados ou até 20% aéreo",
+        "Mais de 20% aéreo ou voo internacional"
+      ],
+      "tresPontos": "Mais de 20% aéreo ou internacional"
+    },
+    {
+      "rotulo": "Hospedagem",
+      "opcoes": [
+        "Sem hospedagem",
+        "Até 100 diárias",
+        "De 101 a 500 diárias",
+        "Mais de 500 diárias"
+      ],
+      "tresPontos": "Mais de 500 diárias"
+    },
+    {
+      "rotulo": "Alimentação",
+      "opcoes": [
+        "Sem alimentação",
+        "Até 500 porções no total",
+        "De 501 a 2.000 porções no total",
+        "Mais de 2.000 porções ou mais de um fornecedor"
+      ],
+      "tresPontos": "Mais de 2.000 porções ou mais de um fornecedor"
+    },
+    {
+      "rotulo": "Energia e infraestrutura",
+      "opcoes": [
+        "Sem gerador",
+        "Consumo normal do local",
+        "Energia temporaria ou gerador até 50 kVA",
+        "Gerador acima de 50 kVA ou varios"
+      ],
+      "tresPontos": "Gerador acima de 50 kVA ou vários"
+    },
+    {
+      "rotulo": "Materiais e resíduos",
+      "opcoes": [
+        "Baixo uso e geração",
+        "Usuais do evento",
+        "Montagem relevante ou mais de 500 kg",
+        "Grande estrutura ou mais de 2 t"
+      ],
+      "tresPontos": "Grande estrutura ou mais de 2 t"
+    },
+    {
+      "rotulo": "Logística de materiais e equipamentos",
+      "opcoes": [
+        "Municipal",
+        "Intermunicipal",
+        "Interestadual",
+        "Internacional"
+      ],
+      "tresPontos": "Mais de 15 ou logística em varias etapas"
+    },
+    {
+      "rotulo": "Exposição e asseguração",
+      "opcoes": [
+        "Interno, sem alegação pública",
+        "Público local",
+        "Nacional ou alegação de neutralidade",
+        "Alta exposição ou verificação prevista"
+      ],
+      "tresPontos": "Alta exposição ou verificação prevista"
+    }
+  ],
+  "faixasComplexidade": "0 a 6 = Nível 1  |  7 a 13 = Nível 2  |  14 a 21 = Nível 3  |  22 a 30 = Nível 4",
+  "gatilhos": [
+    {
+      "condicao": "Mais de 10 participantes internacionais que vêm ao evento presencialmente",
+      "elevaAte": 3
+    },
+    {
+      "condicao": "Mais de 20% dos participantes com viagem aérea",
+      "elevaAte": 3
+    },
+    {
+      "condicao": "Transporte aéreo internacional: mais de 10 participantes com voo internacional",
+      "elevaAte": 3
+    },
+    {
+      "condicao": "Transporte aquaviário relevante ou acesso complexo",
+      "elevaAte": 3
+    },
+    {
+      "condicao": "Mais de dois locais simultâneos",
+      "elevaAte": 3
+    },
+    {
+      "condicao": "Evento com cinco dias ou mais",
+      "elevaAte": 3
+    },
+    {
+      "condicao": "Gerador acima de 50 kVA ou mais de um gerador",
+      "elevaAte": 3
+    },
+    {
+      "condicao": "Mais de 500 diárias de hospedagem",
+      "elevaAte": 3
+    },
+    {
+      "condicao": "Transporte interestadual ou internacional de materiais e equipamentos",
+      "elevaAte": 3
+    },
+    {
+      "condicao": "Alegação pública de carbono neutro",
+      "elevaAte": 3
+    },
+    {
+      "condicao": "Estruturas temporárias acima de 1.000 m²",
+      "elevaAte": 3
+    },
+    {
+      "condicao": "Evento itinerante, multicidade ou internacional complexo",
+      "elevaAte": 3
+    }
+  ],
+  "notaGatilhos": "Um gatilho sozinho eleva o evento até o Nível 3. O Nível 4 por gatilho exige três ou mais gatilhos acionados ao mesmo tempo.",
+  "requisitos": [
+    {
+      "fase": "PRÉ-EVENTO",
+      "requisito": "Caracterização e enquadramento",
+      "porNivel": [
+        "Ficha essencial e nível",
+        "Ficha e análise de complexidade",
+        "Análise completa e validação técnica",
+        "Análise, validação e registro formal"
+      ]
+    },
+    {
+      "fase": "PRÉ-EVENTO",
+      "requisito": "Limites do inventário",
+      "porNivel": [
+        "Limites básicos",
+        "Limites e exclusões justificadas",
+        "Limites detalhados por categoria",
+        "Limites, materialidade e revisão"
+      ]
+    },
+    {
+      "fase": "PRÉ-EVENTO",
+      "requisito": "Plano de coleta",
+      "porNivel": [
+        "Dados criticos e responsáveis",
+        "Matriz por categoria",
+        "Matriz completa com fornecedores e evidências",
+        "Matriz completa, contingencias e versões"
+      ]
+    },
+    {
+      "fase": "PRÉ-EVENTO",
+      "requisito": "Inventário ex-ante",
+      "porNivel": [
+        "Estimativa simplificada",
+        "Estimativa por categoria",
+        "Cenários, qualidade e fontes prioritarias",
+        "Cenários, incerteza e revisão técnica"
+      ]
+    },
+    {
+      "fase": "PRÉ-EVENTO",
+      "requisito": "Plano de redução",
+      "porNivel": [
+        "Ações essenciais",
+        "Ações por categoria",
+        "Metas, responsáveis e redução estimada",
+        "Metas, indicadores e monitoramento formal"
+      ]
+    },
+    {
+      "fase": "EXECUÇÃO",
+      "requisito": "Engajamento",
+      "porNivel": [
+        "Orientações básicas",
+        "Comunicação a equipes e fornecedores",
+        "Capacitação e plano de engajamento",
+        "Plano formal e canais de ocorrência"
+      ]
+    },
+    {
+      "fase": "EXECUÇÃO",
+      "requisito": "Coleta e monitoramento",
+      "porNivel": [
+        "Checklist essencial",
+        "Coleta por fornecedor",
+        "Monitoramento por categoria e validação",
+        "Controles ampliados e conferência cruzada"
+      ]
+    },
+    {
+      "fase": "EXECUÇÃO",
+      "requisito": "Rotina de fechamento",
+      "porNivel": [
+        "Ao final do evento",
+        "Diária, simplificada",
+        "Diária, com cobertura e qualidade",
+        "Diária, com reporte e revisão intermediária"
+      ]
+    },
+    {
+      "fase": "EXECUÇÃO",
+      "requisito": "Evidências",
+      "porNivel": [
+        "Registros principais",
+        "Notas, contas e declarações",
+        "Dossiê por categoria",
+        "Repositório estruturado e trilha de auditoria"
+      ]
+    },
+    {
+      "fase": "EXECUÇÃO",
+      "requisito": "Mudancas no planejamento",
+      "porNivel": [
+        "Registro simples",
+        "Registro e justificativa",
+        "Avaliação de impacto no inventário",
+        "Controle formal e aprovação previa"
+      ]
+    },
+    {
+      "fase": "PÓS-EVENTO",
+      "requisito": "Inventário ex-post",
+      "porNivel": [
+        "Cálculo das fontes aplicáveis",
+        "Cálculo e comparação com o ex-ante",
+        "Consolidação, indicadores e revisão",
+        "Revisão, incerteza e possível verificação"
+      ]
+    },
+    {
+      "fase": "PÓS-EVENTO",
+      "requisito": "Compensação",
+      "porNivel": [
+        "Saldo e comprovação",
+        "Dossiê mínimo",
+        "Rastreabilidade completa e aposentadoria",
+        "Rastreabilidade, revisão e verificação"
+      ]
+    },
+    {
+      "fase": "PÓS-EVENTO",
+      "requisito": "Comunicação",
+      "porNivel": [
+        "Resumo de resultados",
+        "Relatório resumido",
+        "Relatório público com limitações",
+        "Relatório completo e alta integridade"
+      ]
+    },
+    {
+      "fase": "PÓS-EVENTO",
+      "requisito": "Melhoria continua",
+      "porNivel": [
+        "Registro de aprendizados",
+        "Plano de melhoria",
+        "Análise de lacunas e responsáveis",
+        "Plano formal e indicadores historicos"
+      ]
+    },
+    {
+      "fase": "QUALIDADE",
+      "requisito": "Emissões apuradas com dado medido",
+      "porNivel": [
+        "20% ou mais",
+        "40% ou mais",
+        "50% ou mais",
+        "50% ou mais"
+      ]
+    },
+    {
+      "fase": "QUALIDADE",
+      "requisito": "Nota média de qualidade (indicador de apoio, sem mínimo obrigatório)",
+      "porNivel": [
+        "2,0 como referência",
+        "2,5 como referência",
+        "3,0 como referência",
+        "3,5 como referência"
+      ]
+    },
+    {
+      "fase": "QUALIDADE",
+      "requisito": "Quem revisa",
+      "porNivel": [
+        "Autocontrole",
+        "Revisão interna",
+        "Revisão técnica formal",
+        "Revisão e verificação independente"
+      ]
+    },
+    {
+      "fase": "QUALIDADE",
+      "requisito": "Quem aprova a alegação",
+      "porNivel": [
+        "Coordenação",
+        "Coordenação",
+        "Patrocinador institucional",
+        "Patrocinador, com registro formal"
+      ]
+    }
+  ],
+  "roteiro": [
+    {
+      "fase": "Pré-evento",
+      "aba": "A - CARACTERIZAÇÃO",
+      "oQueFazer": "Descrever o evento. O nível aparece sozinho no fim da aba",
+      "noGuia": "capítulo 3 (p. 33)"
+    },
+    {
+      "fase": "Pré-evento",
+      "aba": "B - ACOMPANHAMENTO",
+      "oQueFazer": "Acompanhar o que o seu nível exige e o cumprimento de cada requisito",
+      "noGuia": "capítulos 4 a 7 (p. 47)"
+    },
+    {
+      "fase": "Pré-evento",
+      "aba": "FORNECEDORES",
+      "oQueFazer": "Enviar a cada fornecedor o que ele deve entregar e acompanhar o recebimento",
+      "noGuia": "seção 9.7 (p. 155)"
+    },
+    {
+      "fase": "Pré-evento",
+      "aba": "1 - EVENTO",
+      "oQueFazer": "Conferir os dados que o cálculo usa. Já vem preenchida",
+      "noGuia": "capítulo 10 (p. 157)"
+    },
+    {
+      "fase": "Pré-evento",
+      "aba": "2 - EX-ANTE",
+      "oQueFazer": "Estimar as emissões antes do evento",
+      "noGuia": "seção 2.8 (p. 31)"
+    },
+    {
+      "fase": "Pré-evento",
+      "aba": "REDUÇÃO",
+      "oQueFazer": "Registrar medidas, metas, responsáveis e, depois do evento, o resultado alcançado",
+      "noGuia": "seção 2.7 (p. 29)"
+    },
+    {
+      "fase": "Todas as fases",
+      "aba": "C - CHECKLIST",
+      "oQueFazer": "Percorrer os portões de passagem de cada fase",
+      "noGuia": "capítulos 4 a 7 (p. 47)"
+    },
+    {
+      "fase": "Execução",
+      "aba": "OCORRÊNCIAS",
+      "oQueFazer": "Registrar no mesmo dia todo fato que afete os dados",
+      "noGuia": "seção 9.8 (p. 156)"
+    },
+    {
+      "fase": "Todas as fases",
+      "aba": "COLETA",
+      "oQueFazer": "Registrar leituras, abastecimentos, porções, resíduos e viagens. Os quadros calculam o que lançar nas abas 2 e 3",
+      "noGuia": "seções 9.6 e 9.7 (p. 152)"
+    },
+    {
+      "fase": "Pós-evento",
+      "aba": "3 - EX-POST",
+      "oQueFazer": "Lançar as quantidades reais e a qualidade de cada dado",
+      "noGuia": "seção 9.1 (p. 143)"
+    },
+    {
+      "fase": "Pós-evento",
+      "aba": "4 - RESULTADOS",
+      "oQueFazer": "Ler os indicadores e conferir o mínimo do nível",
+      "noGuia": "seção 9.1.2 (p. 144)"
+    },
+    {
+      "fase": "Pós-evento",
+      "aba": "5 - COMPARAÇÃO",
+      "oQueFazer": "Explicar por que o realizado ficou diferente do previsto",
+      "noGuia": "seção 2.8 (p. 31)"
+    },
+    {
+      "fase": "Pós-evento",
+      "aba": "6 - EMISSÕES RESIDUAIS",
+      "oQueFazer": "Ver a emissão residual e quanto compensar",
+      "noGuia": "capítulo 8 (p. 133)"
+    },
+    {
+      "fase": "Pós-evento",
+      "aba": "7 - RELATÓRIO",
+      "oQueFazer": "Copiar o resumo e a frase autorizada",
+      "noGuia": "seção 8.11 (p. 142)"
+    },
+    {
+      "fase": "Consulta",
+      "aba": "EXEMPLO",
+      "oQueFazer": "Ver um evento fictício preenchido do início ao fim",
+      "noGuia": "-"
+    },
+    {
+      "fase": "Consulta",
+      "aba": "FATORES e LISTAS",
+      "oQueFazer": "Só consulta. Apenas a coordenação altera os fatores",
+      "noGuia": "seção 10.4 (p. 159)"
+    }
+  ],
+  "niveis": [
+    "Evento de mínimo impacto climático",
+    "Evento de baixo impacto climático",
+    "Evento de médio impacto climático",
+    "Evento de alto impacto climático"
+  ],
+  "oQueMudaria": [
+    {
+      "seAcontecer": "O público por dia passar de 250",
+      "nivelMinimo": 3
+    },
+    {
+      "seAcontecer": "O público por dia passar de 1.000",
+      "nivelMinimo": 4
+    },
+    {
+      "seAcontecer": "As viagens aéreas passarem de 20% dos participantes",
+      "nivelMinimo": 3
+    },
+    {
+      "seAcontecer": "O evento chegar a cinco dias",
+      "nivelMinimo": 3
+    },
+    {
+      "seAcontecer": "A estrutura temporária passar de 1.000 m²",
+      "nivelMinimo": 3
+    },
+    {
+      "seAcontecer": "Os geradores passarem de 50 kVA ou de um equipamento",
+      "nivelMinimo": 3
+    },
+    {
+      "seAcontecer": "Materiais ou equipamentos virem de outro estado ou do exterior",
+      "nivelMinimo": 3
+    },
+    {
+      "seAcontecer": "For anunciado como evento carbono neutro",
+      "nivelMinimo": 3
+    },
+    {
+      "seAcontecer": "Três ou mais gatilhos forem acionados ao mesmo tempo",
+      "nivelMinimo": 4
+    }
+  ],
+  "notaSoSobe": "O nível só sobe, nunca desce. Se o evento mudar depois desta análise, volte aqui, refaça o enquadramento e registre a mudança no bloco de reenquadramento, logo abaixo.",
+  "notaImpacto": "O NÍVEL MEDE IMPACTO, NÃO TAMANHO. Os níveis são nomeados pelo impacto climático provável do evento: mínimo, baixo, médio e alto impacto climático. Um seminário de 60 participantes com muitas viagens de avião pode ficar em nível mais alto que uma feira de 800 pessoas com público da própria cidade. Ficar em nível alto não é demérito: significa que o evento exige mais cuidado na apuração.",
+  "notaInternacional": "Mais de 10 participantes internacionais presenciais, ou mais de 10 com voo internacional, elevam o nível (seção 3.5 do Guia). Participante internacional só online não conta para o nível nem para o transporte. Logística: municipal = materiais e equipamentos da própria cidade; intermunicipal = de outra cidade do estado; interestadual = de outro estado; internacional = do exterior. O que pesa é o transporte físico de materiais e equipamentos, e não o número de fornecedores.",
+  "notaParticipantes": "Participante único conta a pessoa uma vez. Participante-dia conta uma presença por dia. Acesso conta cada passagem pelo credenciamento e não é número de pessoas.",
+  "ajudaCampos": {
+    "C7": "Define o fator de energia elétrica",
+    "C14": "Presencial, hibrido ou virtual",
+    "C15": "Use o dia de maior público",
+    "C16": "Da abertura ao encerramento",
+    "C18": "Digite 25 para 25%",
+    "C20": "Informativo. O que pesa no nível é a logística de materiais (célula C49)",
+    "C21": "Zero se não houver",
+    "C22": "Some todos os geradores",
+    "C25": "Calculado a partir da célula C46. Quem participa só online não conta",
+    "C26": "Sim ou Não",
+    "C27": "Sim ou Não",
+    "C28": "Some todos os dias e serviços. Porção = o que uma pessoa recebe em um serviço",
+    "C32": "Vem da célula C18",
+    "C33": "Viagens de outras cidades",
+    "C34": "Inclui carona e van",
+    "C35": "Trem intermunicipal ou metrô até o local",
+    "C36": "Quem mora na cidade do evento",
+    "C37": "Barco, moto e outros: descreva na premissa",
+    "C40": "Vem da célula C17",
+    "C41": "Usado no indicador por participante-dia da Aba 4",
+    "C42": "Cada passagem pelo credenciamento",
+    "C46": "Mais de 10 eleva o nível",
+    "C47": "Não entram no nível nem no transporte",
+    "C48": "Mais de 10 eleva o nível",
+    "C49": "Origem mais distante do que é transportado até o local"
+  }
+}
