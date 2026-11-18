@@ -7,6 +7,10 @@ import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import {
   BookOpen,
+  Calculator,
+  ClipboardList,
+  Library,
+  Truck,
   ChevronDown,
   ChevronsLeft,
   ChevronsRight,
@@ -216,6 +220,7 @@ export function Shell({ evento, children }: { evento?: EventoResumo; children: R
   const global: ItemDeMenu[] = [
     { to: "/eventos", label: "Portfólio de eventos", icon: LayoutGrid, exact: true },
     { to: "/instrucoes", label: "Instruções", icon: BookOpen, exact: true },
+    { to: "/fatores", label: "Base de fatores", icon: Library },
   ];
   const doEvento: ItemDeMenu[] = evento
     ? [
@@ -226,6 +231,9 @@ export function Shell({ evento, children }: { evento?: EventoResumo; children: R
           icon: ClipboardCheck,
         },
         { to: `/e/${evento.id}/acompanhamento`, label: "Requisitos do nível", icon: History },
+        { to: `/e/${evento.id}/fornecedores`, label: "Fornecedores", icon: Truck },
+        { to: `/e/${evento.id}/coleta`, label: "Coleta (previsão)", icon: ClipboardList },
+        { to: `/e/${evento.id}/inventario`, label: "Inventário ex-ante", icon: Calculator },
         { to: `/e/${evento.id}/equipe`, label: "Equipe", icon: Users },
         { to: `/e/${evento.id}/cadastro`, label: "Cadastro do evento", icon: Settings2 },
       ]
@@ -294,7 +302,7 @@ export function Shell({ evento, children }: { evento?: EventoResumo; children: R
               <SeletorDeEvento atual={evento} />
             </div>
             <div className="flex shrink-0 items-center gap-2">
-              {evento && <NivelBadge nivel={evento.nivel} />}
+              {evento && <NivelBadge nivel={evento.nivel} sobreEscuro />}
               <Conta />
             </div>
           </header>

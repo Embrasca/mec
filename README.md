@@ -4,7 +4,7 @@ Gestão climática de eventos baseada na **Ferramenta de Cálculo de Emissões d
 O nível de exigência do evento (1 a 4) é calculado a partir da caracterização e passa a
 orientar o restante do sistema.
 
-## O que já existe (Etapas 0 e 1)
+## O que já existe (Etapas 0, 1 e 2)
 
 | Área | O que faz |
 |---|---|
@@ -13,6 +13,8 @@ orientar o restante do sistema.
 | Portfólio | Todos os eventos visíveis, filtro por nível e busca; cada evento com a sua cor |
 | Evento | Cadastro (com cor validada por contraste), equipe com papéis, seletor de evento no topo |
 | Governança | Instruções (aba INÍCIO), caracterização e enquadramento (aba A), requisitos do nível (aba B), registro de reenquadramento |
+| Base de fatores | Versões da base (FATORES): a publicada é imutável; a administração cria rascunho, edita, publica. Fator do SIN por ano |
+| Pré-evento | Fornecedores (o que pedir por tipo e nível, prazo, situação, alerta), coleta com os 8 quadros (regras de mapeamento) e inventário ex-ante com alertas do nível, totais por categoria e escopo, e fechamento |
 
 ### Papéis
 
@@ -28,6 +30,8 @@ orientar o restante do sistema.
   repete as regras de acesso mesmo que uma checagem falte no código.
 - O nível do evento **só sobe** e **só muda com registro de enquadramento** — regras
   garantidas por trigger no banco.
+- Base de fatores publicada não muda; ex-ante fechado não muda; a base do evento trava
+  depois do fechamento — também por trigger no banco.
 - Auditoria só aceita inclusão. Erros internos não chegam ao navegador.
 - Código de `src/servidor/` é bloqueado no pacote do navegador pelo build.
 
@@ -60,9 +64,9 @@ orientar o restante do sistema.
 ## Ambiente de desenvolvimento atual
 
 - Projeto Neon: `embrasca-mec` (`misty-mode-94997270`, região São Paulo), com Neon Auth
-  ativado, cadastro público desligado e a migração `0001_fundacao.sql` aplicada.
+  ativado, cadastro público desligado e as migrações 0001 a 0003 aplicadas.
 - Contas de teste: `admin@`, `gestora@` e `leitor@mec-teste.org` (as senhas não ficam no
-  repositório). Há também eventos e contas `equipe…@mec-teste.org` criados pelos testes.
+  repositório). Sem eventos: os dados dos testes foram apagados.
 
 ## Testes
 
@@ -72,10 +76,14 @@ npm test
 
 - `src/domain/metodologia/__tests__/nivel.test.ts`: paridade com as duas planilhas enviadas
   (exemplo de Nível 3 e cópia de demonstração) e regras de fronteira.
-- `src/servidor/__tests__/servicos.test.ts`: regras de negócio e RLS num Postgres em memória
+- `src/domain/metodologia/__tests__/inventario.test.ts` e `coleta.test.ts`: paridade com as
+  abas 2, 3 e COLETA do exemplo de Nível 3 (cada linha, totais, categorias, escopos e o
+  resumo da coleta).
+- `src/servidor/__tests__/*.test.ts`: regras de negócio e RLS num Postgres em memória
   (PGlite) com as migrações reais.
 
-Os casos de referência são extraídos das planilhas por `scripts/extrair-metodologia.py`.
+Os casos de referência são extraídos das planilhas por `scripts/extrair-metodologia.py`, e a
+migração da base oficial de fatores é gerada por `scripts/gerar-base-fatores.mjs`.
 
 Depois do build, `npm run verify:bundle` confere que nenhum código do servidor foi parar no
 pacote do navegador. Toda função de servidor deve ser escrita como

@@ -17,11 +17,16 @@ import { Route as AppInstrucoesRouteImport } from './routes/_app.instrucoes'
 import { Route as AppAdminAuditoriaRouteImport } from './routes/_app.admin.auditoria'
 import { Route as AppAdminUsuariosRouteImport } from './routes/_app.admin.usuarios'
 import { Route as AppEEventoIdRouteImport } from './routes/_app.e.$eventoId'
+import { Route as AppFatoresIndexRouteImport } from './routes/_app.fatores.index'
+import { Route as AppFatoresBaseIdRouteImport } from './routes/_app.fatores.$baseId'
 import { Route as AppEEventoIdIndexRouteImport } from './routes/_app.e.$eventoId.index'
 import { Route as AppEEventoIdAcompanhamentoRouteImport } from './routes/_app.e.$eventoId.acompanhamento'
 import { Route as AppEEventoIdCadastroRouteImport } from './routes/_app.e.$eventoId.cadastro'
 import { Route as AppEEventoIdCaracterizacaoRouteImport } from './routes/_app.e.$eventoId.caracterizacao'
+import { Route as AppEEventoIdColetaRouteImport } from './routes/_app.e.$eventoId.coleta'
 import { Route as AppEEventoIdEquipeRouteImport } from './routes/_app.e.$eventoId.equipe'
+import { Route as AppEEventoIdFornecedoresRouteImport } from './routes/_app.e.$eventoId.fornecedores'
+import { Route as AppEEventoIdInventarioRouteImport } from './routes/_app.e.$eventoId.inventario'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -62,6 +67,16 @@ const AppEEventoIdRoute = AppEEventoIdRouteImport.update({
   path: '/e/$eventoId',
   getParentRoute: () => AppRoute,
 } as any)
+const AppFatoresIndexRoute = AppFatoresIndexRouteImport.update({
+  id: '/fatores/',
+  path: '/fatores/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppFatoresBaseIdRoute = AppFatoresBaseIdRouteImport.update({
+  id: '/fatores/$baseId',
+  path: '/fatores/$baseId',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppEEventoIdIndexRoute = AppEEventoIdIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -84,9 +99,25 @@ const AppEEventoIdCaracterizacaoRoute =
     path: '/caracterizacao',
     getParentRoute: () => AppEEventoIdRoute,
   } as any)
+const AppEEventoIdColetaRoute = AppEEventoIdColetaRouteImport.update({
+  id: '/coleta',
+  path: '/coleta',
+  getParentRoute: () => AppEEventoIdRoute,
+} as any)
 const AppEEventoIdEquipeRoute = AppEEventoIdEquipeRouteImport.update({
   id: '/equipe',
   path: '/equipe',
+  getParentRoute: () => AppEEventoIdRoute,
+} as any)
+const AppEEventoIdFornecedoresRoute =
+  AppEEventoIdFornecedoresRouteImport.update({
+    id: '/fornecedores',
+    path: '/fornecedores',
+    getParentRoute: () => AppEEventoIdRoute,
+  } as any)
+const AppEEventoIdInventarioRoute = AppEEventoIdInventarioRouteImport.update({
+  id: '/inventario',
+  path: '/inventario',
   getParentRoute: () => AppEEventoIdRoute,
 } as any)
 
@@ -98,10 +129,15 @@ export interface FileRoutesByFullPath {
   '/admin/auditoria': typeof AppAdminAuditoriaRoute
   '/admin/usuarios': typeof AppAdminUsuariosRoute
   '/e/$eventoId': typeof AppEEventoIdRouteWithChildren
+  '/fatores/$baseId': typeof AppFatoresBaseIdRoute
+  '/fatores/': typeof AppFatoresIndexRoute
   '/e/$eventoId/acompanhamento': typeof AppEEventoIdAcompanhamentoRoute
   '/e/$eventoId/cadastro': typeof AppEEventoIdCadastroRoute
   '/e/$eventoId/caracterizacao': typeof AppEEventoIdCaracterizacaoRoute
+  '/e/$eventoId/coleta': typeof AppEEventoIdColetaRoute
   '/e/$eventoId/equipe': typeof AppEEventoIdEquipeRoute
+  '/e/$eventoId/fornecedores': typeof AppEEventoIdFornecedoresRoute
+  '/e/$eventoId/inventario': typeof AppEEventoIdInventarioRoute
   '/e/$eventoId/': typeof AppEEventoIdIndexRoute
 }
 export interface FileRoutesByTo {
@@ -111,10 +147,15 @@ export interface FileRoutesByTo {
   '/instrucoes': typeof AppInstrucoesRoute
   '/admin/auditoria': typeof AppAdminAuditoriaRoute
   '/admin/usuarios': typeof AppAdminUsuariosRoute
+  '/fatores/$baseId': typeof AppFatoresBaseIdRoute
+  '/fatores': typeof AppFatoresIndexRoute
   '/e/$eventoId/acompanhamento': typeof AppEEventoIdAcompanhamentoRoute
   '/e/$eventoId/cadastro': typeof AppEEventoIdCadastroRoute
   '/e/$eventoId/caracterizacao': typeof AppEEventoIdCaracterizacaoRoute
+  '/e/$eventoId/coleta': typeof AppEEventoIdColetaRoute
   '/e/$eventoId/equipe': typeof AppEEventoIdEquipeRoute
+  '/e/$eventoId/fornecedores': typeof AppEEventoIdFornecedoresRoute
+  '/e/$eventoId/inventario': typeof AppEEventoIdInventarioRoute
   '/e/$eventoId': typeof AppEEventoIdIndexRoute
 }
 export interface FileRoutesById {
@@ -127,10 +168,15 @@ export interface FileRoutesById {
   '/_app/admin/auditoria': typeof AppAdminAuditoriaRoute
   '/_app/admin/usuarios': typeof AppAdminUsuariosRoute
   '/_app/e/$eventoId': typeof AppEEventoIdRouteWithChildren
+  '/_app/fatores/$baseId': typeof AppFatoresBaseIdRoute
+  '/_app/fatores/': typeof AppFatoresIndexRoute
   '/_app/e/$eventoId/acompanhamento': typeof AppEEventoIdAcompanhamentoRoute
   '/_app/e/$eventoId/cadastro': typeof AppEEventoIdCadastroRoute
   '/_app/e/$eventoId/caracterizacao': typeof AppEEventoIdCaracterizacaoRoute
+  '/_app/e/$eventoId/coleta': typeof AppEEventoIdColetaRoute
   '/_app/e/$eventoId/equipe': typeof AppEEventoIdEquipeRoute
+  '/_app/e/$eventoId/fornecedores': typeof AppEEventoIdFornecedoresRoute
+  '/_app/e/$eventoId/inventario': typeof AppEEventoIdInventarioRoute
   '/_app/e/$eventoId/': typeof AppEEventoIdIndexRoute
 }
 export interface FileRouteTypes {
@@ -143,10 +189,15 @@ export interface FileRouteTypes {
     | '/admin/auditoria'
     | '/admin/usuarios'
     | '/e/$eventoId'
+    | '/fatores/$baseId'
+    | '/fatores/'
     | '/e/$eventoId/acompanhamento'
     | '/e/$eventoId/cadastro'
     | '/e/$eventoId/caracterizacao'
+    | '/e/$eventoId/coleta'
     | '/e/$eventoId/equipe'
+    | '/e/$eventoId/fornecedores'
+    | '/e/$eventoId/inventario'
     | '/e/$eventoId/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -156,10 +207,15 @@ export interface FileRouteTypes {
     | '/instrucoes'
     | '/admin/auditoria'
     | '/admin/usuarios'
+    | '/fatores/$baseId'
+    | '/fatores'
     | '/e/$eventoId/acompanhamento'
     | '/e/$eventoId/cadastro'
     | '/e/$eventoId/caracterizacao'
+    | '/e/$eventoId/coleta'
     | '/e/$eventoId/equipe'
+    | '/e/$eventoId/fornecedores'
+    | '/e/$eventoId/inventario'
     | '/e/$eventoId'
   id:
     | '__root__'
@@ -171,10 +227,15 @@ export interface FileRouteTypes {
     | '/_app/admin/auditoria'
     | '/_app/admin/usuarios'
     | '/_app/e/$eventoId'
+    | '/_app/fatores/$baseId'
+    | '/_app/fatores/'
     | '/_app/e/$eventoId/acompanhamento'
     | '/_app/e/$eventoId/cadastro'
     | '/_app/e/$eventoId/caracterizacao'
+    | '/_app/e/$eventoId/coleta'
     | '/_app/e/$eventoId/equipe'
+    | '/_app/e/$eventoId/fornecedores'
+    | '/_app/e/$eventoId/inventario'
     | '/_app/e/$eventoId/'
   fileRoutesById: FileRoutesById
 }
@@ -242,6 +303,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppEEventoIdRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/fatores/': {
+      id: '/_app/fatores/'
+      path: '/fatores'
+      fullPath: '/fatores/'
+      preLoaderRoute: typeof AppFatoresIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/fatores/$baseId': {
+      id: '/_app/fatores/$baseId'
+      path: '/fatores/$baseId'
+      fullPath: '/fatores/$baseId'
+      preLoaderRoute: typeof AppFatoresBaseIdRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/_app/e/$eventoId/': {
       id: '/_app/e/$eventoId/'
       path: '/'
@@ -270,11 +345,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppEEventoIdCaracterizacaoRouteImport
       parentRoute: typeof AppEEventoIdRoute
     }
+    '/_app/e/$eventoId/coleta': {
+      id: '/_app/e/$eventoId/coleta'
+      path: '/coleta'
+      fullPath: '/e/$eventoId/coleta'
+      preLoaderRoute: typeof AppEEventoIdColetaRouteImport
+      parentRoute: typeof AppEEventoIdRoute
+    }
     '/_app/e/$eventoId/equipe': {
       id: '/_app/e/$eventoId/equipe'
       path: '/equipe'
       fullPath: '/e/$eventoId/equipe'
       preLoaderRoute: typeof AppEEventoIdEquipeRouteImport
+      parentRoute: typeof AppEEventoIdRoute
+    }
+    '/_app/e/$eventoId/fornecedores': {
+      id: '/_app/e/$eventoId/fornecedores'
+      path: '/fornecedores'
+      fullPath: '/e/$eventoId/fornecedores'
+      preLoaderRoute: typeof AppEEventoIdFornecedoresRouteImport
+      parentRoute: typeof AppEEventoIdRoute
+    }
+    '/_app/e/$eventoId/inventario': {
+      id: '/_app/e/$eventoId/inventario'
+      path: '/inventario'
+      fullPath: '/e/$eventoId/inventario'
+      preLoaderRoute: typeof AppEEventoIdInventarioRouteImport
       parentRoute: typeof AppEEventoIdRoute
     }
   }
@@ -284,7 +380,10 @@ interface AppEEventoIdRouteChildren {
   AppEEventoIdAcompanhamentoRoute: typeof AppEEventoIdAcompanhamentoRoute
   AppEEventoIdCadastroRoute: typeof AppEEventoIdCadastroRoute
   AppEEventoIdCaracterizacaoRoute: typeof AppEEventoIdCaracterizacaoRoute
+  AppEEventoIdColetaRoute: typeof AppEEventoIdColetaRoute
   AppEEventoIdEquipeRoute: typeof AppEEventoIdEquipeRoute
+  AppEEventoIdFornecedoresRoute: typeof AppEEventoIdFornecedoresRoute
+  AppEEventoIdInventarioRoute: typeof AppEEventoIdInventarioRoute
   AppEEventoIdIndexRoute: typeof AppEEventoIdIndexRoute
 }
 
@@ -292,7 +391,10 @@ const AppEEventoIdRouteChildren: AppEEventoIdRouteChildren = {
   AppEEventoIdAcompanhamentoRoute: AppEEventoIdAcompanhamentoRoute,
   AppEEventoIdCadastroRoute: AppEEventoIdCadastroRoute,
   AppEEventoIdCaracterizacaoRoute: AppEEventoIdCaracterizacaoRoute,
+  AppEEventoIdColetaRoute: AppEEventoIdColetaRoute,
   AppEEventoIdEquipeRoute: AppEEventoIdEquipeRoute,
+  AppEEventoIdFornecedoresRoute: AppEEventoIdFornecedoresRoute,
+  AppEEventoIdInventarioRoute: AppEEventoIdInventarioRoute,
   AppEEventoIdIndexRoute: AppEEventoIdIndexRoute,
 }
 
@@ -306,6 +408,8 @@ interface AppRouteChildren {
   AppAdminAuditoriaRoute: typeof AppAdminAuditoriaRoute
   AppAdminUsuariosRoute: typeof AppAdminUsuariosRoute
   AppEEventoIdRoute: typeof AppEEventoIdRouteWithChildren
+  AppFatoresBaseIdRoute: typeof AppFatoresBaseIdRoute
+  AppFatoresIndexRoute: typeof AppFatoresIndexRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
@@ -314,6 +418,8 @@ const AppRouteChildren: AppRouteChildren = {
   AppAdminAuditoriaRoute: AppAdminAuditoriaRoute,
   AppAdminUsuariosRoute: AppAdminUsuariosRoute,
   AppEEventoIdRoute: AppEEventoIdRouteWithChildren,
+  AppFatoresBaseIdRoute: AppFatoresBaseIdRoute,
+  AppFatoresIndexRoute: AppFatoresIndexRoute,
 }
 
 const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)

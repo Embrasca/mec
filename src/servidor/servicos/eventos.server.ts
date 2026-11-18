@@ -17,6 +17,8 @@ export interface EventoResumo {
   descricao: string | null;
   nivel: Nivel | null;
   metodologia: string;
+  baseFatoresId: string | null;
+  baseFatoresNome: string | null;
   /** Papel de quem consulta; null para a administração sem vínculo. */
   papel: Papel | null;
   podeEditar: boolean;
@@ -29,6 +31,8 @@ const COLUNAS = `
   to_char(e.data_inicio, 'YYYY-MM-DD') as "dataInicio",
   to_char(e.data_fim, 'YYYY-MM-DD') as "dataFim",
   e.cor, e.descricao, e.nivel, e.metodologia,
+  e.base_fatores_id::text as "baseFatoresId",
+  (select b.nome from bases_fatores b where b.id = e.base_fatores_id) as "baseFatoresNome",
   app.papel_no_evento(e.id)::text as papel,
   app.pode_editar_evento(e.id) as "podeEditar",
   app.pode_gerir_evento(e.id) as "podeGerir",
@@ -71,8 +75,10 @@ export async function criarEvento(atorId: string, entrada: z.input<typeof novoEv
     if (!gestor) throw new ErroDeNegocio("Escolha um gestor com conta ativa.");
     const [criado] = await sql<{ id: string }>(
       `insert into eventos (nome, instituicao, cidade, uf, data_inicio, data_fim, cor, descricao,
-                            metodologia, criado_por)
-       values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) returning id::text`,
+                            metodologia, criado_por, base_fatores_id)
+       values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,
+               (select id from bases_fatores where situacao = 'publicada' order by publicada_em desc limit 1))
+       returning id::text`,
       [
         d.nome,
         d.instituicao,

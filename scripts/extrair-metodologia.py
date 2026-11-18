@@ -5,7 +5,8 @@ Uso:  python3 -I scripts/extrair-metodologia.py <ferramenta.xlsx> [<outra.xlsx> 
 
 Gera:
   src/domain/metodologia/v3_16/textos.json        (listas, requisitos, roteiro)
-  src/domain/metodologia/__tests__/fixtures/*.json (entradas e resultados da aba A)
+  src/domain/metodologia/v3_16/inventario.json    (base de fatores, fornecedores, listas)
+  src/domain/metodologia/__tests__/fixtures/*.json (entradas e resultados de referência)
 
 A planilha é a fonte da verdade: este script só copia, não interpreta.
 """
@@ -115,14 +116,146 @@ def caso(caminho):
     return {"arquivo": os.path.basename(caminho), "entradas": entradas, "esperado": esperado}
 
 
+# ---------------------------------------------------------------------------
+# Etapa 2: base de fatores, fornecedores, listas e casos do inventário/coleta
+# ---------------------------------------------------------------------------
+
+def inventario(caminho):
+    wb = openpyxl.load_workbook(caminho)
+    wv = openpyxl.load_workbook(caminho, data_only=True)
+    f, fv = wb["FATORES"], wv["FATORES"]
+    sin = [{"ano": val(f[f"N{r}"].value), "valor": val(f[f"O{r}"].value)}
+           for r in range(6, 26) if f[f"N{r}"].value is not None]
+    itens = []
+    for r in range(11, 55):
+        if f[f"C{r}"].value is None:
+            continue
+        bruto = f[f"G{r}"].value
+        texto = bruto.text if hasattr(bruto, "text") else bruto
+        if isinstance(texto, str) and texto.startswith("="):
+            m = re.search(r"([0-9.]+)\*\$B\$8", texto)
+            regra = {"tipo": "sin", "multiplicador": float(m.group(1)) if m else 1.0}
+        else:
+            regra = {"tipo": "fixo"}
+        itens.append({
+            "codigo": val(f[f"A{r}"].value), "categoria": val(f[f"B{r}"].value), "item": val(f[f"C{r}"].value),
+            "unidade": val(f[f"D{r}"].value), "escopo": int(f[f"E{r}"].value),
+            "feCo2": None if regra["tipo"] == "sin" else (fv[f"G{r}"].value or 0),
+            "feCh4": fv[f"H{r}"].value or 0, "feN2o": fv[f"I{r}"].value or 0, "feBiogenico": fv[f"J{r}"].value or 0,
+            "regra": regra, "fonte": val(f[f"K{r}"].value), "situacao": val(f[f"L{r}"].value),
+        })
+    L = wb["LISTAS ITENS"]
+    porFornecedor = {}
+    for r in range(60, 71):
+        tipo = val(L[f"A{r}"].value)
+        porFornecedor[tipo] = [val(c.value) for c in L[r][1:] if c.value is not None]
+    lc = wb["LISTAS CALCULO"]
+    descricoes = {}
+    for col in "FGHIJKLMNO":
+        cat = val(lc[f"{col}3"].value)
+        descricoes[cat] = [val(lc[f"{col}{r}"].value) for r in range(4, 13) if lc[f"{col}{r}"].value]
+    fo = wb["FORNECEDORES"]
+    tipos = [{"tipo": val(fo[f"B{r}"].value), "oQuePedir": val(fo[f"C{r}"].value),
+              "unidade": val(fo[f"D{r}"].value), "comprovante": val(fo[f"E{r}"].value)} for r in range(8, 18)]
+    return {
+        "baseDeFatores": {
+            "nome": "GHG Protocol Brasil 2026.0.1",
+            "fonte": val(f["A2"].value),
+            "gwpCh4": fv["B5"].value, "gwpN2o": fv["B6"].value, "referenciaGwp": val(f["C5"].value),
+            "sin": sin, "itens": itens,
+            "notas": [val(f[f"A{r}"].value) for r in (55, 57, 59, 61, 63)],
+        },
+        "itensPorFornecedor": porFornecedor,
+        "descricoesPorCategoria": descricoes,
+        "fornecedores": {
+            "tipos": tipos,
+            "entregaPorNivel": [val(fo[f"P{r}"].value) for r in range(6, 10)],
+            "notaPrazo": val(fo["B19"].value),
+        },
+        "qualidade": [val(lc[f"A{r}"].value) for r in range(4, 10)],
+    }
+
+
+def linhas_inventario(ws, wv, com_qualidade):
+    out = []
+    for r in range(5, 50):
+        if ws[f"B{r}"].value is None:
+            continue
+        g = lambda c: val(wv[f"{c}{r}"].value)
+        linha = {"fornecedor": g("A"), "item": g("B"), "descricao": g("C"), "quantidade": g("D"),
+                 "premissa": g("R" if com_qualidade else "P"),
+                 "esperado": {"unidade": g("E"), "categoria": g("F"), "escopo": g("G"),
+                              "tco2eCo2": g("K"), "tco2eCh4": g("L"), "tco2eN2o": g("M"), "total": g("N"),
+                              "biogenico": g("O"), "alerta": g("S" if com_qualidade else "Q")}}
+        if com_qualidade:
+            linha["qualidade"] = g("P")
+            linha["evidencia"] = g("Q")
+        out.append(linha)
+    totais = {"co2": val(wv["K51"].value), "ch4": val(wv["L51"].value), "n2o": val(wv["M51"].value),
+              "total": val(wv["N51"].value), "biogenico": val(wv["O51"].value),
+              "porCategoria": {val(wv[f"B{r}"].value): val(wv[f"C{r}"].value) for r in range(54, 64)},
+              "porEscopo": [val(wv[f"C{r}"].value) for r in range(66, 69)]}
+    return {"linhas": out, "totais": totais, "mensagemNivel": val(wv["A3"].value)}
+
+
+def coleta(wv):
+    c = wv["COLETA"]
+    g = lambda ref: val(c[ref].value)
+    linhas = lambda r0, r1, cols: [{k: g(f"{col}{r}") for k, col in cols.items()} for r in range(r0, r1 + 1)]
+    return {
+        "q1": {"leituras": linhas(43, 54, {"data": "C", "momento": "D", "leitura": "E", "documento": "G"}),
+               "parcela": g("C56"), "criterio": g("E56"),
+               "outras": linhas(60, 65, {"origem": "C", "funcao": "D", "kwh": "E", "comprovante": "F"})},
+        "q2": linhas(70, 75, {"identificacao": "C", "funcao": "D", "kva": "E", "combustivel": "F", "abastecido": "G",
+                              "horas": "H", "consumoHora": "I", "premissa": "L"}),
+        "q3": linhas(80, 91, {"tipo": "C", "servico": "D", "pessoas": "E", "porcoes": "F", "quilos": "G",
+                              "pesoPorcao": "H", "premissa": "K"}),
+        "q4": linhas(96, 105, {"destino": "C", "tipo": "D", "quilos": "E", "recipientes": "F", "volume": "G",
+                               "cheio": "H", "densidade": "I", "responsavel": "L", "documento": "M"}),
+        "q5": {"houveRecarga": g("F109"),
+               "linhas": linhas(112, 116, {"fluido": "C", "quilos": "D", "equipamento": "E", "ordemServico": "F"})},
+        "q6": linhas(121, 130, {"material": "C", "quilos": "D", "condicao": "E", "origem": "F", "destinacao": "G",
+                                "comprovante": "I"}),
+        "q7": linhas(135, 154, {"municipio": "C", "uf": "D", "pessoas": "E", "meio": "F", "distancia": "G",
+                                "trechos": "H", "aeroporto": "I", "complementar": "J", "distanciaComplementar": "K",
+                                "pessoasPorCarro": "L", "kmPorLitro": "M"}),
+        "q8hoteis": linhas(159, 166, {"hotel": "C", "municipio": "D", "hospedes": "E", "diarias": "F",
+                                      "distancia": "G", "comprovante": "H"}),
+        "q8transporte": linhas(169, 176, {"servico": "C", "rota": "D", "distancia": "E", "viagens": "F",
+                                          "passageiros": "G", "litros": "H", "kmPorLitro": "I"}),
+        "esperado": {
+            "resumo": {g(f"B{r}"): g(f"E{r}") for r in range(6, 37)},
+            "q1": {"medido": g("C55"), "atribuido": g("C57")},
+            "q2": [{"origem": g(f"J{r}"), "considerada": g(f"K{r}"), "alerta": g(f"M{r}")} for r in range(70, 76)],
+            "q3": [{"consideradas": g(f"I{r}"), "origem": g(f"J{r}")} for r in range(80, 92)],
+            "q4": [{"considerados": g(f"J{r}"), "forma": g(f"K{r}")} for r in range(96, 106)],
+            "q6": [g(f"H{r}") for r in range(121, 131)],
+            "q7": [{"faixa": g(f"N{r}"), "aviao": g(f"O{r}"), "onibus": g(f"P{r}"), "carro": g(f"Q{r}"),
+                    "conferencia": g(f"R{r}")} for r in range(135, 155)],
+            "q8transporte": [{"passageiroKm": g(f"J{r}"), "litros": g(f"K{r}")} for r in range(169, 177)],
+        },
+    }
+
+
 def main(arquivos):
     t = textos(arquivos[0])
     destino = os.path.join(RAIZ, "src/domain/metodologia/v3_16/textos.json")
     os.makedirs(os.path.dirname(destino), exist_ok=True)
     json.dump(t, open(destino, "w"), ensure_ascii=False, indent=2)
+    json.dump(inventario(arquivos[0]), open(destino.replace("textos.json", "inventario.json"), "w"),
+              ensure_ascii=False, indent=2)
+    fixtures = os.path.join(RAIZ, "src/domain/metodologia/__tests__/fixtures")
+    wb = openpyxl.load_workbook(arquivos[0])
+    wv = openpyxl.load_workbook(arquivos[0], data_only=True)
+    a = wv["A - CARACTERIZAÇÃO"]
+    caso_inv = {"nivel": val(a["C108"].value), "ano": val(a["C7"].value),
+                "exAnte": linhas_inventario(wb["2 - EX-ANTE"], wv["2 - EX-ANTE"], False),
+                "exPost": linhas_inventario(wb["3 - EX-POST"], wv["3 - EX-POST"], True)}
+    json.dump(caso_inv, open(os.path.join(fixtures, "inventario-exemplo.json"), "w"), ensure_ascii=False, indent=2)
+    json.dump(coleta(wv), open(os.path.join(fixtures, "coleta-exemplo.json"), "w"), ensure_ascii=False, indent=2)
     for arq in arquivos:
         c = caso(arq)
-        nome = re.sub(r"[^a-z0-9]+", "-", os.path.basename(arq).lower()).strip("-")[:60]
+        nome = "exemplo-nivel3" if c["esperado"]["nivelFinal"] == 3 else "copia-demonstracao"
         json.dump(c, open(os.path.join(RAIZ, "src/domain/metodologia/__tests__/fixtures", nome + ".json"), "w"),
                   ensure_ascii=False, indent=2)
         print("caso", nome, "nível", c["esperado"]["nivelFinal"])

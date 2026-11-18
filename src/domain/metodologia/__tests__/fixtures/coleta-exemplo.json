@@ -1,0 +1,1272 @@
+{
+  "q1": {
+    "leituras": [
+      {
+        "data": "2026-09-14",
+        "momento": "Início da montagem",
+        "leitura": 12000,
+        "documento": "foto_medidor_1409.jpg"
+      },
+      {
+        "data": "2026-09-15",
+        "momento": "Leitura diária",
+        "leitura": 13900,
+        "documento": "foto_medidor_1509.jpg"
+      },
+      {
+        "data": "2026-09-17",
+        "momento": "Leitura diária",
+        "leitura": 19600,
+        "documento": "foto_medidor_1709.jpg"
+      },
+      {
+        "data": "2026-09-18",
+        "momento": "Fim da desmontagem",
+        "leitura": 20200,
+        "documento": "foto_medidor_1809.jpg"
+      },
+      {
+        "data": null,
+        "momento": null,
+        "leitura": null,
+        "documento": null
+      },
+      {
+        "data": null,
+        "momento": null,
+        "leitura": null,
+        "documento": null
+      },
+      {
+        "data": null,
+        "momento": null,
+        "leitura": null,
+        "documento": null
+      },
+      {
+        "data": null,
+        "momento": null,
+        "leitura": null,
+        "documento": null
+      },
+      {
+        "data": null,
+        "momento": null,
+        "leitura": null,
+        "documento": null
+      },
+      {
+        "data": null,
+        "momento": null,
+        "leitura": null,
+        "documento": null
+      },
+      {
+        "data": null,
+        "momento": null,
+        "leitura": null,
+        "documento": null
+      },
+      {
+        "data": null,
+        "momento": null,
+        "leitura": null,
+        "documento": null
+      }
+    ],
+    "parcela": 100,
+    "criterio": null,
+    "outras": [
+      {
+        "origem": null,
+        "funcao": null,
+        "kwh": null,
+        "comprovante": null
+      },
+      {
+        "origem": null,
+        "funcao": null,
+        "kwh": null,
+        "comprovante": null
+      },
+      {
+        "origem": null,
+        "funcao": null,
+        "kwh": null,
+        "comprovante": null
+      },
+      {
+        "origem": null,
+        "funcao": null,
+        "kwh": null,
+        "comprovante": null
+      },
+      {
+        "origem": null,
+        "funcao": null,
+        "kwh": null,
+        "comprovante": null
+      },
+      {
+        "origem": null,
+        "funcao": null,
+        "kwh": null,
+        "comprovante": null
+      }
+    ]
+  },
+  "q2": [
+    {
+      "identificacao": "Gerador 60 kVA - palco principal",
+      "funcao": "Apoio",
+      "kva": 60,
+      "combustivel": "Diesel (litros)",
+      "abastecido": 410,
+      "horas": 30,
+      "consumoHora": 13.7,
+      "premissa": "Nota fiscal do diesel e horímetro"
+    },
+    {
+      "identificacao": null,
+      "funcao": null,
+      "kva": null,
+      "combustivel": null,
+      "abastecido": null,
+      "horas": null,
+      "consumoHora": null,
+      "premissa": null
+    },
+    {
+      "identificacao": null,
+      "funcao": null,
+      "kva": null,
+      "combustivel": null,
+      "abastecido": null,
+      "horas": null,
+      "consumoHora": null,
+      "premissa": null
+    },
+    {
+      "identificacao": null,
+      "funcao": null,
+      "kva": null,
+      "combustivel": null,
+      "abastecido": null,
+      "horas": null,
+      "consumoHora": null,
+      "premissa": null
+    },
+    {
+      "identificacao": null,
+      "funcao": null,
+      "kva": null,
+      "combustivel": null,
+      "abastecido": null,
+      "horas": null,
+      "consumoHora": null,
+      "premissa": null
+    },
+    {
+      "identificacao": null,
+      "funcao": null,
+      "kva": null,
+      "combustivel": null,
+      "abastecido": null,
+      "horas": null,
+      "consumoHora": null,
+      "premissa": null
+    }
+  ],
+  "q3": [
+    {
+      "tipo": "Refeição com carne bovina (porção)",
+      "servico": "Almoço",
+      "pessoas": null,
+      "porcoes": 700,
+      "quilos": null,
+      "pesoPorcao": null,
+      "premissa": null
+    },
+    {
+      "tipo": "Refeição com outras carnes (porção)",
+      "servico": "Almoço",
+      "pessoas": null,
+      "porcoes": 500,
+      "quilos": null,
+      "pesoPorcao": null,
+      "premissa": null
+    },
+    {
+      "tipo": "Refeição vegetariana (porção)",
+      "servico": "Almoço",
+      "pessoas": null,
+      "porcoes": 600,
+      "quilos": null,
+      "pesoPorcao": null,
+      "premissa": null
+    },
+    {
+      "tipo": "Coffee break ou lanche (porção)",
+      "servico": "Coffee break",
+      "pessoas": null,
+      "porcoes": 2300,
+      "quilos": null,
+      "pesoPorcao": null,
+      "premissa": null
+    },
+    {
+      "tipo": null,
+      "servico": null,
+      "pessoas": null,
+      "porcoes": null,
+      "quilos": null,
+      "pesoPorcao": null,
+      "premissa": null
+    },
+    {
+      "tipo": null,
+      "servico": null,
+      "pessoas": null,
+      "porcoes": null,
+      "quilos": null,
+      "pesoPorcao": null,
+      "premissa": null
+    },
+    {
+      "tipo": null,
+      "servico": null,
+      "pessoas": null,
+      "porcoes": null,
+      "quilos": null,
+      "pesoPorcao": null,
+      "premissa": null
+    },
+    {
+      "tipo": null,
+      "servico": null,
+      "pessoas": null,
+      "porcoes": null,
+      "quilos": null,
+      "pesoPorcao": null,
+      "premissa": null
+    },
+    {
+      "tipo": null,
+      "servico": null,
+      "pessoas": null,
+      "porcoes": null,
+      "quilos": null,
+      "pesoPorcao": null,
+      "premissa": null
+    },
+    {
+      "tipo": null,
+      "servico": null,
+      "pessoas": null,
+      "porcoes": null,
+      "quilos": null,
+      "pesoPorcao": null,
+      "premissa": null
+    },
+    {
+      "tipo": null,
+      "servico": null,
+      "pessoas": null,
+      "porcoes": null,
+      "quilos": null,
+      "pesoPorcao": null,
+      "premissa": null
+    },
+    {
+      "tipo": null,
+      "servico": null,
+      "pessoas": null,
+      "porcoes": null,
+      "quilos": null,
+      "pesoPorcao": null,
+      "premissa": null
+    }
+  ],
+  "q4": [
+    {
+      "destino": "Resíduo enviado a aterro (kg)",
+      "tipo": "Rejeito",
+      "quilos": 236,
+      "recipientes": null,
+      "volume": null,
+      "cheio": null,
+      "densidade": null,
+      "responsavel": "Cooperativa Recicla Exemplo",
+      "documento": "MTR 0001/2026"
+    },
+    {
+      "destino": "Resíduo enviado a aterro (kg)",
+      "tipo": "Rejeito",
+      "quilos": null,
+      "recipientes": 12,
+      "volume": 100,
+      "cheio": 80,
+      "densidade": 0.15,
+      "responsavel": "Cooperativa Recicla Exemplo",
+      "documento": "Contagem de sacos - ver OCORRÊNCIAS"
+    },
+    {
+      "destino": "Resíduo enviado a reciclagem (kg)",
+      "tipo": "Recicláveis",
+      "quilos": 420,
+      "recipientes": null,
+      "volume": null,
+      "cheio": null,
+      "densidade": null,
+      "responsavel": "Cooperativa Recicla Exemplo",
+      "documento": "Relatório da cooperativa"
+    },
+    {
+      "destino": "Resíduo enviado a compostagem (kg)",
+      "tipo": "Orgânicos",
+      "quilos": 150,
+      "recipientes": null,
+      "volume": null,
+      "cheio": null,
+      "densidade": null,
+      "responsavel": "Cooperativa Recicla Exemplo",
+      "documento": "Relatório da cooperativa"
+    },
+    {
+      "destino": null,
+      "tipo": null,
+      "quilos": null,
+      "recipientes": null,
+      "volume": null,
+      "cheio": null,
+      "densidade": null,
+      "responsavel": null,
+      "documento": null
+    },
+    {
+      "destino": null,
+      "tipo": null,
+      "quilos": null,
+      "recipientes": null,
+      "volume": null,
+      "cheio": null,
+      "densidade": null,
+      "responsavel": null,
+      "documento": null
+    },
+    {
+      "destino": null,
+      "tipo": null,
+      "quilos": null,
+      "recipientes": null,
+      "volume": null,
+      "cheio": null,
+      "densidade": null,
+      "responsavel": null,
+      "documento": null
+    },
+    {
+      "destino": null,
+      "tipo": null,
+      "quilos": null,
+      "recipientes": null,
+      "volume": null,
+      "cheio": null,
+      "densidade": null,
+      "responsavel": null,
+      "documento": null
+    },
+    {
+      "destino": null,
+      "tipo": null,
+      "quilos": null,
+      "recipientes": null,
+      "volume": null,
+      "cheio": null,
+      "densidade": null,
+      "responsavel": null,
+      "documento": null
+    },
+    {
+      "destino": null,
+      "tipo": null,
+      "quilos": null,
+      "recipientes": null,
+      "volume": null,
+      "cheio": null,
+      "densidade": null,
+      "responsavel": null,
+      "documento": null
+    }
+  ],
+  "q5": {
+    "houveRecarga": "Não",
+    "linhas": [
+      {
+        "fluido": null,
+        "quilos": null,
+        "equipamento": null,
+        "ordemServico": null
+      },
+      {
+        "fluido": null,
+        "quilos": null,
+        "equipamento": null,
+        "ordemServico": null
+      },
+      {
+        "fluido": null,
+        "quilos": null,
+        "equipamento": null,
+        "ordemServico": null
+      },
+      {
+        "fluido": null,
+        "quilos": null,
+        "equipamento": null,
+        "ordemServico": null
+      },
+      {
+        "fluido": null,
+        "quilos": null,
+        "equipamento": null,
+        "ordemServico": null
+      }
+    ]
+  },
+  "q6": [
+    {
+      "material": "Plástico, lona, PVC, adesivo e TNT (kg)",
+      "quilos": 280,
+      "condicao": "Novo",
+      "origem": "Outra região",
+      "destinacao": "Reciclagem",
+      "comprovante": "memorial_cenografia.pdf"
+    },
+    {
+      "material": "Papel e impressos (kg)",
+      "quilos": 90,
+      "condicao": "Novo",
+      "origem": "Local",
+      "destinacao": "Reciclagem",
+      "comprovante": "nf_grafica.pdf"
+    },
+    {
+      "material": "Madeira e MDF de montagem (kg)",
+      "quilos": 1200,
+      "condicao": "Reutilizado",
+      "origem": "Outra região",
+      "destinacao": "Reutilização",
+      "comprovante": "memorial_cenografia.pdf"
+    },
+    {
+      "material": null,
+      "quilos": null,
+      "condicao": null,
+      "origem": null,
+      "destinacao": null,
+      "comprovante": null
+    },
+    {
+      "material": null,
+      "quilos": null,
+      "condicao": null,
+      "origem": null,
+      "destinacao": null,
+      "comprovante": null
+    },
+    {
+      "material": null,
+      "quilos": null,
+      "condicao": null,
+      "origem": null,
+      "destinacao": null,
+      "comprovante": null
+    },
+    {
+      "material": null,
+      "quilos": null,
+      "condicao": null,
+      "origem": null,
+      "destinacao": null,
+      "comprovante": null
+    },
+    {
+      "material": null,
+      "quilos": null,
+      "condicao": null,
+      "origem": null,
+      "destinacao": null,
+      "comprovante": null
+    },
+    {
+      "material": null,
+      "quilos": null,
+      "condicao": null,
+      "origem": null,
+      "destinacao": null,
+      "comprovante": null
+    },
+    {
+      "material": null,
+      "quilos": null,
+      "condicao": null,
+      "origem": null,
+      "destinacao": null,
+      "comprovante": null
+    }
+  ],
+  "q7": [
+    {
+      "municipio": "Brasília",
+      "uf": "DF",
+      "pessoas": 90,
+      "meio": "Ônibus rodoviário ou fretado",
+      "distancia": 210,
+      "trechos": 2,
+      "aeroporto": null,
+      "complementar": "Nenhum",
+      "distanciaComplementar": null,
+      "pessoasPorCarro": null,
+      "kmPorLitro": null
+    },
+    {
+      "municipio": "Anápolis",
+      "uf": "GO",
+      "pessoas": 80,
+      "meio": "Ônibus rodoviário ou fretado",
+      "distancia": 60,
+      "trechos": 2,
+      "aeroporto": null,
+      "complementar": "Nenhum",
+      "distanciaComplementar": null,
+      "pessoasPorCarro": null,
+      "kmPorLitro": null
+    },
+    {
+      "municipio": "São Paulo",
+      "uf": "SP",
+      "pessoas": 60,
+      "meio": "Avião",
+      "distancia": 900,
+      "trechos": 2,
+      "aeroporto": "GYN",
+      "complementar": "Nenhum",
+      "distanciaComplementar": null,
+      "pessoasPorCarro": null,
+      "kmPorLitro": null
+    },
+    {
+      "municipio": "Belém",
+      "uf": "PA",
+      "pessoas": 30,
+      "meio": "Avião",
+      "distancia": 1700,
+      "trechos": 2,
+      "aeroporto": "GYN",
+      "complementar": "Nenhum",
+      "distanciaComplementar": null,
+      "pessoasPorCarro": null,
+      "kmPorLitro": null
+    },
+    {
+      "municipio": "Porto Alegre",
+      "uf": "RS",
+      "pessoas": 25,
+      "meio": "Avião",
+      "distancia": 1500,
+      "trechos": 2,
+      "aeroporto": "GYN",
+      "complementar": "Nenhum",
+      "distanciaComplementar": null,
+      "pessoasPorCarro": null,
+      "kmPorLitro": null
+    },
+    {
+      "municipio": "Recife",
+      "uf": "PE",
+      "pessoas": 20,
+      "meio": "Avião",
+      "distancia": 1900,
+      "trechos": 2,
+      "aeroporto": "GYN",
+      "complementar": "Nenhum",
+      "distanciaComplementar": null,
+      "pessoasPorCarro": null,
+      "kmPorLitro": null
+    },
+    {
+      "municipio": "Lisboa (convidados internacionais)",
+      "uf": "Exterior",
+      "pessoas": 6,
+      "meio": "Avião",
+      "distancia": 7900,
+      "trechos": 2,
+      "aeroporto": "GRU e GYN",
+      "complementar": "Nenhum",
+      "distanciaComplementar": null,
+      "pessoasPorCarro": null,
+      "kmPorLitro": null
+    },
+    {
+      "municipio": "Uberlândia",
+      "uf": "MG",
+      "pessoas": 40,
+      "meio": "Carro",
+      "distancia": 330,
+      "trechos": 2,
+      "aeroporto": null,
+      "complementar": "Nenhum",
+      "distanciaComplementar": null,
+      "pessoasPorCarro": 3,
+      "kmPorLitro": 11
+    },
+    {
+      "municipio": null,
+      "uf": null,
+      "pessoas": null,
+      "meio": null,
+      "distancia": null,
+      "trechos": 2,
+      "aeroporto": null,
+      "complementar": null,
+      "distanciaComplementar": null,
+      "pessoasPorCarro": null,
+      "kmPorLitro": null
+    },
+    {
+      "municipio": null,
+      "uf": null,
+      "pessoas": null,
+      "meio": null,
+      "distancia": null,
+      "trechos": 2,
+      "aeroporto": null,
+      "complementar": null,
+      "distanciaComplementar": null,
+      "pessoasPorCarro": null,
+      "kmPorLitro": null
+    },
+    {
+      "municipio": null,
+      "uf": null,
+      "pessoas": null,
+      "meio": null,
+      "distancia": null,
+      "trechos": 2,
+      "aeroporto": null,
+      "complementar": null,
+      "distanciaComplementar": null,
+      "pessoasPorCarro": null,
+      "kmPorLitro": null
+    },
+    {
+      "municipio": null,
+      "uf": null,
+      "pessoas": null,
+      "meio": null,
+      "distancia": null,
+      "trechos": 2,
+      "aeroporto": null,
+      "complementar": null,
+      "distanciaComplementar": null,
+      "pessoasPorCarro": null,
+      "kmPorLitro": null
+    },
+    {
+      "municipio": null,
+      "uf": null,
+      "pessoas": null,
+      "meio": null,
+      "distancia": null,
+      "trechos": 2,
+      "aeroporto": null,
+      "complementar": null,
+      "distanciaComplementar": null,
+      "pessoasPorCarro": null,
+      "kmPorLitro": null
+    },
+    {
+      "municipio": null,
+      "uf": null,
+      "pessoas": null,
+      "meio": null,
+      "distancia": null,
+      "trechos": 2,
+      "aeroporto": null,
+      "complementar": null,
+      "distanciaComplementar": null,
+      "pessoasPorCarro": null,
+      "kmPorLitro": null
+    },
+    {
+      "municipio": null,
+      "uf": null,
+      "pessoas": null,
+      "meio": null,
+      "distancia": null,
+      "trechos": 2,
+      "aeroporto": null,
+      "complementar": null,
+      "distanciaComplementar": null,
+      "pessoasPorCarro": null,
+      "kmPorLitro": null
+    },
+    {
+      "municipio": null,
+      "uf": null,
+      "pessoas": null,
+      "meio": null,
+      "distancia": null,
+      "trechos": 2,
+      "aeroporto": null,
+      "complementar": null,
+      "distanciaComplementar": null,
+      "pessoasPorCarro": null,
+      "kmPorLitro": null
+    },
+    {
+      "municipio": null,
+      "uf": null,
+      "pessoas": null,
+      "meio": null,
+      "distancia": null,
+      "trechos": 2,
+      "aeroporto": null,
+      "complementar": null,
+      "distanciaComplementar": null,
+      "pessoasPorCarro": null,
+      "kmPorLitro": null
+    },
+    {
+      "municipio": null,
+      "uf": null,
+      "pessoas": null,
+      "meio": null,
+      "distancia": null,
+      "trechos": 2,
+      "aeroporto": null,
+      "complementar": null,
+      "distanciaComplementar": null,
+      "pessoasPorCarro": null,
+      "kmPorLitro": null
+    },
+    {
+      "municipio": null,
+      "uf": null,
+      "pessoas": null,
+      "meio": null,
+      "distancia": null,
+      "trechos": 2,
+      "aeroporto": null,
+      "complementar": null,
+      "distanciaComplementar": null,
+      "pessoasPorCarro": null,
+      "kmPorLitro": null
+    },
+    {
+      "municipio": null,
+      "uf": null,
+      "pessoas": null,
+      "meio": null,
+      "distancia": null,
+      "trechos": 2,
+      "aeroporto": null,
+      "complementar": null,
+      "distanciaComplementar": null,
+      "pessoasPorCarro": null,
+      "kmPorLitro": null
+    }
+  ],
+  "q8hoteis": [
+    {
+      "hotel": "Hotel Central (exemplo)",
+      "municipio": "Goiânia",
+      "hospedes": 150,
+      "diarias": 300,
+      "distancia": 3,
+      "comprovante": "relatorio_hoteis.pdf"
+    },
+    {
+      "hotel": "Hotel Parque (exemplo)",
+      "municipio": "Goiânia",
+      "hospedes": 50,
+      "diarias": 95,
+      "distancia": 5,
+      "comprovante": "relatorio_hoteis.pdf"
+    },
+    {
+      "hotel": null,
+      "municipio": null,
+      "hospedes": null,
+      "diarias": null,
+      "distancia": null,
+      "comprovante": null
+    },
+    {
+      "hotel": null,
+      "municipio": null,
+      "hospedes": null,
+      "diarias": null,
+      "distancia": null,
+      "comprovante": null
+    },
+    {
+      "hotel": null,
+      "municipio": null,
+      "hospedes": null,
+      "diarias": null,
+      "distancia": null,
+      "comprovante": null
+    },
+    {
+      "hotel": null,
+      "municipio": null,
+      "hospedes": null,
+      "diarias": null,
+      "distancia": null,
+      "comprovante": null
+    },
+    {
+      "hotel": null,
+      "municipio": null,
+      "hospedes": null,
+      "diarias": null,
+      "distancia": null,
+      "comprovante": null
+    },
+    {
+      "hotel": null,
+      "municipio": null,
+      "hospedes": null,
+      "diarias": null,
+      "distancia": null,
+      "comprovante": null
+    }
+  ],
+  "q8transporte": [
+    {
+      "servico": "Ônibus fretado",
+      "rota": "Hotéis - Centro de Convenções",
+      "distancia": 12,
+      "viagens": 18,
+      "passageiros": 35,
+      "litros": 95,
+      "kmPorLitro": null
+    },
+    {
+      "servico": null,
+      "rota": null,
+      "distancia": null,
+      "viagens": null,
+      "passageiros": null,
+      "litros": null,
+      "kmPorLitro": null
+    },
+    {
+      "servico": null,
+      "rota": null,
+      "distancia": null,
+      "viagens": null,
+      "passageiros": null,
+      "litros": null,
+      "kmPorLitro": null
+    },
+    {
+      "servico": null,
+      "rota": null,
+      "distancia": null,
+      "viagens": null,
+      "passageiros": null,
+      "litros": null,
+      "kmPorLitro": null
+    },
+    {
+      "servico": null,
+      "rota": null,
+      "distancia": null,
+      "viagens": null,
+      "passageiros": null,
+      "litros": null,
+      "kmPorLitro": null
+    },
+    {
+      "servico": null,
+      "rota": null,
+      "distancia": null,
+      "viagens": null,
+      "passageiros": null,
+      "litros": null,
+      "kmPorLitro": null
+    },
+    {
+      "servico": null,
+      "rota": null,
+      "distancia": null,
+      "viagens": null,
+      "passageiros": null,
+      "litros": null,
+      "kmPorLitro": null
+    },
+    {
+      "servico": null,
+      "rota": null,
+      "distancia": null,
+      "viagens": null,
+      "passageiros": null,
+      "litros": null,
+      "kmPorLitro": null
+    }
+  ],
+  "esperado": {
+    "resumo": {
+      "Energia elétrica da rede (kWh)": 8200,
+      "Energia elétrica com contrato ou certificado próprio (kWh)": 0,
+      "Energia solar gerada no local (kWh)": 0,
+      "Diesel em gerador (litro)": 410,
+      "GLP em equipamento (kg)": 0,
+      "Gas natural em equipamento (m³)": 0,
+      "Refeição com carne bovina (porção)": 700,
+      "Refeição com outras carnes (porção)": 500,
+      "Refeição vegetariana (porção)": 600,
+      "Coffee break ou lanche (porção)": 2300,
+      "Resíduo enviado a aterro (kg)": 380,
+      "Resíduo enviado a reciclagem (kg)": 420,
+      "Resíduo enviado a compostagem (kg)": 150,
+      "Gás refrigerante R-134a (kg reposto)": 0,
+      "Gás refrigerante R-410A (kg reposto)": 0,
+      "Gás refrigerante R-404A (kg reposto)": 0,
+      "Gás refrigerante R-407C (kg reposto)": 0,
+      "Gás refrigerante R-449A (kg reposto)": 0,
+      "Papel e impressos (kg)": 90,
+      "Madeira e MDF de montagem (kg)": 0,
+      "Plástico, lona, PVC, adesivo e TNT (kg)": 280,
+      "Metal e alumínio de montagem (kg)": 0,
+      "Tecido (kg)": 0,
+      "Avião - trecho curto, até 500 km (passageiro.km)": 0,
+      "Avião - trecho médio, 500 a 3.700 km (passageiro.km)": 361000,
+      "Avião - trecho longo, acima de 3.700 km (passageiro.km)": 94800,
+      "Ônibus rodoviário ou fretado (passageiro.km)": 47400,
+      "Carro a gasolina (litro)": 800,
+      "Diária de hospedagem (diária)": 395,
+      "Ônibus fretado - por litro de diesel": 95,
+      "Carro ou van a diesel (litro)": 0
+    },
+    "q1": {
+      "medido": 8200,
+      "atribuido": 8200
+    },
+    "q2": [
+      {
+        "origem": "Medido",
+        "considerada": 410,
+        "alerta": "OK"
+      },
+      {
+        "origem": null,
+        "considerada": null,
+        "alerta": null
+      },
+      {
+        "origem": null,
+        "considerada": null,
+        "alerta": null
+      },
+      {
+        "origem": null,
+        "considerada": null,
+        "alerta": null
+      },
+      {
+        "origem": null,
+        "considerada": null,
+        "alerta": null
+      },
+      {
+        "origem": null,
+        "considerada": null,
+        "alerta": null
+      }
+    ],
+    "q3": [
+      {
+        "consideradas": 700,
+        "origem": "Informado pelo fornecedor"
+      },
+      {
+        "consideradas": 500,
+        "origem": "Informado pelo fornecedor"
+      },
+      {
+        "consideradas": 600,
+        "origem": "Informado pelo fornecedor"
+      },
+      {
+        "consideradas": 2300,
+        "origem": "Informado pelo fornecedor"
+      },
+      {
+        "consideradas": null,
+        "origem": null
+      },
+      {
+        "consideradas": null,
+        "origem": null
+      },
+      {
+        "consideradas": null,
+        "origem": null
+      },
+      {
+        "consideradas": null,
+        "origem": null
+      },
+      {
+        "consideradas": null,
+        "origem": null
+      },
+      {
+        "consideradas": null,
+        "origem": null
+      },
+      {
+        "consideradas": null,
+        "origem": null
+      },
+      {
+        "consideradas": null,
+        "origem": null
+      }
+    ],
+    "q4": [
+      {
+        "considerados": 236,
+        "forma": "Pesado"
+      },
+      {
+        "considerados": 144,
+        "forma": "Estimado por volume"
+      },
+      {
+        "considerados": 420,
+        "forma": "Pesado"
+      },
+      {
+        "considerados": 150,
+        "forma": "Pesado"
+      },
+      {
+        "considerados": null,
+        "forma": null
+      },
+      {
+        "considerados": null,
+        "forma": null
+      },
+      {
+        "considerados": null,
+        "forma": null
+      },
+      {
+        "considerados": null,
+        "forma": null
+      },
+      {
+        "considerados": null,
+        "forma": null
+      },
+      {
+        "considerados": null,
+        "forma": null
+      }
+    ],
+    "q6": [
+      280,
+      90,
+      0,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "q7": [
+      {
+        "faixa": null,
+        "aviao": 0,
+        "onibus": 37800,
+        "carro": 0,
+        "conferencia": "OK"
+      },
+      {
+        "faixa": null,
+        "aviao": 0,
+        "onibus": 9600,
+        "carro": 0,
+        "conferencia": "OK"
+      },
+      {
+        "faixa": "médio",
+        "aviao": 108000,
+        "onibus": 0,
+        "carro": 0,
+        "conferencia": "OK"
+      },
+      {
+        "faixa": "médio",
+        "aviao": 102000,
+        "onibus": 0,
+        "carro": 0,
+        "conferencia": "OK"
+      },
+      {
+        "faixa": "médio",
+        "aviao": 75000,
+        "onibus": 0,
+        "carro": 0,
+        "conferencia": "OK"
+      },
+      {
+        "faixa": "médio",
+        "aviao": 76000,
+        "onibus": 0,
+        "carro": 0,
+        "conferencia": "OK"
+      },
+      {
+        "faixa": "longo",
+        "aviao": 94800,
+        "onibus": 0,
+        "carro": 0,
+        "conferencia": "OK"
+      },
+      {
+        "faixa": null,
+        "aviao": 0,
+        "onibus": 0,
+        "carro": 800,
+        "conferencia": "OK"
+      },
+      {
+        "faixa": null,
+        "aviao": 0,
+        "onibus": 0,
+        "carro": 0,
+        "conferencia": null
+      },
+      {
+        "faixa": null,
+        "aviao": 0,
+        "onibus": 0,
+        "carro": 0,
+        "conferencia": null
+      },
+      {
+        "faixa": null,
+        "aviao": 0,
+        "onibus": 0,
+        "carro": 0,
+        "conferencia": null
+      },
+      {
+        "faixa": null,
+        "aviao": 0,
+        "onibus": 0,
+        "carro": 0,
+        "conferencia": null
+      },
+      {
+        "faixa": null,
+        "aviao": 0,
+        "onibus": 0,
+        "carro": 0,
+        "conferencia": null
+      },
+      {
+        "faixa": null,
+        "aviao": 0,
+        "onibus": 0,
+        "carro": 0,
+        "conferencia": null
+      },
+      {
+        "faixa": null,
+        "aviao": 0,
+        "onibus": 0,
+        "carro": 0,
+        "conferencia": null
+      },
+      {
+        "faixa": null,
+        "aviao": 0,
+        "onibus": 0,
+        "carro": 0,
+        "conferencia": null
+      },
+      {
+        "faixa": null,
+        "aviao": 0,
+        "onibus": 0,
+        "carro": 0,
+        "conferencia": null
+      },
+      {
+        "faixa": null,
+        "aviao": 0,
+        "onibus": 0,
+        "carro": 0,
+        "conferencia": null
+      },
+      {
+        "faixa": null,
+        "aviao": 0,
+        "onibus": 0,
+        "carro": 0,
+        "conferencia": null
+      },
+      {
+        "faixa": null,
+        "aviao": 0,
+        "onibus": 0,
+        "carro": 0,
+        "conferencia": null
+      }
+    ],
+    "q8transporte": [
+      {
+        "passageiroKm": 0,
+        "litros": 95
+      },
+      {
+        "passageiroKm": 0,
+        "litros": null
+      },
+      {
+        "passageiroKm": 0,
+        "litros": null
+      },
+      {
+        "passageiroKm": 0,
+        "litros": null
+      },
+      {
+        "passageiroKm": 0,
+        "litros": null
+      },
+      {
+        "passageiroKm": 0,
+        "litros": null
+      },
+      {
+        "passageiroKm": 0,
+        "litros": null
+      },
+      {
+        "passageiroKm": 0,
+        "litros": null
+      }
+    ]
+  }
+}

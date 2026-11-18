@@ -1,0 +1,1082 @@
+{
+  "baseDeFatores": {
+    "nome": "GHG Protocol Brasil 2026.0.1",
+    "fonte": "Fonte: Ferramenta de Cálculo do Programa Brasileiro GHG Protocol, versão 2026.0.1. Aba bloqueada. Para atualizar um fator, a coordenação desprotege a aba e altera as células azuis.   |   No Guia: seção 10.4 (p. 159)",
+    "gwpCh4": 28.0,
+    "gwpN2o": 265.0,
+    "referenciaGwp": "IPCC 2013 (AR5), 100 anos",
+    "sin": [
+      {
+        "ano": 2006,
+        "valor": 0.0323
+      },
+      {
+        "ano": 2007,
+        "valor": 0.0293
+      },
+      {
+        "ano": 2008,
+        "valor": 0.0484
+      },
+      {
+        "ano": 2009,
+        "valor": 0.0246
+      },
+      {
+        "ano": 2010,
+        "valor": 0.051275
+      },
+      {
+        "ano": 2011,
+        "valor": 0.0292
+      },
+      {
+        "ano": 2012,
+        "valor": 0.0653417
+      },
+      {
+        "ano": 2013,
+        "valor": 0.0960333
+      },
+      {
+        "ano": 2014,
+        "valor": 0.1354833
+      },
+      {
+        "ano": 2015,
+        "valor": 0.1244417
+      },
+      {
+        "ano": 2016,
+        "valor": 0.0816833
+      },
+      {
+        "ano": 2017,
+        "valor": 0.0927333
+      },
+      {
+        "ano": 2018,
+        "valor": 0.0739833
+      },
+      {
+        "ano": 2019,
+        "valor": 0.0750417
+      },
+      {
+        "ano": 2020,
+        "valor": 0.061725
+      },
+      {
+        "ano": 2021,
+        "valor": 0.1264167
+      },
+      {
+        "ano": 2022,
+        "valor": 0.0425955
+      },
+      {
+        "ano": 2023,
+        "valor": 0.0385096
+      },
+      {
+        "ano": 2024,
+        "valor": 0.0544624
+      },
+      {
+        "ano": 2025,
+        "valor": 0.0460833
+      }
+    ],
+    "itens": [
+      {
+        "codigo": "E01",
+        "categoria": "1 Energia",
+        "item": "Energia elétrica da rede (kWh)",
+        "unidade": "kWh",
+        "escopo": 2,
+        "feCo2": null,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "sin",
+          "multiplicador": 1.0
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - FE do SIN",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "E03",
+        "categoria": "1 Energia",
+        "item": "Diesel em gerador (litro)",
+        "unidade": "litro",
+        "escopo": 1,
+        "feCo2": 2.6309080829,
+        "feCh4": 0.0003552081,
+        "feN2o": 2.13125e-05,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 1",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "E04",
+        "categoria": "1 Energia",
+        "item": "GLP em equipamento (kg)",
+        "unidade": "kg",
+        "escopo": 1,
+        "feCo2": 2.930927472,
+        "feCh4": 0.0002323674,
+        "feN2o": 4.6473e-06,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 1",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "E05",
+        "categoria": "1 Energia",
+        "item": "Gas natural em equipamento (m³)",
+        "unidade": "m³",
+        "escopo": 1,
+        "feCo2": 2.066939424,
+        "feCh4": 0.0001842192,
+        "feN2o": 3.6844e-06,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 1",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "T01",
+        "categoria": "2 Deslocamento",
+        "item": "Avião - trecho curto, até 500 km (passageiro.km)",
+        "unidade": "passageiro.km",
+        "escopo": 3,
+        "feCo2": 0.13395,
+        "feCh4": 7.8571e-06,
+        "feN2o": 5.0566e-06,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 13 (inclui 8% de rota real)",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "T02",
+        "categoria": "2 Deslocamento",
+        "item": "Avião - trecho médio, 500 a 3.700 km (passageiro.km)",
+        "unidade": "passageiro.km",
+        "escopo": 3,
+        "feCo2": 0.07466,
+        "feCh4": 3.571e-07,
+        "feN2o": 3.4717e-06,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 13 (inclui 8% de rota real)",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "T03",
+        "categoria": "2 Deslocamento",
+        "item": "Avião - trecho longo, acima de 3.700 km (passageiro.km)",
+        "unidade": "passageiro.km",
+        "escopo": 3,
+        "feCo2": 0.08913,
+        "feCh4": 3.571e-07,
+        "feN2o": 4.8679e-06,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 13 (inclui 8% de rota real)",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "T04",
+        "categoria": "2 Deslocamento",
+        "item": "Ônibus rodoviário ou fretado (passageiro.km)",
+        "unidade": "passageiro.km",
+        "escopo": 3,
+        "feCo2": 0.0284101163,
+        "feCh4": 1.9945e-06,
+        "feN2o": 1.074e-06,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 10",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "T05",
+        "categoria": "2 Deslocamento",
+        "item": "Carro a gasolina (litro)",
+        "unidade": "litro",
+        "escopo": 3,
+        "feCo2": 2.2390897141,
+        "feCh4": 0.0005557096,
+        "feN2o": 0.0002423152,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 3",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "T06",
+        "categoria": "2 Deslocamento",
+        "item": "Carro a etanol hidratado (litro)",
+        "unidade": "litro",
+        "escopo": 3,
+        "feCo2": 0,
+        "feCh4": 0.0004246434,
+        "feN2o": 0.0001301671,
+        "feBiogenico": 1.5101513741,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 4",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "T07",
+        "categoria": "2 Deslocamento",
+        "item": "Carro ou van a diesel (litro)",
+        "unidade": "litro",
+        "escopo": 3,
+        "feCo2": 2.6310264856,
+        "feCh4": 0.0001847082,
+        "feN2o": 9.94583e-05,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 3",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "T08",
+        "categoria": "2 Deslocamento",
+        "item": "Veículo a GNV (m³)",
+        "unidade": "m³",
+        "escopo": 3,
+        "feCo2": 1.998999383,
+        "feCh4": 1.84219e-05,
+        "feN2o": 3.6844e-06,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 3",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "L01",
+        "categoria": "3 Transporte no destino",
+        "item": "Ônibus urbano (passageiro.km)",
+        "unidade": "passageiro.km",
+        "escopo": 3,
+        "feCo2": 0.1094507018,
+        "feCh4": 7.6839e-06,
+        "feN2o": 4.1375e-06,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 9 (2025)",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "L02",
+        "categoria": "3 Transporte no destino",
+        "item": "Metro (passageiro.km)",
+        "unidade": "passageiro.km",
+        "escopo": 3,
+        "feCo2": 0.002974,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 15 (2025)",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "L03",
+        "categoria": "3 Transporte no destino",
+        "item": "Trem de passageiros (passageiro.km)",
+        "unidade": "passageiro.km",
+        "escopo": 3,
+        "feCo2": null,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "sin",
+          "multiplicador": 0.1616
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 16 x FE do SIN",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "L04",
+        "categoria": "3 Transporte no destino",
+        "item": "Ônibus fretado - por litro de diesel",
+        "unidade": "litro",
+        "escopo": 3,
+        "feCo2": 2.6310264856,
+        "feCh4": 0.0001847082,
+        "feN2o": 9.94583e-05,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 3",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "C01",
+        "categoria": "7 Frete",
+        "item": "Caminhão - média (tonelada.km)",
+        "unidade": "tonelada.km",
+        "escopo": 3,
+        "feCo2": 0.1040100908,
+        "feCh4": 7.3019e-06,
+        "feN2o": 3.9318e-06,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 11",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "C02",
+        "categoria": "7 Frete",
+        "item": "Caminhão rígido - média (tonelada.km)",
+        "unidade": "tonelada.km",
+        "escopo": 3,
+        "feCo2": 0.2021048188,
+        "feCh4": 1.41885e-05,
+        "feN2o": 7.64e-06,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 11",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "C03",
+        "categoria": "7 Frete",
+        "item": "Caminhão articulado - média (tonelada.km)",
+        "unidade": "tonelada.km",
+        "escopo": 3,
+        "feCo2": 0.0798266957,
+        "feCh4": 5.6041e-06,
+        "feN2o": 3.0176e-06,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 11",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "C04",
+        "categoria": "7 Frete",
+        "item": "Trem de carga (tonelada.km)",
+        "unidade": "tonelada.km",
+        "escopo": 3,
+        "feCo2": 0.008764548,
+        "feCh4": 4.909e-07,
+        "feN2o": 3.3828e-06,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 17",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "C05",
+        "categoria": "7 Frete",
+        "item": "Avião - carga, trecho curto (tonelada.km)",
+        "unidade": "tonelada.km",
+        "escopo": 3,
+        "feCo2": 2.69237,
+        "feCh4": 0.0001403929,
+        "feN2o": 8.68302e-05,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 14 (inclui 8% de rota real)",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "C06",
+        "categoria": "7 Frete",
+        "item": "Avião - carga, trecho médio (tonelada.km)",
+        "unidade": "tonelada.km",
+        "escopo": 3,
+        "feCo2": 0.74709,
+        "feCh4": 2.7857e-06,
+        "feN2o": 3.10189e-05,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 14 (inclui 8% de rota real)",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "C07",
+        "categoria": "7 Frete",
+        "item": "Avião - carga, trecho longo (tonelada.km)",
+        "unidade": "tonelada.km",
+        "escopo": 3,
+        "feCo2": 0.52583,
+        "feCh4": 2e-06,
+        "feN2o": 2.04528e-05,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 14 (inclui 8% de rota real)",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "G01",
+        "categoria": "10 Fugitivas",
+        "item": "Gás refrigerante R-134a (kg reposto)",
+        "unidade": "kg",
+        "escopo": 1,
+        "feCo2": 1300.0,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 23 (GWP)",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "G02",
+        "categoria": "10 Fugitivas",
+        "item": "Gás refrigerante R-410A (kg reposto)",
+        "unidade": "kg",
+        "escopo": 1,
+        "feCo2": 1923.5,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 23 (GWP)",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "G03",
+        "categoria": "10 Fugitivas",
+        "item": "Gás refrigerante R-404A (kg reposto)",
+        "unidade": "kg",
+        "escopo": 1,
+        "feCo2": 3942.8,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 23 (GWP)",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "G04",
+        "categoria": "10 Fugitivas",
+        "item": "Gás refrigerante R-407C (kg reposto)",
+        "unidade": "kg",
+        "escopo": 1,
+        "feCo2": 1624.21,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 23 (GWP)",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "G05",
+        "categoria": "10 Fugitivas",
+        "item": "Gás refrigerante R-449A (kg reposto)",
+        "unidade": "kg",
+        "escopo": 1,
+        "feCo2": 1281.601,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "GHG Protocol Brasil 2026.0.1 - Tabela 23 (GWP)",
+        "situacao": "Oficial"
+      },
+      {
+        "codigo": "E02",
+        "categoria": "1 Energia",
+        "item": "Energia elétrica com contrato ou certificado próprio (kWh)",
+        "unidade": "kWh",
+        "escopo": 2,
+        "feCo2": null,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "sin",
+          "multiplicador": 1.0
+        },
+        "fonte": "Valor padrão: fator do SIN do ano, igual ao da rede. O total oficial segue a abordagem por localização, obrigatória no Programa Brasileiro GHG Protocol. O fator do certificado I-REC ou do contrato (normalmente zero para energia renovável) é registrado à parte, na premissa, como abordagem por escolha de compra, conforme as Diretrizes de escopo 2 do Programa.",
+        "situacao": "Referência adotada - fator do SIN"
+      },
+      {
+        "codigo": "H01",
+        "categoria": "4 Hospedagem",
+        "item": "Diária de hospedagem (diária)",
+        "unidade": "diária",
+        "escopo": 3,
+        "feCo2": 8.7,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "Valor padrão: hotel no Brasil, 8,7 kgCO₂e por quarto-noite (UK Government GHG Conversion Factors, DESNZ, 2024). Conte uma diária por quarto ocupado por noite. Quando o meio de hospedagem informar o próprio fator, prefira-o. Valor total em CO₂e, lançado na coluna de CO₂. Fonte externa ao Programa Brasileiro GHG Protocol: declarar no campo Métodos do inventário.",
+        "situacao": "Referência adotada - DESNZ 2024"
+      },
+      {
+        "codigo": "A01",
+        "categoria": "5 Alimentação",
+        "item": "Refeição com carne bovina (porção)",
+        "unidade": "porção",
+        "escopo": 3,
+        "feCo2": 12.461,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "Porção-padrão: 120 g de carne bovina de rebanho de corte (99,48), 60 g de arroz cru (4,45), 40 g de feijão seco (1,79), 150 g de legumes (0,53) e 100 g de fruta (1,05) (Poore e Nemecek, 2018, Science, via Our World in Data; kgCO₂e por kg de produto, 100 anos, ano-base 2010). Valor total em CO₂e, lançado na coluna de CO₂. Quando o fornecedor informar o próprio fator ou a gramatura real, prefira-os. Fonte externa ao Programa Brasileiro GHG Protocol: declarar no campo Métodos do inventário.",
+        "situacao": "Referência adotada - porção-padrão"
+      },
+      {
+        "codigo": "A02",
+        "categoria": "5 Alimentação",
+        "item": "Refeição com outras carnes (porção)",
+        "unidade": "porção",
+        "escopo": 3,
+        "feCo2": 1.708,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "Porção-padrão: 120 g de frango (9,87), 60 g de arroz cru (4,45), 40 g de feijão seco (1,79), 150 g de legumes (0,53) e 100 g de fruta (1,05) (Poore e Nemecek, 2018, Science, via Our World in Data; kgCO₂e por kg de produto, 100 anos, ano-base 2010). Valor total em CO₂e, lançado na coluna de CO₂. Quando o fornecedor informar o próprio fator ou a gramatura real, prefira-os. Fonte externa ao Programa Brasileiro GHG Protocol: declarar no campo Métodos do inventário.",
+        "situacao": "Referência adotada - porção-padrão"
+      },
+      {
+        "codigo": "A03",
+        "categoria": "5 Alimentação",
+        "item": "Refeição vegetariana (porção)",
+        "unidade": "porção",
+        "escopo": 3,
+        "feCo2": 0.866,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "Porção-padrão: 60 g de ovo (4,67), 60 g de arroz cru (4,45), 60 g de feijão seco (1,79), 200 g de legumes (0,53) e 100 g de fruta (1,05) (Poore e Nemecek, 2018, Science, via Our World in Data; kgCO₂e por kg de produto, 100 anos, ano-base 2010). Valor total em CO₂e, lançado na coluna de CO₂. Quando o fornecedor informar o próprio fator ou a gramatura real, prefira-os. Fonte externa ao Programa Brasileiro GHG Protocol: declarar no campo Métodos do inventário.",
+        "situacao": "Referência adotada - porção-padrão"
+      },
+      {
+        "codigo": "A04",
+        "categoria": "5 Alimentação",
+        "item": "Coffee break ou lanche (porção)",
+        "unidade": "porção",
+        "escopo": 3,
+        "feCo2": 1.032,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "Porção-padrão: 10 g de café em pó (28,53), 50 ml de leite (3,15), 60 g de farinha de trigo em pães ou bolos (1,57), 10 g de açúcar (3,20), 15 g de queijo (23,88) e 100 g de fruta (1,05) (Poore e Nemecek, 2018, Science, via Our World in Data; kgCO₂e por kg de produto, 100 anos, ano-base 2010). Valor total em CO₂e, lançado na coluna de CO₂. Quando o fornecedor informar o próprio fator ou a gramatura real, prefira-os. Fonte externa ao Programa Brasileiro GHG Protocol: declarar no campo Métodos do inventário.",
+        "situacao": "Referência adotada - porção-padrão"
+      },
+      {
+        "codigo": "M01",
+        "categoria": "6 Materiais",
+        "item": "Papel e impressos (kg)",
+        "unidade": "kg",
+        "escopo": 3,
+        "feCo2": 1.287,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "Valor padrão: papel e papelão, produção do material, 1.287 kgCO₂e por tonelada (UK Government GHG Conversion Factors, DESNZ, 2026). Valor total em CO₂e, lançado na coluna de CO₂. Fonte externa ao Programa Brasileiro GHG Protocol: declarar no campo Métodos do inventário.",
+        "situacao": "Referência adotada - DESNZ 2026"
+      },
+      {
+        "codigo": "M02",
+        "categoria": "6 Materiais",
+        "item": "Madeira e MDF de montagem (kg)",
+        "unidade": "kg",
+        "escopo": 3,
+        "feCo2": 0.313,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "Valor padrão: madeira, produção do material, 312,6 kgCO₂e por tonelada (UK Government GHG Conversion Factors, 2021). Vale também para MDF, como aproximação. Valor total em CO₂e, lançado na coluna de CO₂. Fonte externa ao Programa Brasileiro GHG Protocol: declarar no campo Métodos do inventário.",
+        "situacao": "Referência adotada - DESNZ 2021"
+      },
+      {
+        "codigo": "M03",
+        "categoria": "6 Materiais",
+        "item": "Plástico, lona, PVC, adesivo e TNT (kg)",
+        "unidade": "kg",
+        "escopo": 3,
+        "feCo2": 3.171,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "Valor padrão: média dos plásticos, produção do material, 3.170,5 kgCO₂e por tonelada (UK Government GHG Conversion Factors, DESNZ, 2026). Vale para lona, PVC, adesivo e TNT. Valor total em CO₂e, lançado na coluna de CO₂. Fonte externa ao Programa Brasileiro GHG Protocol: declarar no campo Métodos do inventário.",
+        "situacao": "Referência adotada - DESNZ 2026"
+      },
+      {
+        "codigo": "M04",
+        "categoria": "6 Materiais",
+        "item": "Metal e alumínio de montagem (kg)",
+        "unidade": "kg",
+        "escopo": 3,
+        "feCo2": 3.101,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "Valor padrão: aço, produção do material, 3.100,6 kgCO₂e por tonelada (UK Government GHG Conversion Factors, 2022). Para estruturas de alumínio, registre na premissa e use 9,123 kgCO₂e/kg (alumínio, mesma fonte). Estruturas locadas e reutilizadas: conte só o material novo, produzido para o evento. Valor total em CO₂e, lançado na coluna de CO₂. Fonte externa ao Programa Brasileiro GHG Protocol: declarar no campo Métodos do inventário.",
+        "situacao": "Referência adotada - DESNZ 2022"
+      },
+      {
+        "codigo": "M05",
+        "categoria": "6 Materiais",
+        "item": "Tecido (kg)",
+        "unidade": "kg",
+        "escopo": 3,
+        "feCo2": 22.31,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "Valor padrão: têxteis, produção do material, 22.310 kgCO₂e por tonelada (UK Government GHG Conversion Factors, 2021, item vestuário). Valor total em CO₂e, lançado na coluna de CO₂. Fonte externa ao Programa Brasileiro GHG Protocol: declarar no campo Métodos do inventário.",
+        "situacao": "Referência adotada - DESNZ 2021"
+      },
+      {
+        "codigo": "R01",
+        "categoria": "8 Resíduos",
+        "item": "Resíduo enviado a aterro (kg)",
+        "unidade": "kg",
+        "escopo": 3,
+        "feCo2": 0.521,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "Valor padrão: resíduo comercial e industrial enviado a aterro, 520,6 kgCO₂e por tonelada (UK Government GHG Conversion Factors, DESNZ, 2026). Nos níveis 3 e 4, prefira o fator calculado nas abas de resíduos sólidos da Ferramenta do Programa Brasileiro GHG Protocol, pelo método do IPCC, que considera o aterro brasileiro. Valor total em CO₂e, lançado na coluna de CO₂. Fonte externa ao Programa Brasileiro GHG Protocol: declarar no campo Métodos do inventário.",
+        "situacao": "Referência adotada - DESNZ 2026"
+      },
+      {
+        "codigo": "R02",
+        "categoria": "8 Resíduos",
+        "item": "Resíduo enviado a reciclagem (kg)",
+        "unidade": "kg",
+        "escopo": 3,
+        "feCo2": 0.00465,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "Valor padrão: reciclagem em ciclo fechado, 4,65 kgCO₂e por tonelada (UK Government GHG Conversion Factors, DESNZ, 2026). Cobre apenas o transporte até a reciclagem; o benefício da reciclagem não é descontado. Valor total em CO₂e, lançado na coluna de CO₂. Fonte externa ao Programa Brasileiro GHG Protocol: declarar no campo Métodos do inventário.",
+        "situacao": "Referência adotada - DESNZ 2026"
+      },
+      {
+        "codigo": "R03",
+        "categoria": "8 Resíduos",
+        "item": "Resíduo enviado a compostagem (kg)",
+        "unidade": "kg",
+        "escopo": 3,
+        "feCo2": 0.00901,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "Valor padrão: compostagem de resíduos de alimentos, 9,0 kgCO₂e por tonelada (UK Government GHG Conversion Factors, DESNZ, 2026). Valor total em CO₂e, lançado na coluna de CO₂. Fonte externa ao Programa Brasileiro GHG Protocol: declarar no campo Métodos do inventário.",
+        "situacao": "Referência adotada - DESNZ 2026"
+      },
+      {
+        "codigo": "D01",
+        "categoria": "9 Digital",
+        "item": "Transmissão online (espectador.hora)",
+        "unidade": "espectador.hora",
+        "escopo": 3,
+        "feCo2": 0.055,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "Valor padrão: 55 gCO₂e por hora de vídeo assistida por espectador (Carbon Trust, 2021, média europeia; inclui aparelho, rede e servidores). Quantidade = espectadores × horas assistidas, pelo relatório da plataforma. Para a transmissão em si, a energia do local já entra no item de energia elétrica. Valor total em CO₂e, lançado na coluna de CO₂. Fonte externa ao Programa Brasileiro GHG Protocol: declarar no campo Métodos do inventário.",
+        "situacao": "Referência adotada - Carbon Trust 2021"
+      },
+      {
+        "codigo": "E04",
+        "categoria": "1 Energia",
+        "item": "Energia solar gerada no local (kWh)",
+        "unidade": "kWh",
+        "escopo": 2,
+        "feCo2": 0,
+        "feCh4": 0,
+        "feN2o": 0,
+        "feBiogenico": 0,
+        "regra": {
+          "tipo": "fixo"
+        },
+        "fonte": "Geração própria sem combustão: emissão zero na operação. Registrada para mostrar a parcela de energia renovável do evento, e não como emissão biogênica.",
+        "situacao": "Referência adotada - geração renovável"
+      }
+    ],
+    "notas": [
+      "ITENS \"A DEFINIR\": Hospedagem, alimentação, materiais, resíduos, conteúdo digital e energia por contrato ainda não têm fator nacional consolidado. A fonte recomendada está indicada na coluna \"Fonte do fator\". Consulte a edição vigente, preencha as células de borda tracejada com o valor adotado e complete a fonte com ano e edição. Enquanto o fator estiver vazio, as abas 2 e 3 exibem alerta e não calculam a linha.",
+      "CO₂ BIOGÊNICO: Coluna J. Vem de biocombustíveis. É calculado e informado à parte e NÃO entra no total em tCO₂e.",
+      "COMBUSTÍVEL PURO: Os fatores de diesel e gasolina consideram o combustível puro. O combustível vendido no Brasil já contém biodiesel e etanol anidro, cuja parcela de CO₂ é biogênica. Usar o fator puro superestima levemente a parcela fóssil: o resultado fica conservador. Declare isso no relatório.",
+      "ESCOPO: A classificação sugerida vale quando a fonte está sob controle do organizador. Gerador ou veículo contratado de terceiro pode ser escopo 3. Ajuste no relatório se for o caso.",
+      "REFERÊNCIA DE GWP: Os valores de GWP precisam ser os mesmos da base de fatores. A ferramenta oficial adota o IPCC, Quinto Relatório de Avaliação (AR5): metano 28, óxido nitroso 265. A troca só acontece quando o Programa Brasileiro migrar, e deve ser feita entre edições, nunca no meio de um evento."
+    ]
+  },
+  "itensPorFornecedor": {
+    "Todos": [
+      "Energia elétrica da rede (kWh)",
+      "Diesel em gerador (litro)",
+      "GLP em equipamento (kg)",
+      "Gas natural em equipamento (m³)",
+      "Avião - trecho curto, até 500 km (passageiro.km)",
+      "Avião - trecho médio, 500 a 3.700 km (passageiro.km)",
+      "Avião - trecho longo, acima de 3.700 km (passageiro.km)",
+      "Ônibus rodoviário ou fretado (passageiro.km)",
+      "Carro a gasolina (litro)",
+      "Carro a etanol hidratado (litro)",
+      "Carro ou van a diesel (litro)",
+      "Veículo a GNV (m³)",
+      "Ônibus urbano (passageiro.km)",
+      "Metro (passageiro.km)",
+      "Trem de passageiros (passageiro.km)",
+      "Ônibus fretado - por litro de diesel",
+      "Caminhão - média (tonelada.km)",
+      "Caminhão rígido - média (tonelada.km)",
+      "Caminhão articulado - média (tonelada.km)",
+      "Trem de carga (tonelada.km)",
+      "Avião - carga, trecho curto (tonelada.km)",
+      "Avião - carga, trecho médio (tonelada.km)",
+      "Avião - carga, trecho longo (tonelada.km)",
+      "Gás refrigerante R-134a (kg reposto)",
+      "Gás refrigerante R-410A (kg reposto)",
+      "Gás refrigerante R-404A (kg reposto)",
+      "Gás refrigerante R-407C (kg reposto)",
+      "Gás refrigerante R-449A (kg reposto)",
+      "Energia elétrica com contrato ou certificado próprio (kWh)",
+      "Diária de hospedagem (diária)",
+      "Refeição com carne bovina (porção)",
+      "Refeição com outras carnes (porção)",
+      "Refeição vegetariana (porção)",
+      "Coffee break ou lanche (porção)",
+      "Papel e impressos (kg)",
+      "Madeira e MDF de montagem (kg)",
+      "Plástico, lona, PVC, adesivo e TNT (kg)",
+      "Metal e alumínio de montagem (kg)",
+      "Tecido (kg)",
+      "Resíduo enviado a aterro (kg)",
+      "Resíduo enviado a reciclagem (kg)",
+      "Resíduo enviado a compostagem (kg)",
+      "Transmissão online (espectador.hora)",
+      "Energia solar gerada no local (kWh)"
+    ],
+    "Local do evento": [
+      "Energia elétrica da rede (kWh)",
+      "GLP em equipamento (kg)",
+      "Gas natural em equipamento (m³)",
+      "Energia elétrica com contrato ou certificado próprio (kWh)",
+      "Energia solar gerada no local (kWh)",
+      "Gás refrigerante R-134a (kg reposto)",
+      "Gás refrigerante R-410A (kg reposto)",
+      "Gás refrigerante R-404A (kg reposto)",
+      "Gás refrigerante R-407C (kg reposto)",
+      "Gás refrigerante R-449A (kg reposto)"
+    ],
+    "Locadora de gerador": [
+      "Diesel em gerador (litro)"
+    ],
+    "Agência de viagens": [
+      "Avião - trecho curto, até 500 km (passageiro.km)",
+      "Avião - trecho médio, 500 a 3.700 km (passageiro.km)",
+      "Avião - trecho longo, acima de 3.700 km (passageiro.km)",
+      "Ônibus rodoviário ou fretado (passageiro.km)"
+    ],
+    "Transporte no destino": [
+      "Ônibus rodoviário ou fretado (passageiro.km)",
+      "Carro a gasolina (litro)",
+      "Carro a etanol hidratado (litro)",
+      "Carro ou van a diesel (litro)",
+      "Veículo a GNV (m³)",
+      "Ônibus urbano (passageiro.km)",
+      "Metro (passageiro.km)",
+      "Trem de passageiros (passageiro.km)",
+      "Ônibus fretado - por litro de diesel"
+    ],
+    "Hotéis": [
+      "Diária de hospedagem (diária)"
+    ],
+    "Alimentação": [
+      "Refeição com carne bovina (porção)",
+      "Refeição com outras carnes (porção)",
+      "Refeição vegetariana (porção)",
+      "Coffee break ou lanche (porção)",
+      "GLP em equipamento (kg)"
+    ],
+    "Montagem, cenografia e gráfica": [
+      "Papel e impressos (kg)",
+      "Madeira e MDF de montagem (kg)",
+      "Plástico, lona, PVC, adesivo e TNT (kg)",
+      "Metal e alumínio de montagem (kg)",
+      "Tecido (kg)"
+    ],
+    "Transportadora": [
+      "Caminhão - média (tonelada.km)",
+      "Caminhão rígido - média (tonelada.km)",
+      "Caminhão articulado - média (tonelada.km)",
+      "Trem de carga (tonelada.km)",
+      "Avião - carga, trecho curto (tonelada.km)",
+      "Avião - carga, trecho médio (tonelada.km)",
+      "Avião - carga, trecho longo (tonelada.km)"
+    ],
+    "Limpeza e coleta de resíduos": [
+      "Resíduo enviado a aterro (kg)",
+      "Resíduo enviado a reciclagem (kg)",
+      "Resíduo enviado a compostagem (kg)"
+    ],
+    "Plataforma de transmissão": [
+      "Transmissão online (espectador.hora)"
+    ]
+  },
+  "descricoesPorCategoria": {
+    "1 Energia": [
+      "Consumo do local do evento",
+      "Montagem e desmontagem",
+      "Gerador principal",
+      "Gerador de apoio",
+      "Iluminação e som",
+      "Climatização",
+      "Cozinha e serviço de alimentação",
+      "Estandes e expositores",
+      "Outra descrição (detalhar na coluna de premissa)"
+    ],
+    "2 Deslocamento": [
+      "Participantes",
+      "Palestrantes e convidados",
+      "Equipe organizadora",
+      "Imprensa",
+      "Fornecedores e montadores",
+      "Outra descrição (detalhar na coluna de premissa)"
+    ],
+    "3 Transporte no destino": [
+      "Traslado entre hospedagem e local do evento",
+      "Transporte entre locais do evento",
+      "Transporte por aplicativo e táxi",
+      "Transporte público",
+      "Veículos da organização",
+      "Outra descrição (detalhar na coluna de premissa)"
+    ],
+    "4 Hospedagem": [
+      "Participantes",
+      "Palestrantes e convidados",
+      "Equipe organizadora",
+      "Fornecedores e montadores",
+      "Outra descrição (detalhar na coluna de premissa)"
+    ],
+    "5 Alimentação": [
+      "Almoço",
+      "Jantar",
+      "Café da manhã",
+      "Coffee break",
+      "Coquetel",
+      "Lanche da equipe",
+      "Água e bebidas",
+      "Outra descrição (detalhar na coluna de premissa)"
+    ],
+    "6 Materiais": [
+      "Estandes e cenografia",
+      "Comunicação visual: lona, adesivo, banner",
+      "Impressos: programação e certificados",
+      "Brindes e kits",
+      "Credenciais",
+      "Mobiliário locado",
+      "Outra descrição (detalhar na coluna de premissa)"
+    ],
+    "7 Frete": [
+      "Transporte de estruturas",
+      "Transporte de equipamentos",
+      "Entrega de materiais",
+      "Transporte de alimentos",
+      "Retorno de materiais",
+      "Outra descrição (detalhar na coluna de premissa)"
+    ],
+    "8 Resíduos": [
+      "Recicláveis",
+      "Orgânicos",
+      "Rejeito",
+      "Resíduos da montagem e desmontagem",
+      "Outra descrição (detalhar na coluna de premissa)"
+    ],
+    "9 Digital": [
+      "Transmissão ao vivo",
+      "Plataforma de inscrição",
+      "Gravação e armazenamento",
+      "Outra descrição (detalhar na coluna de premissa)"
+    ],
+    "10 Fugitivas": [
+      "Ar-condicionado",
+      "Câmara fria",
+      "Refrigeradores e freezers",
+      "Outra descrição (detalhar na coluna de premissa)"
+    ]
+  },
+  "fornecedores": {
+    "tipos": [
+      {
+        "tipo": "Local do evento",
+        "oQuePedir": "Energia consumida no período, com as leituras do medidor; recarga de gases refrigerantes, se houver; resíduos, se a coleta for do local.",
+        "unidade": "kWh; kg",
+        "comprovante": "Conta de energia, fotos das leituras, ordem de serviço"
+      },
+      {
+        "tipo": "Locadora de gerador",
+        "oQuePedir": "Litros abastecidos por equipamento, tipo de combustível, potência e horas de operação.",
+        "unidade": "litros; kVA; horas",
+        "comprovante": "Nota fiscal do combustível, registro do horímetro"
+      },
+      {
+        "tipo": "Agência de viagens",
+        "oQuePedir": "Trechos emitidos por participante: origem, destino e escalas.",
+        "unidade": "trechos; km",
+        "comprovante": "Relatório de emissão das passagens"
+      },
+      {
+        "tipo": "Transporte no destino",
+        "oQuePedir": "Rota, distância, viagens, passageiros e combustível.",
+        "unidade": "km; litros; passageiros",
+        "comprovante": "Relatório do prestador, nota fiscal"
+      },
+      {
+        "tipo": "Hotéis",
+        "oQuePedir": "Diárias no período, contadas por quarto ocupado por noite.",
+        "unidade": "diárias",
+        "comprovante": "Relatório do hotel ou da agência"
+      },
+      {
+        "tipo": "Alimentação",
+        "oQuePedir": "Porções servidas por tipo e por serviço; sobras.",
+        "unidade": "porções; kg",
+        "comprovante": "Relatório do fornecedor, nota fiscal"
+      },
+      {
+        "tipo": "Montagem, cenografia e gráfica",
+        "oQuePedir": "Materiais por tipo (madeira, plástico e lona, metal, tecido, papel), novos ou reutilizados.",
+        "unidade": "kg",
+        "comprovante": "Memorial descritivo, nota fiscal"
+      },
+      {
+        "tipo": "Transportadora",
+        "oQuePedir": "Carga, origem, destino, distância e tipo de veículo, na ida e na volta.",
+        "unidade": "t; km",
+        "comprovante": "Conhecimento de transporte"
+      },
+      {
+        "tipo": "Limpeza e coleta de resíduos",
+        "oQuePedir": "Massa por tipo e por destino (aterro, reciclagem, compostagem).",
+        "unidade": "kg",
+        "comprovante": "Pesagem, MTR, relatório da cooperativa"
+      },
+      {
+        "tipo": "Plataforma de transmissão",
+        "oQuePedir": "Espectadores e horas assistidas.",
+        "unidade": "espectador.hora",
+        "comprovante": "Relatório da plataforma"
+      }
+    ],
+    "entregaPorNivel": [
+      "Dados por escrito, por e-mail ou formulário simples.",
+      "Dados com nota fiscal, conta ou declaração do fornecedor.",
+      "Dados com comprovante por item e declaração de inclusão dos subcontratados, previstos em cláusula do contrato.",
+      "O mesmo do Nível 3, sujeito à conferência independente."
+    ],
+    "notaPrazo": "Prazo de entrega: até 5 dias depois do término do evento. Nos níveis 3 e 4, a lista integra a cláusula de dados do contrato."
+  },
+  "qualidade": [
+    "5 - Medição própria",
+    "4 - Documento do fornecedor",
+    "3 - Fonte secundária específica",
+    "2 - Média ou proxy",
+    "1 - Estimativa",
+    "0 - Sem fonte"
+  ]
+}

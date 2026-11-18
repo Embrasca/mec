@@ -64,10 +64,26 @@ const TOM_DO_NIVEL: Record<Nivel, string> = {
 };
 
 /** Selo do nível. Cores fixas por nível, independentes da cor do evento. */
-export function NivelBadge({ nivel, longo }: { nivel: Nivel | null; longo?: boolean }) {
+export function NivelBadge({
+  nivel,
+  longo,
+  sobreEscuro,
+}: {
+  nivel: Nivel | null;
+  longo?: boolean;
+  /** Na barra escura do topo, o selo vazio usa as cores da barra. */
+  sobreEscuro?: boolean;
+}) {
   if (nivel === null)
     return (
-      <span className="inline-flex items-center rounded-full border border-dashed border-border px-2.5 py-0.5 text-xs text-muted-foreground">
+      <span
+        className={cn(
+          "inline-flex items-center rounded-full border border-dashed px-2.5 py-0.5 text-xs",
+          sobreEscuro
+            ? "border-[var(--topbar-muted)] text-[var(--topbar-foreground)]"
+            : "border-border text-muted-foreground",
+        )}
+      >
         Nível não definido
       </span>
     );

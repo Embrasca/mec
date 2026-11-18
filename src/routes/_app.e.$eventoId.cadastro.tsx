@@ -1,12 +1,18 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useState } from "react";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { PageHeader, Panel } from "@/components/kit";
 import { FormularioDoEvento } from "@/components/FormularioDoEvento";
 import { Button } from "@/components/ui/button";
 import { useEvento } from "@/lib/evento-atual";
 import { useSessao } from "@/lib/sessao";
-import { eventoArquivar, eventoAtualizar } from "@/api/api.functions";
+import {
+  basesListar,
+  eventoArquivar,
+  eventoAtualizar,
+  eventoDefinirBase,
+} from "@/api/api.functions";
 
 export const Route = createFileRoute("/_app/e/$eventoId/cadastro")({
   head: () => ({ meta: [{ title: "Cadastro do evento" }] }),
@@ -67,6 +73,7 @@ function Cadastro() {
           }}
         />
       </Panel>
+      <BaseDoEvento />
       {perfil?.adminPlataforma && (
         <Panel title="Arquivamento" hint="Evento arquivado sai do portfólio, mas nada é apagado.">
           <Button
@@ -82,5 +89,68 @@ function Cadastro() {
         </Panel>
       )}
     </>
+  );
+}
+
+function BaseDoEvento() {
+  const evento = useEvento();
+  const qc = useQueryClient();
+  const bases = useQuery({ queryKey: ["bases"], queryFn: () => basesListar() });
+  const [escolhida, setEscolhida] = useState(evento.baseFatoresId ?? "");
+  const definir = useMutation({
+    mutationFn: () => eventoDefinirBase({ data: { eventoId: evento.id, baseId: escolhida } }),
+    onSuccess: async () => {
+      await qc.invalidateQueries({ queryKey: ["evento", evento.id] });
+      await qc.invalidateQueries({ queryKey: ["inventario", evento.id] });
+      toast.success("Base de fatores do evento alterada.");
+    },
+    onError: (e) => toast.error(e.message),
+  });
+  const publicadas = bases.data?.filter((b) => b.situacao === "publicada") ?? [];
+  return (
+    <Panel
+      title="Base de fatores"
+      hint="Os valores de GWP precisam ser os mesmos da base de fatores. A troca só acontece entre edições, nunca no meio de um evento: depois de fechar o ex-ante, a base fica travada."
+    >
+      <div className="flex flex-wrap items-end gap-3">
+        <div className="space-y-1.5">
+          <label htmlFor="base-evento" className="text-sm font-medium">
+            Base usada pelo evento
+          </label>
+          <select
+            id="base-evento"
+            disabled={!evento.podeGerir}
+            value={escolhida}
+            onChange={(e) => setEscolhida(e.target.value)}
+            className="h-9 w-80 max-w-full rounded-md border border-input bg-transparent px-2 text-sm"
+          >
+            {!evento.baseFatoresId && <option value="">Escolha…</option>}
+            {publicadas.map((b) => (
+              <option key={b.id} value={b.id}>
+                {b.nome}
+              </option>
+            ))}
+          </select>
+        </div>
+        {evento.podeGerir && (
+          <Button
+            variant="outline"
+            disabled={!escolhida || escolhida === evento.baseFatoresId || definir.isPending}
+            onClick={() => definir.mutate()}
+          >
+            Usar esta base
+          </Button>
+        )}
+        {evento.baseFatoresId && (
+          <Link
+            to="/fatores/$baseId"
+            params={{ baseId: evento.baseFatoresId }}
+            className="text-sm text-brand underline"
+          >
+            Ver fatores
+          </Link>
+        )}
+      </div>
+    </Panel>
   );
 }

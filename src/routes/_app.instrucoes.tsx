@@ -75,4 +75,9 @@ function Instrucoes() {
 const NO_SISTEMA: Record<string, string> = {
   "A - CARACTERIZAÇÃO": "Caracterização e nível",
   "B - ACOMPANHAMENTO": "Requisitos do nível",
+  FORNECEDORES: "Fornecedores",
+  "1 - EVENTO": "Cadastro do evento e caracterização",
+  "2 - EX-ANTE": "Inventário ex-ante",
+  COLETA: "Coleta (previsão, para o ex-ante)",
+  "FATORES e LISTAS": "Base de fatores",
 };

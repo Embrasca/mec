@@ -1,0 +1,748 @@
+{
+  "nivel": 3,
+  "ano": 2026,
+  "exAnte": {
+    "linhas": [
+      {
+        "fornecedor": "Local do evento",
+        "item": "Energia elétrica da rede (kWh)",
+        "descricao": "Consumo do local do evento",
+        "quantidade": 9000,
+        "premissa": "Edição anterior: cerca de 3.000 kWh por dia",
+        "esperado": {
+          "unidade": "kWh",
+          "categoria": "1 Energia",
+          "escopo": "2",
+          "tco2eCo2": 0.4147497,
+          "tco2eCh4": 0,
+          "tco2eN2o": 0,
+          "total": 0.4147497,
+          "biogenico": 0,
+          "alerta": "OK"
+        }
+      },
+      {
+        "fornecedor": "Locadora de gerador",
+        "item": "Diesel em gerador (litro)",
+        "descricao": "Gerador de apoio",
+        "quantidade": 540,
+        "premissa": "60 kVA: 12 L/h × 15 h × 3 dias",
+        "esperado": {
+          "unidade": "litro",
+          "categoria": "1 Energia",
+          "escopo": "1",
+          "tco2eCo2": 1.420690365,
+          "tco2eCh4": 0.005370746472,
+          "tco2eN2o": 0.00304981875,
+          "total": 1.42911093,
+          "biogenico": 0,
+          "alerta": "OK"
+        }
+      },
+      {
+        "fornecedor": "Agência de viagens",
+        "item": "Avião - trecho médio, 500 a 3.700 km (passageiro.km)",
+        "descricao": "Participantes",
+        "quantidade": 330000,
+        "premissa": "128 pessoas (15%) × 2 trechos × 1.300 km",
+        "esperado": {
+          "unidade": "passageiro.km",
+          "categoria": "2 Deslocamento",
+          "escopo": "3",
+          "tco2eCo2": 24.6378,
+          "tco2eCh4": 0.003299604,
+          "tco2eN2o": 0.303600165,
+          "total": 24.94469977,
+          "biogenico": 0,
+          "alerta": "OK"
+        }
+      },
+      {
+        "fornecedor": "Agência de viagens",
+        "item": "Avião - trecho longo, acima de 3.700 km (passageiro.km)",
+        "descricao": "Palestrantes e convidados",
+        "quantidade": 94800,
+        "premissa": "6 convidados internacionais × 2 × 7.900 km",
+        "esperado": {
+          "unidade": "passageiro.km",
+          "categoria": "2 Deslocamento",
+          "escopo": "3",
+          "tco2eCo2": 8.449524,
+          "tco2eCh4": 0.00094788624,
+          "tco2eN2o": 0.1222913838,
+          "total": 8.57276327,
+          "biogenico": 0,
+          "alerta": "OK"
+        }
+      },
+      {
+        "fornecedor": "Agência de viagens",
+        "item": "Ônibus rodoviário ou fretado (passageiro.km)",
+        "descricao": "Participantes",
+        "quantidade": 50000,
+        "premissa": "Inscrições: cerca de 170 pessoas de cidades a até 300 km",
+        "esperado": {
+          "unidade": "passageiro.km",
+          "categoria": "2 Deslocamento",
+          "escopo": "3",
+          "tco2eCo2": 1.420505815,
+          "tco2eCh4": 0.0027923,
+          "tco2eN2o": 0.0142305,
+          "total": 1.437528615,
+          "biogenico": 0,
+          "alerta": "OK"
+        }
+      },
+      {
+        "fornecedor": "Transporte no destino",
+        "item": "Carro a gasolina (litro)",
+        "descricao": "Participantes",
+        "quantidade": 1500,
+        "premissa": "20% do público de carro, 1,5 pessoa por carro",
+        "esperado": {
+          "unidade": "litro",
+          "categoria": "2 Deslocamento",
+          "escopo": "3",
+          "tco2eCo2": 3.358634571,
+          "tco2eCh4": 0.0233398032,
+          "tco2eN2o": 0.096320292,
+          "total": 3.478294666,
+          "biogenico": 0,
+          "alerta": "OK"
+        }
+      },
+      {
+        "fornecedor": "Transporte no destino",
+        "item": "Ônibus fretado - por litro de diesel",
+        "descricao": "Traslado entre hospedagem e local do evento",
+        "quantidade": 120,
+        "premissa": "Proposta do fretamento",
+        "esperado": {
+          "unidade": "litro",
+          "categoria": "3 Transporte no destino",
+          "escopo": "3",
+          "tco2eCo2": 0.3157231783,
+          "tco2eCh4": 0.000620619552,
+          "tco2eN2o": 0.00316277394,
+          "total": 0.3195065718,
+          "biogenico": 0,
+          "alerta": "OK"
+        }
+      },
+      {
+        "fornecedor": "Hotéis",
+        "item": "Diária de hospedagem (diária)",
+        "descricao": "Participantes",
+        "quantidade": 420,
+        "premissa": "Aba A",
+        "esperado": {
+          "unidade": "diária",
+          "categoria": "4 Hospedagem",
+          "escopo": "3",
+          "tco2eCo2": 3.654,
+          "tco2eCh4": 0,
+          "tco2eN2o": 0,
+          "total": 3.654,
+          "biogenico": 0,
+          "alerta": "OK"
+        }
+      },
+      {
+        "fornecedor": "Alimentação",
+        "item": "Refeição com carne bovina (porção)",
+        "descricao": "Almoço",
+        "quantidade": 1200,
+        "premissa": "Cardápio inicial: 2/3 dos almoços com carne bovina",
+        "esperado": {
+          "unidade": "porção",
+          "categoria": "5 Alimentação",
+          "escopo": "3",
+          "tco2eCo2": 14.9532,
+          "tco2eCh4": 0,
+          "tco2eN2o": 0,
+          "total": 14.9532,
+          "biogenico": 0,
+          "alerta": "OK"
+        }
+      },
+      {
+        "fornecedor": "Alimentação",
+        "item": "Refeição com outras carnes (porção)",
+        "descricao": "Almoço",
+        "quantidade": 600,
+        "premissa": "Cardápio inicial",
+        "esperado": {
+          "unidade": "porção",
+          "categoria": "5 Alimentação",
+          "escopo": "3",
+          "tco2eCo2": 1.0248,
+          "tco2eCh4": 0,
+          "tco2eN2o": 0,
+          "total": 1.0248,
+          "biogenico": 0,
+          "alerta": "OK"
+        }
+      },
+      {
+        "fornecedor": "Alimentação",
+        "item": "Coffee break ou lanche (porção)",
+        "descricao": "Coffee break",
+        "quantidade": 2400,
+        "premissa": "2 por pessoa por dia",
+        "esperado": {
+          "unidade": "porção",
+          "categoria": "5 Alimentação",
+          "escopo": "3",
+          "tco2eCo2": 2.4768,
+          "tco2eCh4": 0,
+          "tco2eN2o": 0,
+          "total": 2.4768,
+          "biogenico": 0,
+          "alerta": "OK"
+        }
+      },
+      {
+        "fornecedor": "Montagem, cenografia e gráfica",
+        "item": "Plástico, lona, PVC, adesivo e TNT (kg)",
+        "descricao": "Comunicação visual: lona, adesivo, banner",
+        "quantidade": 350,
+        "premissa": "Proposta da cenografia",
+        "esperado": {
+          "unidade": "kg",
+          "categoria": "6 Materiais",
+          "escopo": "3",
+          "tco2eCo2": 1.10985,
+          "tco2eCh4": 0,
+          "tco2eN2o": 0,
+          "total": 1.10985,
+          "biogenico": 0,
+          "alerta": "OK"
+        }
+      },
+      {
+        "fornecedor": "Montagem, cenografia e gráfica",
+        "item": "Papel e impressos (kg)",
+        "descricao": "Impressos: programação e certificados",
+        "quantidade": 120,
+        "premissa": "Proposta da gráfica",
+        "esperado": {
+          "unidade": "kg",
+          "categoria": "6 Materiais",
+          "escopo": "3",
+          "tco2eCo2": 0.15444,
+          "tco2eCh4": 0,
+          "tco2eN2o": 0,
+          "total": 0.15444,
+          "biogenico": 0,
+          "alerta": "OK"
+        }
+      },
+      {
+        "fornecedor": "Transportadora",
+        "item": "Caminhão articulado - média (tonelada.km)",
+        "descricao": "Transporte de estruturas",
+        "quantidade": 14400,
+        "premissa": "8 t × 900 km, ida e volta",
+        "esperado": {
+          "unidade": "tonelada.km",
+          "categoria": "7 Frete",
+          "escopo": "3",
+          "tco2eCo2": 1.149504418,
+          "tco2eCh4": 0.00225957312,
+          "tco2eN2o": 0.0115151616,
+          "total": 1.163279153,
+          "biogenico": 0,
+          "alerta": "OK"
+        }
+      },
+      {
+        "fornecedor": "Limpeza e coleta de resíduos",
+        "item": "Resíduo enviado a aterro (kg)",
+        "descricao": "Rejeito",
+        "quantidade": 700,
+        "premissa": "Cerca de 0,35 kg por participante-dia, maior parte para aterro",
+        "esperado": {
+          "unidade": "kg",
+          "categoria": "8 Resíduos",
+          "escopo": "3",
+          "tco2eCo2": 0.3647,
+          "tco2eCh4": 0,
+          "tco2eN2o": 0,
+          "total": 0.3647,
+          "biogenico": 0,
+          "alerta": "OK"
+        }
+      },
+      {
+        "fornecedor": "Limpeza e coleta de resíduos",
+        "item": "Resíduo enviado a reciclagem (kg)",
+        "descricao": "Recicláveis",
+        "quantidade": 200,
+        "premissa": "Edição anterior",
+        "esperado": {
+          "unidade": "kg",
+          "categoria": "8 Resíduos",
+          "escopo": "3",
+          "tco2eCo2": 0.00093,
+          "tco2eCh4": 0,
+          "tco2eN2o": 0,
+          "total": 0.00093,
+          "biogenico": 0,
+          "alerta": "OK"
+        }
+      },
+      {
+        "fornecedor": "Plataforma de transmissão",
+        "item": "Transmissão online (espectador.hora)",
+        "descricao": "Transmissão ao vivo",
+        "quantidade": 1500,
+        "premissa": "250 espectadores × 6 h",
+        "esperado": {
+          "unidade": "espectador.hora",
+          "categoria": "9 Digital",
+          "escopo": "3",
+          "tco2eCo2": 0.0825,
+          "tco2eCh4": 0,
+          "tco2eN2o": 0,
+          "total": 0.0825,
+          "biogenico": 0,
+          "alerta": "OK"
+        }
+      }
+    ],
+    "totais": {
+      "co2": 64.98835205,
+      "ch4": 0.03863053258,
+      "n2o": 0.5541700951,
+      "total": 65.58115267,
+      "biogenico": 0,
+      "porCategoria": {
+        "1 Energia": 1.84386063,
+        "2 Deslocamento": 38.43328632,
+        "3 Transporte no destino": 0.3195065718,
+        "4 Hospedagem": 3.654,
+        "5 Alimentação": 18.4548,
+        "6 Materiais": 1.26429,
+        "7 Frete": 1.163279153,
+        "8 Resíduos": 0.36563,
+        "9 Digital": 0.0825,
+        "10 Fugitivas": 0
+      },
+      "porEscopo": [
+        1.42911093,
+        0.4147497,
+        63.73729204
+      ]
+    },
+    "mensagemNivel": "NÍVEL 3: escolha o item na coluna B e digite a quantidade na coluna D. Escreva de onde veio cada número na coluna P. Neste nível, separe a estimativa por categoria e trate primeiro as que mais pesam."
+  },
+  "exPost": {
+    "linhas": [
+      {
+        "fornecedor": "Local do evento",
+        "item": "Energia elétrica da rede (kWh)",
+        "descricao": "Consumo do local do evento",
+        "quantidade": 8200,
+        "premissa": null,
+        "esperado": {
+          "unidade": "kWh",
+          "categoria": "1 Energia",
+          "escopo": "2",
+          "tco2eCo2": 0.37788306,
+          "tco2eCh4": 0,
+          "tco2eN2o": 0,
+          "total": 0.37788306,
+          "biogenico": 0,
+          "alerta": "OK"
+        },
+        "qualidade": "5 - Medição própria",
+        "evidencia": "leituras_medidor_energia.pdf"
+      },
+      {
+        "fornecedor": "Locadora de gerador",
+        "item": "Diesel em gerador (litro)",
+        "descricao": "Gerador de apoio",
+        "quantidade": 410,
+        "premissa": null,
+        "esperado": {
+          "unidade": "litro",
+          "categoria": "1 Energia",
+          "escopo": "1",
+          "tco2eCo2": 1.078672314,
+          "tco2eCh4": 0.004077788988,
+          "tco2eN2o": 0.002315603125,
+          "total": 1.085065706,
+          "biogenico": 0,
+          "alerta": "OK"
+        },
+        "qualidade": "4 - Documento do fornecedor",
+        "evidencia": "nf_diesel_gerador.pdf"
+      },
+      {
+        "fornecedor": "Agência de viagens",
+        "item": "Avião - trecho médio, 500 a 3.700 km (passageiro.km)",
+        "descricao": "Participantes",
+        "quantidade": 361000,
+        "premissa": "Quadro 7 da aba COLETA",
+        "esperado": {
+          "unidade": "passageiro.km",
+          "categoria": "2 Deslocamento",
+          "escopo": "3",
+          "tco2eCo2": 26.95226,
+          "tco2eCh4": 0.0036095668,
+          "tco2eN2o": 0.3321201805,
+          "total": 27.28798975,
+          "biogenico": 0,
+          "alerta": "OK"
+        },
+        "qualidade": "4 - Documento do fornecedor",
+        "evidencia": "relatorio_bilhetes_agencia.xlsx"
+      },
+      {
+        "fornecedor": "Agência de viagens",
+        "item": "Avião - trecho longo, acima de 3.700 km (passageiro.km)",
+        "descricao": "Palestrantes e convidados",
+        "quantidade": 94800,
+        "premissa": null,
+        "esperado": {
+          "unidade": "passageiro.km",
+          "categoria": "2 Deslocamento",
+          "escopo": "3",
+          "tco2eCo2": 8.449524,
+          "tco2eCh4": 0.00094788624,
+          "tco2eN2o": 0.1222913838,
+          "total": 8.57276327,
+          "biogenico": 0,
+          "alerta": "OK"
+        },
+        "qualidade": "4 - Documento do fornecedor",
+        "evidencia": "relatorio_bilhetes_agencia.xlsx"
+      },
+      {
+        "fornecedor": "Agência de viagens",
+        "item": "Ônibus rodoviário ou fretado (passageiro.km)",
+        "descricao": "Participantes",
+        "quantidade": 47400,
+        "premissa": "Quadro 7 da aba COLETA, com base nas respostas da inscrição",
+        "esperado": {
+          "unidade": "passageiro.km",
+          "categoria": "2 Deslocamento",
+          "escopo": "3",
+          "tco2eCo2": 1.346639513,
+          "tco2eCh4": 0.0026471004,
+          "tco2eN2o": 0.013490514,
+          "total": 1.362777127,
+          "biogenico": 0,
+          "alerta": "OK"
+        },
+        "qualidade": "3 - Fonte secundaria",
+        "evidencia": "pesquisa_mobilidade_inscricao.xlsx"
+      },
+      {
+        "fornecedor": "Transporte no destino",
+        "item": "Carro a gasolina (litro)",
+        "descricao": "Participantes",
+        "quantidade": 1200,
+        "premissa": "800 L do quadro 7 (Uberlândia) + 400 L estimados para o público local de carro: 130 pessoas ÷ 2,2 por carro = 59 carros × 3 dias × 25 km ÷ 11 km/L",
+        "esperado": {
+          "unidade": "litro",
+          "categoria": "2 Deslocamento",
+          "escopo": "3",
+          "tco2eCo2": 2.686907657,
+          "tco2eCh4": 0.01867184256,
+          "tco2eN2o": 0.0770562336,
+          "total": 2.782635733,
+          "biogenico": 0,
+          "alerta": "OK"
+        },
+        "qualidade": "2 - Média ou proxy",
+        "evidencia": "pesquisa_mobilidade_inscricao.xlsx"
+      },
+      {
+        "fornecedor": "Transporte no destino",
+        "item": "Ônibus fretado - por litro de diesel",
+        "descricao": "Traslado entre hospedagem e local do evento",
+        "quantidade": 95,
+        "premissa": null,
+        "esperado": {
+          "unidade": "litro",
+          "categoria": "3 Transporte no destino",
+          "escopo": "3",
+          "tco2eCo2": 0.2499475161,
+          "tco2eCh4": 0.000491323812,
+          "tco2eN2o": 0.002503862703,
+          "total": 0.2529427026,
+          "biogenico": 0,
+          "alerta": "OK"
+        },
+        "qualidade": "4 - Documento do fornecedor",
+        "evidencia": "nf_fretamento.pdf"
+      },
+      {
+        "fornecedor": "Hotéis",
+        "item": "Diária de hospedagem (diária)",
+        "descricao": "Participantes",
+        "quantidade": 395,
+        "premissa": null,
+        "esperado": {
+          "unidade": "diária",
+          "categoria": "4 Hospedagem",
+          "escopo": "3",
+          "tco2eCo2": 3.4365,
+          "tco2eCh4": 0,
+          "tco2eN2o": 0,
+          "total": 3.4365,
+          "biogenico": 0,
+          "alerta": "OK"
+        },
+        "qualidade": "4 - Documento do fornecedor",
+        "evidencia": "relatorio_hoteis.pdf"
+      },
+      {
+        "fornecedor": "Alimentação",
+        "item": "Refeição com carne bovina (porção)",
+        "descricao": "Almoço",
+        "quantidade": 700,
+        "premissa": null,
+        "esperado": {
+          "unidade": "porção",
+          "categoria": "5 Alimentação",
+          "escopo": "3",
+          "tco2eCo2": 8.7227,
+          "tco2eCh4": 0,
+          "tco2eN2o": 0,
+          "total": 8.7227,
+          "biogenico": 0,
+          "alerta": "OK"
+        },
+        "qualidade": "4 - Documento do fornecedor",
+        "evidencia": "relatorio_buffet.pdf"
+      },
+      {
+        "fornecedor": "Alimentação",
+        "item": "Refeição com outras carnes (porção)",
+        "descricao": "Almoço",
+        "quantidade": 500,
+        "premissa": null,
+        "esperado": {
+          "unidade": "porção",
+          "categoria": "5 Alimentação",
+          "escopo": "3",
+          "tco2eCo2": 0.854,
+          "tco2eCh4": 0,
+          "tco2eN2o": 0,
+          "total": 0.854,
+          "biogenico": 0,
+          "alerta": "OK"
+        },
+        "qualidade": "4 - Documento do fornecedor",
+        "evidencia": "relatorio_buffet.pdf"
+      },
+      {
+        "fornecedor": "Alimentação",
+        "item": "Refeição vegetariana (porção)",
+        "descricao": "Almoço",
+        "quantidade": 600,
+        "premissa": null,
+        "esperado": {
+          "unidade": "porção",
+          "categoria": "5 Alimentação",
+          "escopo": "3",
+          "tco2eCo2": 0.5196,
+          "tco2eCh4": 0,
+          "tco2eN2o": 0,
+          "total": 0.5196,
+          "biogenico": 0,
+          "alerta": "OK"
+        },
+        "qualidade": "4 - Documento do fornecedor",
+        "evidencia": "relatorio_buffet.pdf"
+      },
+      {
+        "fornecedor": "Alimentação",
+        "item": "Coffee break ou lanche (porção)",
+        "descricao": "Coffee break",
+        "quantidade": 2300,
+        "premissa": "Inclui a padaria subcontratada",
+        "esperado": {
+          "unidade": "porção",
+          "categoria": "5 Alimentação",
+          "escopo": "3",
+          "tco2eCo2": 2.3736,
+          "tco2eCh4": 0,
+          "tco2eN2o": 0,
+          "total": 2.3736,
+          "biogenico": 0,
+          "alerta": "OK"
+        },
+        "qualidade": "4 - Documento do fornecedor",
+        "evidencia": "relatorio_buffet.pdf"
+      },
+      {
+        "fornecedor": "Montagem, cenografia e gráfica",
+        "item": "Plástico, lona, PVC, adesivo e TNT (kg)",
+        "descricao": "Comunicação visual: lona, adesivo, banner",
+        "quantidade": 280,
+        "premissa": "Madeira reutilizada de outro evento não entra na conta",
+        "esperado": {
+          "unidade": "kg",
+          "categoria": "6 Materiais",
+          "escopo": "3",
+          "tco2eCo2": 0.88788,
+          "tco2eCh4": 0,
+          "tco2eN2o": 0,
+          "total": 0.88788,
+          "biogenico": 0,
+          "alerta": "OK"
+        },
+        "qualidade": "4 - Documento do fornecedor",
+        "evidencia": "memorial_cenografia.pdf"
+      },
+      {
+        "fornecedor": "Montagem, cenografia e gráfica",
+        "item": "Papel e impressos (kg)",
+        "descricao": "Impressos: programação e certificados",
+        "quantidade": 90,
+        "premissa": null,
+        "esperado": {
+          "unidade": "kg",
+          "categoria": "6 Materiais",
+          "escopo": "3",
+          "tco2eCo2": 0.11583,
+          "tco2eCh4": 0,
+          "tco2eN2o": 0,
+          "total": 0.11583,
+          "biogenico": 0,
+          "alerta": "OK"
+        },
+        "qualidade": "4 - Documento do fornecedor",
+        "evidencia": "nf_grafica.pdf"
+      },
+      {
+        "fornecedor": "Transportadora",
+        "item": "Caminhão articulado - média (tonelada.km)",
+        "descricao": "Transporte de estruturas",
+        "quantidade": 14400,
+        "premissa": null,
+        "esperado": {
+          "unidade": "tonelada.km",
+          "categoria": "7 Frete",
+          "escopo": "3",
+          "tco2eCo2": 1.149504418,
+          "tco2eCh4": 0.00225957312,
+          "tco2eN2o": 0.0115151616,
+          "total": 1.163279153,
+          "biogenico": 0,
+          "alerta": "OK"
+        },
+        "qualidade": "4 - Documento do fornecedor",
+        "evidencia": "cte_transporte.pdf"
+      },
+      {
+        "fornecedor": "Limpeza e coleta de resíduos",
+        "item": "Resíduo enviado a aterro (kg)",
+        "descricao": "Rejeito",
+        "quantidade": 380,
+        "premissa": "236 kg pesados + 144 kg estimados no último dia (ver OCORRÊNCIAS)",
+        "esperado": {
+          "unidade": "kg",
+          "categoria": "8 Resíduos",
+          "escopo": "3",
+          "tco2eCo2": 0.19798,
+          "tco2eCh4": 0,
+          "tco2eN2o": 0,
+          "total": 0.19798,
+          "biogenico": 0,
+          "alerta": "OK"
+        },
+        "qualidade": "5 - Medição própria",
+        "evidencia": "pesagem_mtr.pdf"
+      },
+      {
+        "fornecedor": "Limpeza e coleta de resíduos",
+        "item": "Resíduo enviado a reciclagem (kg)",
+        "descricao": "Recicláveis",
+        "quantidade": 420,
+        "premissa": null,
+        "esperado": {
+          "unidade": "kg",
+          "categoria": "8 Resíduos",
+          "escopo": "3",
+          "tco2eCo2": 0.001953,
+          "tco2eCh4": 0,
+          "tco2eN2o": 0,
+          "total": 0.001953,
+          "biogenico": 0,
+          "alerta": "OK"
+        },
+        "qualidade": "5 - Medição própria",
+        "evidencia": "pesagem_mtr.pdf"
+      },
+      {
+        "fornecedor": "Limpeza e coleta de resíduos",
+        "item": "Resíduo enviado a compostagem (kg)",
+        "descricao": "Orgânicos",
+        "quantidade": 150,
+        "premissa": null,
+        "esperado": {
+          "unidade": "kg",
+          "categoria": "8 Resíduos",
+          "escopo": "3",
+          "tco2eCo2": 0.0013515,
+          "tco2eCh4": 0,
+          "tco2eN2o": 0,
+          "total": 0.0013515,
+          "biogenico": 0,
+          "alerta": "OK"
+        },
+        "qualidade": "5 - Medição própria",
+        "evidencia": "pesagem_mtr.pdf"
+      },
+      {
+        "fornecedor": "Plataforma de transmissão",
+        "item": "Transmissão online (espectador.hora)",
+        "descricao": "Transmissão ao vivo",
+        "quantidade": 1700,
+        "premissa": null,
+        "esperado": {
+          "unidade": "espectador.hora",
+          "categoria": "9 Digital",
+          "escopo": "3",
+          "tco2eCo2": 0.0935,
+          "tco2eCh4": 0,
+          "tco2eN2o": 0,
+          "total": 0.0935,
+          "biogenico": 0,
+          "alerta": "OK"
+        },
+        "qualidade": "4 - Documento do fornecedor",
+        "evidencia": "relatorio_audiencia.pdf"
+      }
+    ],
+    "totais": {
+      "co2": 59.49623298,
+      "ch4": 0.03270508192,
+      "n2o": 0.5612929393,
+      "total": 60.090231,
+      "biogenico": 0,
+      "porCategoria": {
+        "1 Energia": 1.462948766,
+        "2 Deslocamento": 40.00616588,
+        "3 Transporte no destino": 0.2529427026,
+        "4 Hospedagem": 3.4365,
+        "5 Alimentação": 12.4699,
+        "6 Materiais": 1.00371,
+        "7 Frete": 1.163279153,
+        "8 Resíduos": 0.2012845,
+        "9 Digital": 0.0935,
+        "10 Fugitivas": 0
+      },
+      "porEscopo": [
+        1.085065706,
+        0.37788306,
+        58.62728223
+      ]
+    },
+    "mensagemNivel": "NÍVEL 3: item, quantidade e qualidade do dado são obrigatórios. Toda estimativa (nota 2 ou menos) exige a premissa. A evidência é obrigatória, toda fonte com 5% ou mais do total exige dado medido e o fator precisa estar definido."
+  }
+}

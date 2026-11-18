@@ -42,6 +42,33 @@ import type {
   confirmarSchema,
   marcarRequisitoSchema,
 } from "@/servidor/servicos/governanca.server";
+import {
+  listarBases,
+  obterBase,
+  criarVersaoDaBase,
+  alterarFator,
+  definirFatorSin,
+  publicarBase,
+  excluirRascunho,
+  definirBaseDoEvento,
+  obterInventario,
+  salvarInventario,
+  fecharInventario,
+  obterColeta,
+  salvarColeta,
+  lancarColetaNoInventario,
+  listarFornecedores,
+  salvarFornecedor,
+  removerFornecedor,
+} from "@/servidor/servicos/inventario.server";
+import type {
+  novaVersaoSchema,
+  alteracaoDeFatorSchema,
+  sinSchema,
+  salvarInventarioSchema,
+  salvarColetaSchema,
+  salvarFornecedorSchema,
+} from "@/servidor/servicos/inventario.server";
 import type { DadosDoEvento } from "@/domain/evento";
 
 // Sessão e usuários ----------------------------------------------------
@@ -146,3 +173,95 @@ export const auditoriaListar = createServerFn({ method: "POST" })
   .middleware([autenticado])
   .validator((d: { eventoId: string | null }) => d)
   .handler(({ context, data }) => listarAuditoria(context.usuarioId, data.eventoId ?? null));
+
+// Etapa 2: base de fatores, inventário, coleta e fornecedores ----------
+
+export const basesListar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .handler(({ context }) => listarBases(context.usuarioId));
+
+export const baseObter = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { id: string }) => d)
+  .handler(({ context, data }) => obterBase(context.usuarioId, data.id));
+
+export const baseCriarVersao = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: z.input<typeof novaVersaoSchema>) => d)
+  .handler(({ context, data }) => criarVersaoDaBase(context.usuarioId, data));
+
+export const fatorAlterar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: z.input<typeof alteracaoDeFatorSchema>) => d)
+  .handler(({ context, data }) => alterarFator(context.usuarioId, data));
+
+export const fatorSinDefinir = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: z.input<typeof sinSchema>) => d)
+  .handler(({ context, data }) => definirFatorSin(context.usuarioId, data));
+
+export const basePublicar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { id: string }) => d)
+  .handler(({ context, data }) => publicarBase(context.usuarioId, data.id));
+
+export const baseExcluirRascunho = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { id: string }) => d)
+  .handler(({ context, data }) => excluirRascunho(context.usuarioId, data.id));
+
+export const eventoDefinirBase = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { eventoId: string; baseId: string }) => d)
+  .handler(({ context, data }) =>
+    definirBaseDoEvento(context.usuarioId, data.eventoId, data.baseId),
+  );
+
+export const inventarioObter = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { eventoId: string; etapa: "ex_ante" | "ex_post" }) => d)
+  .handler(({ context, data }) => obterInventario(context.usuarioId, data.eventoId, data.etapa));
+
+export const inventarioSalvar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: z.input<typeof salvarInventarioSchema>) => d)
+  .handler(({ context, data }) => salvarInventario(context.usuarioId, data));
+
+export const inventarioFechar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { eventoId: string; etapa: "ex_ante" | "ex_post"; versao: number }) => d)
+  .handler(({ context, data }) =>
+    fecharInventario(context.usuarioId, data.eventoId, data.etapa, data.versao),
+  );
+
+export const coletaObter = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { eventoId: string; etapa: "ex_ante" | "ex_post" }) => d)
+  .handler(({ context, data }) => obterColeta(context.usuarioId, data.eventoId, data.etapa));
+
+export const coletaSalvar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: z.input<typeof salvarColetaSchema>) => d)
+  .handler(({ context, data }) => salvarColeta(context.usuarioId, data));
+
+export const coletaLancar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { eventoId: string; etapa: "ex_ante" | "ex_post" }) => d)
+  .handler(({ context, data }) =>
+    lancarColetaNoInventario(context.usuarioId, data.eventoId, data.etapa),
+  );
+
+export const fornecedoresListar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { eventoId: string; hoje: string }) => d)
+  .handler(({ context, data }) => listarFornecedores(context.usuarioId, data.eventoId, data.hoje));
+
+export const fornecedorSalvar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: z.input<typeof salvarFornecedorSchema>) => d)
+  .handler(({ context, data }) => salvarFornecedor(context.usuarioId, data));
+
+export const fornecedorRemover = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { eventoId: string; id: string }) => d)
+  .handler(({ context, data }) => removerFornecedor(context.usuarioId, data.eventoId, data.id));

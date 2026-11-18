@@ -7,7 +7,8 @@ exceto onde indicado.
    `'4 - RESULTADOS'!E41="OK"`, mas E41 é o texto fixo "Não há mínimo exigido". *(Afeta a
    Etapa 5; ainda não implementado.)*
 2. **Código de fator repetido** — `E04` aparece para GLP e para energia solar (aba FATORES).
-   *(Afeta a Etapa 2.)*
+   No sistema o item é identificado pelo nome (como a própria planilha faz nas buscas), e o
+   código fica só como referência.
 3. **Elevação técnica sem justificativa** — na planilha o nível já sobe e C99 só avisa. No
    sistema o cálculo é o mesmo, mas **a confirmação do enquadramento fica bloqueada** até haver
    justificativa.
@@ -26,3 +27,15 @@ exceto onde indicado.
 - A identificação do evento (nome, instituição, cidade, datas) é digitada uma vez, no
   cadastro, como pede a planilha.
 - A fase (pré-evento, execução, pós-evento) é derivada das datas.
+
+## Decisões de implementação da Etapa 2
+
+- Os textos de alerta que citavam "a aba FATORES" passaram a citar "a base de fatores".
+- A coleta é guardada por etapa (previsão para o ex-ante; a do ex-post virá na Etapa 4). O
+  botão "Lançar" leva o resumo ao inventário: atualiza as linhas que vieram da coleta e
+  acrescenta as que faltam, sem tocar nas digitadas à mão.
+- No quadro 1, se houver leituras do medidor e a parcela atribuída ao evento estiver vazia, o
+  consumo conta zero, como na planilha; o sistema mostra uma pendência avisando disso.
+- Fechar o ex-ante exige que não haja alertas e preserva o resultado e a base usada.
+- A base de fatores do evento pode ser trocada pelo gestor só enquanto nenhum inventário
+  estiver fechado ("nunca no meio de um evento").
