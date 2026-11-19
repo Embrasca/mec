@@ -50,6 +50,13 @@ export async function listarEventos(atorId: string, incluirArquivados = false) {
   );
 }
 
+/** Eventos ativos visíveis a quem consulta, dentro de uma transação já aberta. */
+export async function lerEventosAtivos(sql: Sql): Promise<EventoResumo[]> {
+  return sql<EventoResumo>(
+    `select ${COLUNAS} from eventos e where e.arquivado_em is null order by e.data_inicio desc, lower(e.nome)`,
+  );
+}
+
 /** Carrega o evento ou falha. A RLS esconde o que a pessoa não pode ver. */
 export async function eventoVisivel(sql: Sql, eventoId: string): Promise<EventoResumo> {
   const [e] = await sql<EventoResumo>(`select ${COLUNAS} from eventos e where e.id = $1`, [

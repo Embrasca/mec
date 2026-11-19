@@ -236,6 +236,7 @@ export function Shell({ evento, children }: { evento?: EventoResumo; children: R
 
   const global: ItemDeMenu[] = [
     { to: "/eventos", label: "Portfólio de eventos", icon: LayoutGrid, exact: true },
+    { to: "/painel", label: "Painel gerencial", icon: BarChart3, exact: true },
     { to: "/instrucoes", label: "Instruções", icon: BookOpen, exact: true },
     { to: "/fatores", label: "Base de fatores", icon: Library },
   ];

@@ -59,7 +59,12 @@ export default defineConfig({
   // propósito enquanto o Nitro 3 não sai do beta. Sem esta conversão o
   // `bun run typecheck` quebra, embora a build passe. É ajuste de tipo, não
   // muda o que é construído.
-  nitro: { inlineDynamicImports: true } as unknown as { preset?: string },
+  // Na Vercel, as funções rodam em São Paulo (gru1), ao lado do banco Neon
+  // (sa-east-1): cada consulta evita a ida e volta até os Estados Unidos.
+  nitro: {
+    inlineDynamicImports: true,
+    vercel: { functions: { regions: ["gru1"] } },
+  } as unknown as { preset?: string },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this

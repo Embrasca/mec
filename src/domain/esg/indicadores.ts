@@ -111,6 +111,8 @@ export interface IndicadorCalculado extends DefinicaoDoIndicador {
   detalhes: [string, string][];
   pendencias: string[];
   justificativa: string | null;
+  /** Valor numérico, para metas e comparações (percentuais em fração de 0 a 1). */
+  numero: number | null;
 }
 
 const fmt = (v: number, casas = 1) =>
@@ -129,7 +131,7 @@ export function nps(notas: number[]): number | null {
 export function calcularIndicadores(d: DadosEsg): IndicadorCalculado[] {
   const r: Record<
     string,
-    Omit<IndicadorCalculado, keyof DefinicaoDoIndicador | "justificativa">
+    Omit<IndicadorCalculado, keyof DefinicaoDoIndicador | "justificativa" | "numero">
   > = {};
   const ok = (
     valor: string | null,
@@ -474,8 +476,18 @@ export function calcularIndicadores(d: DadosEsg): IndicadorCalculado[] {
       : null,
   );
 
+  const numeros: Record<string, number | null> = {
+    ML2: pessoas > 0 ? soma(eq.map((e) => e.pessoasLocais)) / pessoas : null,
+    CS1: fs.length ? contar(fs, local) / fs.length : null,
+    CS2: total$ > 0 ? local$ / total$ : null,
+    CS6: fs.length ? contar(fs, diligente) / fs.length : null,
+    PS1: rs.length && d.participantes ? rs.length / d.participantes : null,
+    PS2: media(sat),
+    PS3: d.npsHabilitado ? nps(notasNps) : null,
+  };
   return INDICADORES.map((i) => {
     const calc = r[i.id]!;
+    const numero = calc.situacao === "ok" ? (numeros[i.id] ?? null) : null;
     const nsa = d.registro.naoSeAplica[i.id];
     if (nsa && calc.situacao !== "ok")
       return {
@@ -484,6 +496,7 @@ export function calcularIndicadores(d: DadosEsg): IndicadorCalculado[] {
         situacao: "nao_se_aplica",
         pendencias: [],
         justificativa: nsa.justificativa,
+        numero: null,
       };
     return {
       ...i,
@@ -492,6 +505,7 @@ export function calcularIndicadores(d: DadosEsg): IndicadorCalculado[] {
       situacao: !i.essencial && calc.situacao === "pendente" ? "sem_dados" : calc.situacao,
       pendencias: i.essencial ? calc.pendencias : [],
       justificativa: null,
+      numero,
     };
   });
 }

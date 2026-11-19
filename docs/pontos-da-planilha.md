@@ -129,3 +129,19 @@ Os 27 indicadores propostos foram aprovados sem retirada. As decisões e coment�
 - O relatório ganhou a seção "9. Indicadores ESG", a aba "Indicadores ESG" no XLSX e os
   conteúdos GRI 2-7, 2-8, 202, 204-1, 308-1, 403-9, 404-1, 405-1, 413-1 e 414-1 na
   correspondência.
+
+## Decisões de implementação da Etapa 7
+
+- **Painel gerencial** (menu "Painel gerencial"): mostra só os eventos que a pessoa pode ver,
+  filtrados pelo ano de início. Números do portfólio, pendências de gestão (ações atrasadas,
+  ocorrências abertas, fornecedores com prazo vencido, eventos encerrados com o ex-post aberto
+  ou com ESG essencial pendente), metas e a tabela de eventos.
+- **Comparativo por intensidade**: kgCO₂e por participante-dia, como a aba 4, porque o total
+  favoreceria os eventos menores. Sem ex-post, aparece a estimativa ex-ante em tom mais claro,
+  com legenda. Só a soma dos ex-post fechados entra como "emissões oficiais".
+- **Metas do portfólio**: definidas pela administração, por ano, a partir de indicadores que o
+  sistema já calcula (intensidade, diferença do previsto, dado primário, mão de obra local,
+  gasto local, satisfação). Valem para os eventos que começam naquele ano. Intensidade e dado
+  primário só contam com o ex-post.
+- **Desempenho**: as funções da Vercel passaram a rodar em São Paulo (`gru1`), na mesma região
+  do banco Neon (`sa-east-1`).

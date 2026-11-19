@@ -7,6 +7,8 @@
 import { createServerFn } from "@tanstack/react-start";
 import type { z } from "zod";
 import { autenticado, publico } from "./middleware";
+import { obterPainel, salvarMeta, removerMeta } from "@/servidor/servicos/painel.server";
+import type { salvarMetaSchema } from "@/servidor/servicos/painel.server";
 import {
   obterEsg,
   salvarItem,
@@ -510,3 +512,20 @@ export const anexoRemover = createServerFn({ method: "POST" })
   .middleware([autenticado])
   .validator((d: { eventoId: string; id: string }) => d)
   .handler(({ context, data }) => removerAnexo(context.usuarioId, data.eventoId, data.id));
+
+// Etapa 7: painel gerencial
+
+export const painelObter = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { hoje: string }) => d)
+  .handler(({ context, data }) => obterPainel(context.usuarioId, data.hoje));
+
+export const metaSalvar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: z.input<typeof salvarMetaSchema>) => d)
+  .handler(({ context, data }) => salvarMeta(context.usuarioId, data));
+
+export const metaRemover = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { id: string }) => d)
+  .handler(({ context, data }) => removerMeta(context.usuarioId, data.id));

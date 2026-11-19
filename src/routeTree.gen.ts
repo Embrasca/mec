@@ -14,6 +14,7 @@ import { Route as AppRouteImport } from './routes/_app'
 import { Route as RedefinirSenhaRouteImport } from './routes/redefinir-senha'
 import { Route as AppEventosRouteImport } from './routes/_app.eventos'
 import { Route as AppInstrucoesRouteImport } from './routes/_app.instrucoes'
+import { Route as AppPainelRouteImport } from './routes/_app.painel'
 import { Route as PesquisaTokenRouteImport } from './routes/pesquisa.$token'
 import { Route as AppAdminAuditoriaRouteImport } from './routes/_app.admin.auditoria'
 import { Route as AppAdminUsuariosRouteImport } from './routes/_app.admin.usuarios'
@@ -69,6 +70,11 @@ const AppEventosRoute = AppEventosRouteImport.update({
 const AppInstrucoesRoute = AppInstrucoesRouteImport.update({
   id: '/instrucoes',
   path: '/instrucoes',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPainelRoute = AppPainelRouteImport.update({
+  id: '/painel',
+  path: '/painel',
   getParentRoute: () => AppRoute,
 } as any)
 const PesquisaTokenRoute = PesquisaTokenRouteImport.update({
@@ -245,6 +251,7 @@ export interface FileRoutesByFullPath {
   '/redefinir-senha': typeof RedefinirSenhaRoute
   '/eventos': typeof AppEventosRoute
   '/instrucoes': typeof AppInstrucoesRoute
+  '/painel': typeof AppPainelRoute
   '/pesquisa/$token': typeof PesquisaTokenRoute
   '/admin/auditoria': typeof AppAdminAuditoriaRoute
   '/admin/usuarios': typeof AppAdminUsuariosRoute
@@ -283,6 +290,7 @@ export interface FileRoutesByTo {
   '/redefinir-senha': typeof RedefinirSenhaRoute
   '/eventos': typeof AppEventosRoute
   '/instrucoes': typeof AppInstrucoesRoute
+  '/painel': typeof AppPainelRoute
   '/pesquisa/$token': typeof PesquisaTokenRoute
   '/admin/auditoria': typeof AppAdminAuditoriaRoute
   '/admin/usuarios': typeof AppAdminUsuariosRoute
@@ -322,6 +330,7 @@ export interface FileRoutesById {
   '/redefinir-senha': typeof RedefinirSenhaRoute
   '/_app/eventos': typeof AppEventosRoute
   '/_app/instrucoes': typeof AppInstrucoesRoute
+  '/_app/painel': typeof AppPainelRoute
   '/pesquisa/$token': typeof PesquisaTokenRoute
   '/_app/admin/auditoria': typeof AppAdminAuditoriaRoute
   '/_app/admin/usuarios': typeof AppAdminUsuariosRoute
@@ -362,6 +371,7 @@ export interface FileRouteTypes {
     | '/redefinir-senha'
     | '/eventos'
     | '/instrucoes'
+    | '/painel'
     | '/pesquisa/$token'
     | '/admin/auditoria'
     | '/admin/usuarios'
@@ -400,6 +410,7 @@ export interface FileRouteTypes {
     | '/redefinir-senha'
     | '/eventos'
     | '/instrucoes'
+    | '/painel'
     | '/pesquisa/$token'
     | '/admin/auditoria'
     | '/admin/usuarios'
@@ -438,6 +449,7 @@ export interface FileRouteTypes {
     | '/redefinir-senha'
     | '/_app/eventos'
     | '/_app/instrucoes'
+    | '/_app/painel'
     | '/pesquisa/$token'
     | '/_app/admin/auditoria'
     | '/_app/admin/usuarios'
@@ -514,6 +526,13 @@ declare module '@tanstack/react-router' {
       path: '/instrucoes'
       fullPath: '/instrucoes'
       preLoaderRoute: typeof AppInstrucoesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/painel': {
+      id: '/_app/painel'
+      path: '/painel'
+      fullPath: '/painel'
+      preLoaderRoute: typeof AppPainelRouteImport
       parentRoute: typeof AppRoute
     }
     '/pesquisa/$token': {
@@ -809,6 +828,7 @@ const AppEEventoIdRouteWithChildren = AppEEventoIdRoute._addFileChildren(
 interface AppRouteChildren {
   AppEventosRoute: typeof AppEventosRoute
   AppInstrucoesRoute: typeof AppInstrucoesRoute
+  AppPainelRoute: typeof AppPainelRoute
   AppAdminAuditoriaRoute: typeof AppAdminAuditoriaRoute
   AppAdminUsuariosRoute: typeof AppAdminUsuariosRoute
   AppEEventoIdRoute: typeof AppEEventoIdRouteWithChildren
@@ -819,6 +839,7 @@ interface AppRouteChildren {
 const AppRouteChildren: AppRouteChildren = {
   AppEventosRoute: AppEventosRoute,
   AppInstrucoesRoute: AppInstrucoesRoute,
+  AppPainelRoute: AppPainelRoute,
   AppAdminAuditoriaRoute: AppAdminAuditoriaRoute,
   AppAdminUsuariosRoute: AppAdminUsuariosRoute,
   AppEEventoIdRoute: AppEEventoIdRouteWithChildren,

@@ -4,7 +4,7 @@ Gestão climática de eventos baseada na **Ferramenta de Cálculo de Emissões d
 O nível de exigência do evento (1 a 4) é calculado a partir da caracterização e passa a
 orientar o restante do sistema.
 
-## O que já existe (Etapas 0 a 6)
+## O que já existe (Etapas 0 a 7)
 
 | Área | O que faz |
 |---|---|
@@ -21,6 +21,7 @@ orientar o restante do sistema.
 | Pós-evento | Resultados (aba 4: números principais, materialidade, escopo e gás, qualidade e completude), comparação ex-ante × ex-post com origem do desvio (aba 5) e compensação (aba 6) |
 | Relatórios | Aba 7: resumo, frase permitida e aviso da alegação; versões preliminar e final congeladas com código SHA-256; correspondência com GHG Protocol, GRI e ISO 20121; memória de cálculo; PDF pela impressão e XLSX |
 | ESG além do GEE | 27 indicadores aprovados: mão de obra local, cadeia de suprimentos, responsabilidade social e pesquisa de satisfação (link público anônimo e importação de CSV); área local pelo IBGE; essenciais obrigatórios; anexos de evidência |
+| Painel gerencial | Portfólio consolidado por ano: emissões oficiais, pendências de gestão, metas do portfólio (definidas pela administração), comparativo por participante-dia e tabela de eventos |
 
 ### Papéis
 
