@@ -26,7 +26,19 @@ function Usuarios() {
     enabled: Boolean(perfil?.adminPlataforma),
   });
   const alterar = useMutation({
-    mutationFn: usuarioAlterar,
+    mutationFn: async (v: { id: string; adminPlataforma?: boolean; ativo?: boolean }) => {
+      // O papel no Neon Auth acompanha a administração da plataforma: sem ele,
+      // a pessoa promovida não consegue criar contas.
+      if (v.adminPlataforma !== undefined) {
+        const auth = await loadAuthClient(neonAuthUrl());
+        const r = await auth.admin.setRole({
+          userId: v.id,
+          role: v.adminPlataforma ? "admin" : "user",
+        });
+        if (r.error) throw new Error(mensagemDoProvedor(r.error));
+      }
+      return usuarioAlterar({ data: v });
+    },
     onSuccess: () => qc.invalidateQueries({ queryKey: ["usuarios"] }),
     onError: (e) => toast.error(e.message),
   });
@@ -73,9 +85,7 @@ function Usuarios() {
                               checked={u.adminPlataforma}
                               disabled={eu || alterar.isPending}
                               onChange={(e) =>
-                                alterar.mutate({
-                                  data: { id: u.id, adminPlataforma: e.target.checked },
-                                })
+                                alterar.mutate({ id: u.id, adminPlataforma: e.target.checked })
                               }
                             />
                           </td>
@@ -84,9 +94,7 @@ function Usuarios() {
                               size="sm"
                               variant="ghost"
                               disabled={eu || alterar.isPending}
-                              onClick={() =>
-                                alterar.mutate({ data: { id: u.id, ativo: !u.ativo } })
-                              }
+                              onClick={() => alterar.mutate({ id: u.id, ativo: !u.ativo })}
                             >
                               {u.ativo ? "Desativar" : "Reativar"}
                             </Button>
@@ -103,6 +111,16 @@ function Usuarios() {
       )}
     </Shell>
   );
+}
+
+/** Traduz as recusas do Neon Auth para mensagens em português. */
+function mensagemDoProvedor(e: { status?: number | undefined; code?: string | undefined }): string {
+  if (e.status === 401 || e.status === 403)
+    return "O Neon Auth recusou a operação: sua conta não tem o papel de administração lá. Saia e entre de novo; se continuar, fale com o suporte.";
+  if (e.code === "USER_ALREADY_EXISTS" || e.code === "USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL")
+    return "Já existe uma conta com este e-mail.";
+  if (e.code === "PASSWORD_TOO_SHORT") return "A senha provisória é curta demais.";
+  return "O Neon Auth recusou a operação. Tente novamente.";
 }
 
 function NovaConta() {
@@ -131,8 +149,7 @@ function NovaConta() {
       const id = criada.data?.user?.id;
       if (criada.error || !id)
         throw new Error(
-          criada.error?.message ??
-            "O provedor de identidade recusou o cadastro. Sua conta precisa do papel admin no Neon Auth.",
+          criada.error ? mensagemDoProvedor(criada.error) : "Não foi possível criar a conta.",
         );
       await usuarioRegistrar({ data: { id, email, nome, adminPlataforma: admin } });
       await qc.invalidateQueries({ queryKey: ["usuarios"] });
