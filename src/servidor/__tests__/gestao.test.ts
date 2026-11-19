@@ -186,7 +186,7 @@ describe("matriz e plano de ação", () => {
     const { id: outro } = await criarEvento(admin.id, {
       nome: "Outro",
       instituicao: "X",
-      cidade: "Y",
+      cidade: "Anápolis",
       uf: "GO",
       dataInicio: "2026-10-01",
       dataFim: "2026-10-02",

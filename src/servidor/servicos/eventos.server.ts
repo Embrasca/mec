@@ -11,6 +11,7 @@ export interface EventoResumo {
   instituicao: string;
   cidade: string;
   uf: string;
+  municipioIbge: number | null;
   dataInicio: string;
   dataFim: string;
   cor: string;
@@ -27,7 +28,7 @@ export interface EventoResumo {
 }
 
 const COLUNAS = `
-  e.id::text, e.nome, e.instituicao, e.cidade, e.uf,
+  e.id::text, e.nome, e.instituicao, e.cidade, e.uf, e.municipio_ibge as "municipioIbge",
   to_char(e.data_inicio, 'YYYY-MM-DD') as "dataInicio",
   to_char(e.data_fim, 'YYYY-MM-DD') as "dataFim",
   e.cor, e.descricao, e.nivel, e.metodologia,
@@ -75,8 +76,8 @@ export async function criarEvento(atorId: string, entrada: z.input<typeof novoEv
     if (!gestor) throw new ErroDeNegocio("Escolha um gestor com conta ativa.");
     const [criado] = await sql<{ id: string }>(
       `insert into eventos (nome, instituicao, cidade, uf, data_inicio, data_fim, cor, descricao,
-                            metodologia, criado_por, base_fatores_id)
-       values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,
+                            metodologia, criado_por, municipio_ibge, base_fatores_id)
+       values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,
                (select id from bases_fatores where situacao = 'publicada' order by publicada_em desc limit 1))
        returning id::text`,
       [
@@ -90,6 +91,7 @@ export async function criarEvento(atorId: string, entrada: z.input<typeof novoEv
         d.descricao,
         METODOLOGIA_ID,
         atorId,
+        d.municipioIbge,
       ],
     );
     await sql(
@@ -120,7 +122,7 @@ export async function atualizarEvento(
       throw new ErroDeNegocio("Apenas o gestor do evento pode alterar o cadastro.");
     await sql(
       `update eventos set nome=$2, instituicao=$3, cidade=$4, uf=$5, data_inicio=$6, data_fim=$7,
-              cor=$8, descricao=$9 where id=$1`,
+              cor=$8, descricao=$9, municipio_ibge=$10 where id=$1`,
       [
         eventoId,
         d.nome,
@@ -131,6 +133,7 @@ export async function atualizarEvento(
         d.dataFim,
         d.cor,
         d.descricao,
+        d.municipioIbge,
       ],
     );
     await auditar(sql, {

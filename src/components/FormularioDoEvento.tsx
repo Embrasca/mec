@@ -5,12 +5,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { acharMunicipio, municipiosDaUf } from "@/domain/territorio";
 
 export const EVENTO_VAZIO: DadosDoEvento = {
   nome: "",
   instituicao: "",
   cidade: "",
   uf: "GO",
+  municipioIbge: null,
   dataInicio: "",
   dataFim: "",
   cor: COR_PADRAO,
@@ -31,7 +33,11 @@ export function FormularioDoEvento({
   rotuloEnviar: string;
   enviar: (dados: DadosDoEvento) => Promise<unknown>;
 }) {
-  const [d, setD] = useState<DadosDoEvento>(inicial);
+  const [d, setD] = useState<DadosDoEvento>(() => ({
+    ...inicial,
+    // Eventos cadastrados antes do código IBGE: acha pelo nome digitado.
+    municipioIbge: inicial.municipioIbge ?? acharMunicipio(inicial.cidade, inicial.uf)?.id ?? null,
+  }));
   const [erros, setErros] = useState<Record<string, string>>({});
   const [enviando, setEnviando] = useState(false);
   const mudar = <K extends keyof DadosDoEvento>(k: K, v: DadosDoEvento[K]) =>
@@ -94,26 +100,44 @@ export function FormularioDoEvento({
           )}
         </div>
         {campo(
-          "cidade",
-          "Cidade",
-          <Input
-            id="ev-cidade"
-            value={d.cidade}
-            maxLength={120}
-            onChange={(e) => mudar("cidade", e.target.value)}
-          />,
-        )}
-        {campo(
           "uf",
           "UF",
           <select
             id="ev-uf"
             value={d.uf}
-            onChange={(e) => mudar("uf", e.target.value as DadosDoEvento["uf"])}
+            onChange={(e) =>
+              setD((x) => ({
+                ...x,
+                uf: e.target.value as DadosDoEvento["uf"],
+                municipioIbge: null,
+                cidade: "",
+              }))
+            }
             className="h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm"
           >
             {UFS.map((u) => (
               <option key={u}>{u}</option>
+            ))}
+          </select>,
+        )}
+        {campo(
+          "municipioIbge",
+          "Município",
+          <select
+            id="ev-municipioIbge"
+            value={d.municipioIbge ?? ""}
+            onChange={(e) => {
+              const id = Number(e.target.value) || null;
+              const m = municipiosDaUf(d.uf).find((x) => x.id === id);
+              setD((x) => ({ ...x, municipioIbge: id, cidade: m?.nome ?? "" }));
+            }}
+            className="h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm"
+          >
+            <option value="">Escolha o município</option>
+            {municipiosDaUf(d.uf).map((m) => (
+              <option key={m.id} value={m.id}>
+                {m.nome}
+              </option>
             ))}
           </select>,
         )}

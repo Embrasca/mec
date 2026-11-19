@@ -79,6 +79,17 @@ export function comoUsuario<T>(usuarioId: string, fn: (sql: Sql) => Promise<T>):
   });
 }
 
+/**
+ * Formulário público da pesquisa de satisfação, sem login: papel `mec_publico`,
+ * que só executa as funções da pesquisa (nenhuma tabela é legível).
+ */
+export function comoPublico<T>(fn: (sql: Sql) => Promise<T>): Promise<T> {
+  return driver().transacao(async (sql) => {
+    await sql("set local role mec_publico");
+    return fn(sql);
+  });
+}
+
 export function comoSistema<T>(fn: (sql: Sql) => Promise<T>): Promise<T> {
   return driver().transacao(fn);
 }

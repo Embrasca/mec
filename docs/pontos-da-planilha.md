@@ -102,3 +102,30 @@ exceto onde indicado.
   estilo própria em cores claras. O XLSX é gerado no próprio sistema, com 7 abas (resumo,
   categorias, memória de cálculo, comparação, redução, ocorrências, correspondência); o texto
   digitado entra sempre como texto, nunca como fórmula.
+
+## Decisões de implementação da Etapa 6 (aprovadas pela equipe)
+
+Os 27 indicadores propostos foram aprovados sem retirada. As decisões e comentários da revisão:
+
+- **D1, o que é local**: mesmo município do evento ou mesma região metropolitana (ou RIDE, como
+  a do Distrito Federal); se o município não fizer parte de nenhuma, vale a região imediata do
+  IBGE. Os municípios e regiões vêm da API de localidades do IBGE e ficam no sistema
+  (`src/domain/territorio/ibge.json`, gerado por `scripts/gerar-territorio.py`). O cadastro do
+  evento passou a pedir o município pela lista do IBGE.
+- **D2, obrigatoriedade**: os essenciais são obrigatórios em todos os níveis, exceto o NPS (PS3),
+  que só entra quando a gestão do evento pede. Essenciais: ML1, ML2, CS1, CS2, CS6, RS1, RS2,
+  PS1 e PS2. Sem eles (ou sem a justificativa de "não se aplica") o relatório final não é gerado.
+- **D3, pesquisa**: as duas formas. Link público e anônimo, sem login, que só executa duas
+  funções do banco (papel `mec_publico`, sem leitura de tabelas), com campo contra robôs e teto
+  de 50 mil respostas; e importação de CSV (modelo do sistema, Google Forms ou Microsoft Forms),
+  com prévia e "desfazer" por importação.
+- **D4, diversidade**: só totais autodeclarados, nunca dado por pessoa.
+- **D5, evidências**: arquivos anexados no próprio sistema, guardados no banco (sem contratar
+  outro serviço): até 3 MB por arquivo; fotos maiores são reduzidas no navegador antes do envio.
+  O tipo é conferido pelo conteúdo do arquivo, e só quem vê o evento baixa.
+- **Comentários da revisão**: ML2 vem só da declaração dos fornecedores e da equipe; ML3 aceita
+  as duas maneiras (pessoas × horas médias ou total da escala); RS4 inclui piso tátil, marcado
+  como "estrutura não comporta" quando não for possível.
+- O relatório ganhou a seção "9. Indicadores ESG", a aba "Indicadores ESG" no XLSX e os
+  conteúdos GRI 2-7, 2-8, 202, 204-1, 308-1, 403-9, 404-1, 405-1, 413-1 e 414-1 na
+  correspondência.

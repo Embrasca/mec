@@ -29,3 +29,16 @@ export const autenticado = createMiddleware({ type: "function" })
       throw new Error(mensagemSegura(erro));
     }
   });
+
+/**
+ * Só para o formulário público da pesquisa de satisfação (sem login). Traduz os
+ * erros como `autenticado` e não entrega identidade nenhuma.
+ */
+export const publico = createMiddleware({ type: "function" }).server(async ({ next }) => {
+  try {
+    return await next();
+  } catch (erro) {
+    const { mensagemSegura } = await import("@/servidor/erros");
+    throw new Error(mensagemSegura(erro));
+  }
+});

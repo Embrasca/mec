@@ -6,6 +6,7 @@ import { FileText } from "lucide-react";
 import { toast } from "sonner";
 import { Carregando, Falha, formatarDataHora, PageHeader, Panel, Vazio } from "@/components/kit";
 import { AvisoDoExPost } from "@/components/telas/PosEvento";
+import { useEsg } from "@/components/esg";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { FRAMEWORKS, type Framework, type TipoDeRelatorio } from "@/domain/relatorio";
@@ -40,6 +41,8 @@ function Relatorios() {
     queryKey: ["pos-evento", evento.id],
     queryFn: () => posEventoObter({ data: { eventoId: evento.id } }),
   });
+  const esg = useEsg();
+  const pendentesEsg = esg.data?.pendencias.map((p) => p.id) ?? [];
   const [framework, setFramework] = useState<Framework>("GRI + ISO 20121");
   const gerar = useMutation({
     mutationFn: (tipo: TipoDeRelatorio) =>
@@ -101,7 +104,7 @@ function Relatorios() {
               </Button>
               {evento.podeGerir && (
                 <Button
-                  disabled={gerar.isPending || !exPostFechado}
+                  disabled={gerar.isPending || !exPostFechado || pendentesEsg.length > 0}
                   title={exPostFechado ? undefined : "Feche o inventário ex-post antes"}
                   onClick={() =>
                     window.confirm(
@@ -114,6 +117,16 @@ function Relatorios() {
               )}
             </div>
           </div>
+          {evento.podeGerir && pendentesEsg.length > 0 && (
+            <p className="mt-3 text-xs text-muted-foreground">
+              O relatório final também exige os indicadores ESG essenciais. Pendentes:{" "}
+              {pendentesEsg.join(", ")}. Veja em{" "}
+              <Link to="/e/$eventoId/esg" params={{ eventoId: evento.id }} className="underline">
+                Indicadores ESG
+              </Link>
+              .
+            </p>
+          )}
           {evento.podeGerir && !exPostFechado && (
             <p className="mt-3 text-xs text-muted-foreground">
               O relatório final só sai do inventário oficial: feche o inventário ex-post antes.

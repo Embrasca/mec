@@ -4,7 +4,7 @@ Gestão climática de eventos baseada na **Ferramenta de Cálculo de Emissões d
 O nível de exigência do evento (1 a 4) é calculado a partir da caracterização e passa a
 orientar o restante do sistema.
 
-## O que já existe (Etapas 0 a 5)
+## O que já existe (Etapas 0 a 6)
 
 | Área | O que faz |
 |---|---|
@@ -20,6 +20,7 @@ orientar o restante do sistema.
 | Execução | Ocorrências (aba OCORRÊNCIAS; aberta impede fechar o ex-post), coleta do realizado e inventário ex-post com qualidade do dado e evidência |
 | Pós-evento | Resultados (aba 4: números principais, materialidade, escopo e gás, qualidade e completude), comparação ex-ante × ex-post com origem do desvio (aba 5) e compensação (aba 6) |
 | Relatórios | Aba 7: resumo, frase permitida e aviso da alegação; versões preliminar e final congeladas com código SHA-256; correspondência com GHG Protocol, GRI e ISO 20121; memória de cálculo; PDF pela impressão e XLSX |
+| ESG além do GEE | 27 indicadores aprovados: mão de obra local, cadeia de suprimentos, responsabilidade social e pesquisa de satisfação (link público anônimo e importação de CSV); área local pelo IBGE; essenciais obrigatórios; anexos de evidência |
 
 ### Papéis
 
@@ -88,6 +89,8 @@ npm test
   e plano de redução igual à aba REDUÇÃO do exemplo.
 - `src/domain/metodologia/__tests__/posEvento.test.ts`: alertas do ex-post e paridade com as
   abas 4, 5, 6 e OCORRÊNCIAS do exemplo de Nível 3.
+- `src/domain/esg/__tests__/esg.test.ts`: área local pelo IBGE, os 27 indicadores, essenciais e
+  importação da pesquisa.
 - `src/domain/metodologia/__tests__/relatorio.test.ts`: frase e resumo da aba 7, memória de
   cálculo e o gerador de XLSX.
 - `src/servidor/__tests__/*.test.ts`: regras de negócio e RLS num Postgres em memória

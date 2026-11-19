@@ -51,6 +51,7 @@ function Cadastro() {
             nome: evento.nome,
             instituicao: evento.instituicao,
             cidade: evento.cidade,
+            municipioIbge: evento.municipioIbge,
             uf: evento.uf as never,
             dataInicio: evento.dataInicio,
             dataFim: evento.dataFim,

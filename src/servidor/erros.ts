@@ -22,7 +22,7 @@ export function mensagemSegura(erro: unknown): string {
   if (
     e?.code === "23514" &&
     e.message &&
-    /nível|Autor e metodologia|ocorrências abertas|está fechado|relatório final exige/.test(
+    /nível|Autor e metodologia|ocorrências abertas|está fechado|relatório final exige|pesquisa não está aberta|limite de respostas/.test(
       e.message,
     )
   )

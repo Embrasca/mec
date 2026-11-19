@@ -9,6 +9,9 @@ import { adicionarMembro, criarEvento } from "../servicos/eventos.server";
 import { confirmarEnquadramento, salvarFicha } from "../servicos/governanca.server";
 import { fecharInventario, salvarInventario } from "../servicos/inventario.server";
 import { salvarCompensacao } from "../servicos/posEvento.server";
+import { salvarRegistro } from "../servicos/esg.server";
+import { registroEsgVazio } from "@/domain/esg/esquemas";
+import { ESSENCIAIS } from "@/domain/esg/indicadores";
 import {
   canonico,
   gerarRelatorio,
@@ -152,6 +155,19 @@ describe("relatórios", () => {
       eventoId,
       versao: 0,
       dados: { omissaoT: 0, omissaoDescricao: null, aposentadaT: 100, comprovante: "cert" },
+    });
+    await expect(
+      gerarRelatorio(gestora.id, { eventoId, tipo: "final", framework: "GHG Protocol", hoje }),
+    ).rejects.toThrow(/ESG essenciais: ML1, ML2/);
+    await salvarRegistro(equipe.id, {
+      eventoId,
+      versao: 0,
+      dados: {
+        ...registroEsgVazio(),
+        naoSeAplica: Object.fromEntries(
+          ESSENCIAIS.map((id) => [id, { justificativa: "Teste: não se aplica" }]),
+        ),
+      },
     });
     const f = await gerarRelatorio(gestora.id, {
       eventoId,

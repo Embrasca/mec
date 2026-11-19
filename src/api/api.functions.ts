@@ -6,7 +6,32 @@
  */
 import { createServerFn } from "@tanstack/react-start";
 import type { z } from "zod";
-import { autenticado } from "./middleware";
+import { autenticado, publico } from "./middleware";
+import {
+  obterEsg,
+  salvarItem,
+  removerItem,
+  salvarFornecedorEsg,
+  salvarRegistro,
+  configurarPesquisa,
+  importarRespostasDaPesquisa,
+  desfazerImportacao,
+  destacarComentario,
+  obterPesquisaPublica,
+  responderPesquisa,
+  enviarAnexo,
+  baixarAnexo,
+  removerAnexo,
+} from "@/servidor/servicos/esg.server";
+import type {
+  salvarItemSchema,
+  salvarFornecedorEsgSchema,
+  salvarRegistroSchema,
+  configurarPesquisaSchema,
+  importarSchema,
+  responderSchema,
+  enviarAnexoSchema,
+} from "@/servidor/servicos/esg.server";
 import {
   listarRelatorios,
   obterRelatorio,
@@ -405,3 +430,83 @@ export const relatorioGerar = createServerFn({ method: "POST" })
   .middleware([autenticado])
   .validator((d: z.input<typeof gerarRelatorioSchema>) => d)
   .handler(({ context, data }) => gerarRelatorio(context.usuarioId, data));
+
+// Etapa 6: ESG além do GEE
+
+export const esgObter = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { eventoId: string }) => d)
+  .handler(({ context, data }) => obterEsg(context.usuarioId, data.eventoId));
+
+export const esgSalvarItem = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: z.input<typeof salvarItemSchema>) => d)
+  .handler(({ context, data }) => salvarItem(context.usuarioId, data));
+
+export const esgRemoverItem = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator(
+    (d: { eventoId: string; lista: "equipe" | "material" | "acao_social"; id: string }) => d,
+  )
+  .handler(({ context, data }) =>
+    removerItem(context.usuarioId, data.eventoId, data.lista, data.id),
+  );
+
+export const esgSalvarFornecedor = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: z.input<typeof salvarFornecedorEsgSchema>) => d)
+  .handler(({ context, data }) => salvarFornecedorEsg(context.usuarioId, data));
+
+export const esgSalvarRegistro = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: z.input<typeof salvarRegistroSchema>) => d)
+  .handler(({ context, data }) => salvarRegistro(context.usuarioId, data));
+
+export const pesquisaConfigurar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: z.input<typeof configurarPesquisaSchema>) => d)
+  .handler(({ context, data }) => configurarPesquisa(context.usuarioId, data));
+
+export const pesquisaImportar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: z.input<typeof importarSchema>) => d)
+  .handler(({ context, data }) => importarRespostasDaPesquisa(context.usuarioId, data));
+
+export const pesquisaDesfazerImportacao = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { eventoId: string; importacaoId: string }) => d)
+  .handler(({ context, data }) =>
+    desfazerImportacao(context.usuarioId, data.eventoId, data.importacaoId),
+  );
+
+export const pesquisaDestacar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { eventoId: string; respostaId: string; destaque: boolean }) => d)
+  .handler(({ context, data }) =>
+    destacarComentario(context.usuarioId, data.eventoId, data.respostaId, data.destaque),
+  );
+
+export const pesquisaPublicaObter = createServerFn({ method: "POST" })
+  .middleware([publico])
+  .validator((d: { token: string }) => d)
+  .handler(({ data }) => obterPesquisaPublica(data.token));
+
+export const pesquisaPublicaResponder = createServerFn({ method: "POST" })
+  .middleware([publico])
+  .validator((d: z.input<typeof responderSchema>) => d)
+  .handler(({ data }) => responderPesquisa(data));
+
+export const anexoEnviar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: z.input<typeof enviarAnexoSchema>) => d)
+  .handler(({ context, data }) => enviarAnexo(context.usuarioId, data));
+
+export const anexoBaixar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { eventoId: string; id: string }) => d)
+  .handler(({ context, data }) => baixarAnexo(context.usuarioId, data.eventoId, data.id));
+
+export const anexoRemover = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { eventoId: string; id: string }) => d)
+  .handler(({ context, data }) => removerAnexo(context.usuarioId, data.eventoId, data.id));

@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { normalizarCor, problemaDaCor } from "./cor";
+import { acharMunicipio, municipio } from "./territorio";
 
 export const UFS = [
   "AC",
@@ -43,7 +44,9 @@ export const eventoSchema = z
   .object({
     nome: texto(1, 200, "o nome do evento"),
     instituicao: texto(1, 200, "a instituição responsável"),
-    cidade: texto(1, 120, "a cidade"),
+    cidade: z.string().trim().max(120),
+    /** Código IBGE do município. Sem ele, o nome digitado é procurado na lista do IBGE. */
+    municipioIbge: z.number().int().nullable().default(null),
     uf: z.enum(UFS, { errorMap: () => ({ message: "Escolha a UF." }) }),
     dataInicio: data,
     dataFim: data,
@@ -59,9 +62,22 @@ export const eventoSchema = z
   .refine((e) => e.dataFim >= e.dataInicio, {
     message: "A data de término não pode ser anterior à de início.",
     path: ["dataFim"],
+  })
+  .transform((e, ctx) => {
+    const m =
+      e.municipioIbge !== null ? municipio(e.municipioIbge) : acharMunicipio(e.cidade, e.uf);
+    if (!m || m.uf !== e.uf) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "Escolha o município na lista da UF.",
+        path: ["municipioIbge"],
+      });
+      return z.NEVER;
+    }
+    return { ...e, cidade: m.nome, municipioIbge: m.id };
   });
 
-export type DadosDoEvento = z.infer<typeof eventoSchema>;
+export type DadosDoEvento = z.input<typeof eventoSchema>;
 
 export const PAPEIS = ["gestor", "equipe", "revisor", "leitor"] as const;
 export type Papel = (typeof PAPEIS)[number];

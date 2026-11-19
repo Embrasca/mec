@@ -236,5 +236,32 @@ export function abasDoRelatorio(d: DadosDoRelatorio, c: CabecalhoDoRelatorio): A
       ),
     ],
   };
-  return [resumo, categorias, memoria, comparacao, reducao, ocorrencias, indice];
+  const esg: Aba = {
+    nome: "Indicadores ESG",
+    larguras: [8, 50, 12, 34, 18, 70],
+    linhas: [
+      ["Código", "Indicador", "Essencial", "Valor", "Situação", "Detalhes"],
+      ...(d.esg?.indicadores ?? []).map((i) => [
+        i.id,
+        i.nome,
+        i.essencial ? "Sim" : "",
+        i.valor,
+        i.situacao === "ok"
+          ? "Calculado"
+          : i.situacao === "nao_se_aplica"
+            ? "Não se aplica"
+            : i.situacao === "pendente"
+              ? "Pendente"
+              : "Sem dados",
+        [
+          ...i.detalhes.map(([k, v]) => `${k}: ${v}`),
+          i.justificativa ? `Justificativa: ${i.justificativa}` : "",
+        ]
+          .filter(Boolean)
+          .join(" · "),
+      ]),
+      ...(d.esg ? [[], [`Área local: ${d.esg.area}`]] : []),
+    ],
+  };
+  return [resumo, categorias, memoria, comparacao, reducao, ocorrencias, esg, indice];
 }

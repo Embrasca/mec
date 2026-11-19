@@ -14,6 +14,7 @@ import { Route as AppRouteImport } from './routes/_app'
 import { Route as RedefinirSenhaRouteImport } from './routes/redefinir-senha'
 import { Route as AppEventosRouteImport } from './routes/_app.eventos'
 import { Route as AppInstrucoesRouteImport } from './routes/_app.instrucoes'
+import { Route as PesquisaTokenRouteImport } from './routes/pesquisa.$token'
 import { Route as AppAdminAuditoriaRouteImport } from './routes/_app.admin.auditoria'
 import { Route as AppAdminUsuariosRouteImport } from './routes/_app.admin.usuarios'
 import { Route as AppEEventoIdRouteImport } from './routes/_app.e.$eventoId'
@@ -22,6 +23,7 @@ import { Route as AppFatoresBaseIdRouteImport } from './routes/_app.fatores.$bas
 import { Route as AppEEventoIdIndexRouteImport } from './routes/_app.e.$eventoId.index'
 import { Route as AppEEventoIdAcompanhamentoRouteImport } from './routes/_app.e.$eventoId.acompanhamento'
 import { Route as AppEEventoIdCadastroRouteImport } from './routes/_app.e.$eventoId.cadastro'
+import { Route as AppEEventoIdCadeiaRouteImport } from './routes/_app.e.$eventoId.cadeia'
 import { Route as AppEEventoIdCaracterizacaoRouteImport } from './routes/_app.e.$eventoId.caracterizacao'
 import { Route as AppEEventoIdChecklistRouteImport } from './routes/_app.e.$eventoId.checklist'
 import { Route as AppEEventoIdColetaRouteImport } from './routes/_app.e.$eventoId.coleta'
@@ -29,15 +31,19 @@ import { Route as AppEEventoIdColetaExPostRouteImport } from './routes/_app.e.$e
 import { Route as AppEEventoIdComparacaoRouteImport } from './routes/_app.e.$eventoId.comparacao'
 import { Route as AppEEventoIdCompensacaoRouteImport } from './routes/_app.e.$eventoId.compensacao'
 import { Route as AppEEventoIdEquipeRouteImport } from './routes/_app.e.$eventoId.equipe'
+import { Route as AppEEventoIdEsgRouteImport } from './routes/_app.e.$eventoId.esg'
 import { Route as AppEEventoIdFornecedoresRouteImport } from './routes/_app.e.$eventoId.fornecedores'
 import { Route as AppEEventoIdInventarioRouteImport } from './routes/_app.e.$eventoId.inventario'
 import { Route as AppEEventoIdInventarioExPostRouteImport } from './routes/_app.e.$eventoId.inventario-ex-post'
 import { Route as AppEEventoIdLinhaDoTempoRouteImport } from './routes/_app.e.$eventoId.linha-do-tempo'
+import { Route as AppEEventoIdMaoDeObraRouteImport } from './routes/_app.e.$eventoId.mao-de-obra'
 import { Route as AppEEventoIdMatrizRouteImport } from './routes/_app.e.$eventoId.matriz'
 import { Route as AppEEventoIdOcorrenciasRouteImport } from './routes/_app.e.$eventoId.ocorrencias'
+import { Route as AppEEventoIdPesquisaRouteImport } from './routes/_app.e.$eventoId.pesquisa'
 import { Route as AppEEventoIdPlanoDeAcaoRouteImport } from './routes/_app.e.$eventoId.plano-de-acao'
 import { Route as AppEEventoIdReducaoRouteImport } from './routes/_app.e.$eventoId.reducao'
 import { Route as AppEEventoIdResultadosRouteImport } from './routes/_app.e.$eventoId.resultados'
+import { Route as AppEEventoIdSocialRouteImport } from './routes/_app.e.$eventoId.social'
 import { Route as AppEEventoIdRelatoriosIndexRouteImport } from './routes/_app.e.$eventoId.relatorios.index'
 import { Route as AppEEventoIdRelatoriosRelatorioIdRouteImport } from './routes/_app.e.$eventoId.relatorios.$relatorioId'
 
@@ -64,6 +70,11 @@ const AppInstrucoesRoute = AppInstrucoesRouteImport.update({
   id: '/instrucoes',
   path: '/instrucoes',
   getParentRoute: () => AppRoute,
+} as any)
+const PesquisaTokenRoute = PesquisaTokenRouteImport.update({
+  id: '/pesquisa/$token',
+  path: '/pesquisa/$token',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AppAdminAuditoriaRoute = AppAdminAuditoriaRouteImport.update({
   id: '/admin/auditoria',
@@ -106,6 +117,11 @@ const AppEEventoIdCadastroRoute = AppEEventoIdCadastroRouteImport.update({
   path: '/cadastro',
   getParentRoute: () => AppEEventoIdRoute,
 } as any)
+const AppEEventoIdCadeiaRoute = AppEEventoIdCadeiaRouteImport.update({
+  id: '/cadeia',
+  path: '/cadeia',
+  getParentRoute: () => AppEEventoIdRoute,
+} as any)
 const AppEEventoIdCaracterizacaoRoute =
   AppEEventoIdCaracterizacaoRouteImport.update({
     id: '/caracterizacao',
@@ -143,6 +159,11 @@ const AppEEventoIdEquipeRoute = AppEEventoIdEquipeRouteImport.update({
   path: '/equipe',
   getParentRoute: () => AppEEventoIdRoute,
 } as any)
+const AppEEventoIdEsgRoute = AppEEventoIdEsgRouteImport.update({
+  id: '/esg',
+  path: '/esg',
+  getParentRoute: () => AppEEventoIdRoute,
+} as any)
 const AppEEventoIdFornecedoresRoute =
   AppEEventoIdFornecedoresRouteImport.update({
     id: '/fornecedores',
@@ -166,6 +187,11 @@ const AppEEventoIdLinhaDoTempoRoute =
     path: '/linha-do-tempo',
     getParentRoute: () => AppEEventoIdRoute,
   } as any)
+const AppEEventoIdMaoDeObraRoute = AppEEventoIdMaoDeObraRouteImport.update({
+  id: '/mao-de-obra',
+  path: '/mao-de-obra',
+  getParentRoute: () => AppEEventoIdRoute,
+} as any)
 const AppEEventoIdMatrizRoute = AppEEventoIdMatrizRouteImport.update({
   id: '/matriz',
   path: '/matriz',
@@ -174,6 +200,11 @@ const AppEEventoIdMatrizRoute = AppEEventoIdMatrizRouteImport.update({
 const AppEEventoIdOcorrenciasRoute = AppEEventoIdOcorrenciasRouteImport.update({
   id: '/ocorrencias',
   path: '/ocorrencias',
+  getParentRoute: () => AppEEventoIdRoute,
+} as any)
+const AppEEventoIdPesquisaRoute = AppEEventoIdPesquisaRouteImport.update({
+  id: '/pesquisa',
+  path: '/pesquisa',
   getParentRoute: () => AppEEventoIdRoute,
 } as any)
 const AppEEventoIdPlanoDeAcaoRoute = AppEEventoIdPlanoDeAcaoRouteImport.update({
@@ -189,6 +220,11 @@ const AppEEventoIdReducaoRoute = AppEEventoIdReducaoRouteImport.update({
 const AppEEventoIdResultadosRoute = AppEEventoIdResultadosRouteImport.update({
   id: '/resultados',
   path: '/resultados',
+  getParentRoute: () => AppEEventoIdRoute,
+} as any)
+const AppEEventoIdSocialRoute = AppEEventoIdSocialRouteImport.update({
+  id: '/social',
+  path: '/social',
   getParentRoute: () => AppEEventoIdRoute,
 } as any)
 const AppEEventoIdRelatoriosIndexRoute =
@@ -209,6 +245,7 @@ export interface FileRoutesByFullPath {
   '/redefinir-senha': typeof RedefinirSenhaRoute
   '/eventos': typeof AppEventosRoute
   '/instrucoes': typeof AppInstrucoesRoute
+  '/pesquisa/$token': typeof PesquisaTokenRoute
   '/admin/auditoria': typeof AppAdminAuditoriaRoute
   '/admin/usuarios': typeof AppAdminUsuariosRoute
   '/e/$eventoId': typeof AppEEventoIdRouteWithChildren
@@ -216,6 +253,7 @@ export interface FileRoutesByFullPath {
   '/fatores/': typeof AppFatoresIndexRoute
   '/e/$eventoId/acompanhamento': typeof AppEEventoIdAcompanhamentoRoute
   '/e/$eventoId/cadastro': typeof AppEEventoIdCadastroRoute
+  '/e/$eventoId/cadeia': typeof AppEEventoIdCadeiaRoute
   '/e/$eventoId/caracterizacao': typeof AppEEventoIdCaracterizacaoRoute
   '/e/$eventoId/checklist': typeof AppEEventoIdChecklistRoute
   '/e/$eventoId/coleta': typeof AppEEventoIdColetaRoute
@@ -223,15 +261,19 @@ export interface FileRoutesByFullPath {
   '/e/$eventoId/comparacao': typeof AppEEventoIdComparacaoRoute
   '/e/$eventoId/compensacao': typeof AppEEventoIdCompensacaoRoute
   '/e/$eventoId/equipe': typeof AppEEventoIdEquipeRoute
+  '/e/$eventoId/esg': typeof AppEEventoIdEsgRoute
   '/e/$eventoId/fornecedores': typeof AppEEventoIdFornecedoresRoute
   '/e/$eventoId/inventario': typeof AppEEventoIdInventarioRoute
   '/e/$eventoId/inventario-ex-post': typeof AppEEventoIdInventarioExPostRoute
   '/e/$eventoId/linha-do-tempo': typeof AppEEventoIdLinhaDoTempoRoute
+  '/e/$eventoId/mao-de-obra': typeof AppEEventoIdMaoDeObraRoute
   '/e/$eventoId/matriz': typeof AppEEventoIdMatrizRoute
   '/e/$eventoId/ocorrencias': typeof AppEEventoIdOcorrenciasRoute
+  '/e/$eventoId/pesquisa': typeof AppEEventoIdPesquisaRoute
   '/e/$eventoId/plano-de-acao': typeof AppEEventoIdPlanoDeAcaoRoute
   '/e/$eventoId/reducao': typeof AppEEventoIdReducaoRoute
   '/e/$eventoId/resultados': typeof AppEEventoIdResultadosRoute
+  '/e/$eventoId/social': typeof AppEEventoIdSocialRoute
   '/e/$eventoId/': typeof AppEEventoIdIndexRoute
   '/e/$eventoId/relatorios/$relatorioId': typeof AppEEventoIdRelatoriosRelatorioIdRoute
   '/e/$eventoId/relatorios/': typeof AppEEventoIdRelatoriosIndexRoute
@@ -241,12 +283,14 @@ export interface FileRoutesByTo {
   '/redefinir-senha': typeof RedefinirSenhaRoute
   '/eventos': typeof AppEventosRoute
   '/instrucoes': typeof AppInstrucoesRoute
+  '/pesquisa/$token': typeof PesquisaTokenRoute
   '/admin/auditoria': typeof AppAdminAuditoriaRoute
   '/admin/usuarios': typeof AppAdminUsuariosRoute
   '/fatores/$baseId': typeof AppFatoresBaseIdRoute
   '/fatores': typeof AppFatoresIndexRoute
   '/e/$eventoId/acompanhamento': typeof AppEEventoIdAcompanhamentoRoute
   '/e/$eventoId/cadastro': typeof AppEEventoIdCadastroRoute
+  '/e/$eventoId/cadeia': typeof AppEEventoIdCadeiaRoute
   '/e/$eventoId/caracterizacao': typeof AppEEventoIdCaracterizacaoRoute
   '/e/$eventoId/checklist': typeof AppEEventoIdChecklistRoute
   '/e/$eventoId/coleta': typeof AppEEventoIdColetaRoute
@@ -254,15 +298,19 @@ export interface FileRoutesByTo {
   '/e/$eventoId/comparacao': typeof AppEEventoIdComparacaoRoute
   '/e/$eventoId/compensacao': typeof AppEEventoIdCompensacaoRoute
   '/e/$eventoId/equipe': typeof AppEEventoIdEquipeRoute
+  '/e/$eventoId/esg': typeof AppEEventoIdEsgRoute
   '/e/$eventoId/fornecedores': typeof AppEEventoIdFornecedoresRoute
   '/e/$eventoId/inventario': typeof AppEEventoIdInventarioRoute
   '/e/$eventoId/inventario-ex-post': typeof AppEEventoIdInventarioExPostRoute
   '/e/$eventoId/linha-do-tempo': typeof AppEEventoIdLinhaDoTempoRoute
+  '/e/$eventoId/mao-de-obra': typeof AppEEventoIdMaoDeObraRoute
   '/e/$eventoId/matriz': typeof AppEEventoIdMatrizRoute
   '/e/$eventoId/ocorrencias': typeof AppEEventoIdOcorrenciasRoute
+  '/e/$eventoId/pesquisa': typeof AppEEventoIdPesquisaRoute
   '/e/$eventoId/plano-de-acao': typeof AppEEventoIdPlanoDeAcaoRoute
   '/e/$eventoId/reducao': typeof AppEEventoIdReducaoRoute
   '/e/$eventoId/resultados': typeof AppEEventoIdResultadosRoute
+  '/e/$eventoId/social': typeof AppEEventoIdSocialRoute
   '/e/$eventoId': typeof AppEEventoIdIndexRoute
   '/e/$eventoId/relatorios/$relatorioId': typeof AppEEventoIdRelatoriosRelatorioIdRoute
   '/e/$eventoId/relatorios': typeof AppEEventoIdRelatoriosIndexRoute
@@ -274,6 +322,7 @@ export interface FileRoutesById {
   '/redefinir-senha': typeof RedefinirSenhaRoute
   '/_app/eventos': typeof AppEventosRoute
   '/_app/instrucoes': typeof AppInstrucoesRoute
+  '/pesquisa/$token': typeof PesquisaTokenRoute
   '/_app/admin/auditoria': typeof AppAdminAuditoriaRoute
   '/_app/admin/usuarios': typeof AppAdminUsuariosRoute
   '/_app/e/$eventoId': typeof AppEEventoIdRouteWithChildren
@@ -281,6 +330,7 @@ export interface FileRoutesById {
   '/_app/fatores/': typeof AppFatoresIndexRoute
   '/_app/e/$eventoId/acompanhamento': typeof AppEEventoIdAcompanhamentoRoute
   '/_app/e/$eventoId/cadastro': typeof AppEEventoIdCadastroRoute
+  '/_app/e/$eventoId/cadeia': typeof AppEEventoIdCadeiaRoute
   '/_app/e/$eventoId/caracterizacao': typeof AppEEventoIdCaracterizacaoRoute
   '/_app/e/$eventoId/checklist': typeof AppEEventoIdChecklistRoute
   '/_app/e/$eventoId/coleta': typeof AppEEventoIdColetaRoute
@@ -288,15 +338,19 @@ export interface FileRoutesById {
   '/_app/e/$eventoId/comparacao': typeof AppEEventoIdComparacaoRoute
   '/_app/e/$eventoId/compensacao': typeof AppEEventoIdCompensacaoRoute
   '/_app/e/$eventoId/equipe': typeof AppEEventoIdEquipeRoute
+  '/_app/e/$eventoId/esg': typeof AppEEventoIdEsgRoute
   '/_app/e/$eventoId/fornecedores': typeof AppEEventoIdFornecedoresRoute
   '/_app/e/$eventoId/inventario': typeof AppEEventoIdInventarioRoute
   '/_app/e/$eventoId/inventario-ex-post': typeof AppEEventoIdInventarioExPostRoute
   '/_app/e/$eventoId/linha-do-tempo': typeof AppEEventoIdLinhaDoTempoRoute
+  '/_app/e/$eventoId/mao-de-obra': typeof AppEEventoIdMaoDeObraRoute
   '/_app/e/$eventoId/matriz': typeof AppEEventoIdMatrizRoute
   '/_app/e/$eventoId/ocorrencias': typeof AppEEventoIdOcorrenciasRoute
+  '/_app/e/$eventoId/pesquisa': typeof AppEEventoIdPesquisaRoute
   '/_app/e/$eventoId/plano-de-acao': typeof AppEEventoIdPlanoDeAcaoRoute
   '/_app/e/$eventoId/reducao': typeof AppEEventoIdReducaoRoute
   '/_app/e/$eventoId/resultados': typeof AppEEventoIdResultadosRoute
+  '/_app/e/$eventoId/social': typeof AppEEventoIdSocialRoute
   '/_app/e/$eventoId/': typeof AppEEventoIdIndexRoute
   '/_app/e/$eventoId/relatorios/$relatorioId': typeof AppEEventoIdRelatoriosRelatorioIdRoute
   '/_app/e/$eventoId/relatorios/': typeof AppEEventoIdRelatoriosIndexRoute
@@ -308,6 +362,7 @@ export interface FileRouteTypes {
     | '/redefinir-senha'
     | '/eventos'
     | '/instrucoes'
+    | '/pesquisa/$token'
     | '/admin/auditoria'
     | '/admin/usuarios'
     | '/e/$eventoId'
@@ -315,6 +370,7 @@ export interface FileRouteTypes {
     | '/fatores/'
     | '/e/$eventoId/acompanhamento'
     | '/e/$eventoId/cadastro'
+    | '/e/$eventoId/cadeia'
     | '/e/$eventoId/caracterizacao'
     | '/e/$eventoId/checklist'
     | '/e/$eventoId/coleta'
@@ -322,15 +378,19 @@ export interface FileRouteTypes {
     | '/e/$eventoId/comparacao'
     | '/e/$eventoId/compensacao'
     | '/e/$eventoId/equipe'
+    | '/e/$eventoId/esg'
     | '/e/$eventoId/fornecedores'
     | '/e/$eventoId/inventario'
     | '/e/$eventoId/inventario-ex-post'
     | '/e/$eventoId/linha-do-tempo'
+    | '/e/$eventoId/mao-de-obra'
     | '/e/$eventoId/matriz'
     | '/e/$eventoId/ocorrencias'
+    | '/e/$eventoId/pesquisa'
     | '/e/$eventoId/plano-de-acao'
     | '/e/$eventoId/reducao'
     | '/e/$eventoId/resultados'
+    | '/e/$eventoId/social'
     | '/e/$eventoId/'
     | '/e/$eventoId/relatorios/$relatorioId'
     | '/e/$eventoId/relatorios/'
@@ -340,12 +400,14 @@ export interface FileRouteTypes {
     | '/redefinir-senha'
     | '/eventos'
     | '/instrucoes'
+    | '/pesquisa/$token'
     | '/admin/auditoria'
     | '/admin/usuarios'
     | '/fatores/$baseId'
     | '/fatores'
     | '/e/$eventoId/acompanhamento'
     | '/e/$eventoId/cadastro'
+    | '/e/$eventoId/cadeia'
     | '/e/$eventoId/caracterizacao'
     | '/e/$eventoId/checklist'
     | '/e/$eventoId/coleta'
@@ -353,15 +415,19 @@ export interface FileRouteTypes {
     | '/e/$eventoId/comparacao'
     | '/e/$eventoId/compensacao'
     | '/e/$eventoId/equipe'
+    | '/e/$eventoId/esg'
     | '/e/$eventoId/fornecedores'
     | '/e/$eventoId/inventario'
     | '/e/$eventoId/inventario-ex-post'
     | '/e/$eventoId/linha-do-tempo'
+    | '/e/$eventoId/mao-de-obra'
     | '/e/$eventoId/matriz'
     | '/e/$eventoId/ocorrencias'
+    | '/e/$eventoId/pesquisa'
     | '/e/$eventoId/plano-de-acao'
     | '/e/$eventoId/reducao'
     | '/e/$eventoId/resultados'
+    | '/e/$eventoId/social'
     | '/e/$eventoId'
     | '/e/$eventoId/relatorios/$relatorioId'
     | '/e/$eventoId/relatorios'
@@ -372,6 +438,7 @@ export interface FileRouteTypes {
     | '/redefinir-senha'
     | '/_app/eventos'
     | '/_app/instrucoes'
+    | '/pesquisa/$token'
     | '/_app/admin/auditoria'
     | '/_app/admin/usuarios'
     | '/_app/e/$eventoId'
@@ -379,6 +446,7 @@ export interface FileRouteTypes {
     | '/_app/fatores/'
     | '/_app/e/$eventoId/acompanhamento'
     | '/_app/e/$eventoId/cadastro'
+    | '/_app/e/$eventoId/cadeia'
     | '/_app/e/$eventoId/caracterizacao'
     | '/_app/e/$eventoId/checklist'
     | '/_app/e/$eventoId/coleta'
@@ -386,15 +454,19 @@ export interface FileRouteTypes {
     | '/_app/e/$eventoId/comparacao'
     | '/_app/e/$eventoId/compensacao'
     | '/_app/e/$eventoId/equipe'
+    | '/_app/e/$eventoId/esg'
     | '/_app/e/$eventoId/fornecedores'
     | '/_app/e/$eventoId/inventario'
     | '/_app/e/$eventoId/inventario-ex-post'
     | '/_app/e/$eventoId/linha-do-tempo'
+    | '/_app/e/$eventoId/mao-de-obra'
     | '/_app/e/$eventoId/matriz'
     | '/_app/e/$eventoId/ocorrencias'
+    | '/_app/e/$eventoId/pesquisa'
     | '/_app/e/$eventoId/plano-de-acao'
     | '/_app/e/$eventoId/reducao'
     | '/_app/e/$eventoId/resultados'
+    | '/_app/e/$eventoId/social'
     | '/_app/e/$eventoId/'
     | '/_app/e/$eventoId/relatorios/$relatorioId'
     | '/_app/e/$eventoId/relatorios/'
@@ -404,6 +476,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AppRoute: typeof AppRouteWithChildren
   RedefinirSenhaRoute: typeof RedefinirSenhaRoute
+  PesquisaTokenRoute: typeof PesquisaTokenRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -442,6 +515,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/instrucoes'
       preLoaderRoute: typeof AppInstrucoesRouteImport
       parentRoute: typeof AppRoute
+    }
+    '/pesquisa/$token': {
+      id: '/pesquisa/$token'
+      path: '/pesquisa/$token'
+      fullPath: '/pesquisa/$token'
+      preLoaderRoute: typeof PesquisaTokenRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/_app/admin/auditoria': {
       id: '/_app/admin/auditoria'
@@ -499,6 +579,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppEEventoIdCadastroRouteImport
       parentRoute: typeof AppEEventoIdRoute
     }
+    '/_app/e/$eventoId/cadeia': {
+      id: '/_app/e/$eventoId/cadeia'
+      path: '/cadeia'
+      fullPath: '/e/$eventoId/cadeia'
+      preLoaderRoute: typeof AppEEventoIdCadeiaRouteImport
+      parentRoute: typeof AppEEventoIdRoute
+    }
     '/_app/e/$eventoId/caracterizacao': {
       id: '/_app/e/$eventoId/caracterizacao'
       path: '/caracterizacao'
@@ -548,6 +635,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppEEventoIdEquipeRouteImport
       parentRoute: typeof AppEEventoIdRoute
     }
+    '/_app/e/$eventoId/esg': {
+      id: '/_app/e/$eventoId/esg'
+      path: '/esg'
+      fullPath: '/e/$eventoId/esg'
+      preLoaderRoute: typeof AppEEventoIdEsgRouteImport
+      parentRoute: typeof AppEEventoIdRoute
+    }
     '/_app/e/$eventoId/fornecedores': {
       id: '/_app/e/$eventoId/fornecedores'
       path: '/fornecedores'
@@ -576,6 +670,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppEEventoIdLinhaDoTempoRouteImport
       parentRoute: typeof AppEEventoIdRoute
     }
+    '/_app/e/$eventoId/mao-de-obra': {
+      id: '/_app/e/$eventoId/mao-de-obra'
+      path: '/mao-de-obra'
+      fullPath: '/e/$eventoId/mao-de-obra'
+      preLoaderRoute: typeof AppEEventoIdMaoDeObraRouteImport
+      parentRoute: typeof AppEEventoIdRoute
+    }
     '/_app/e/$eventoId/matriz': {
       id: '/_app/e/$eventoId/matriz'
       path: '/matriz'
@@ -588,6 +689,13 @@ declare module '@tanstack/react-router' {
       path: '/ocorrencias'
       fullPath: '/e/$eventoId/ocorrencias'
       preLoaderRoute: typeof AppEEventoIdOcorrenciasRouteImport
+      parentRoute: typeof AppEEventoIdRoute
+    }
+    '/_app/e/$eventoId/pesquisa': {
+      id: '/_app/e/$eventoId/pesquisa'
+      path: '/pesquisa'
+      fullPath: '/e/$eventoId/pesquisa'
+      preLoaderRoute: typeof AppEEventoIdPesquisaRouteImport
       parentRoute: typeof AppEEventoIdRoute
     }
     '/_app/e/$eventoId/plano-de-acao': {
@@ -611,6 +719,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppEEventoIdResultadosRouteImport
       parentRoute: typeof AppEEventoIdRoute
     }
+    '/_app/e/$eventoId/social': {
+      id: '/_app/e/$eventoId/social'
+      path: '/social'
+      fullPath: '/e/$eventoId/social'
+      preLoaderRoute: typeof AppEEventoIdSocialRouteImport
+      parentRoute: typeof AppEEventoIdRoute
+    }
     '/_app/e/$eventoId/relatorios/': {
       id: '/_app/e/$eventoId/relatorios/'
       path: '/relatorios'
@@ -631,6 +746,7 @@ declare module '@tanstack/react-router' {
 interface AppEEventoIdRouteChildren {
   AppEEventoIdAcompanhamentoRoute: typeof AppEEventoIdAcompanhamentoRoute
   AppEEventoIdCadastroRoute: typeof AppEEventoIdCadastroRoute
+  AppEEventoIdCadeiaRoute: typeof AppEEventoIdCadeiaRoute
   AppEEventoIdCaracterizacaoRoute: typeof AppEEventoIdCaracterizacaoRoute
   AppEEventoIdChecklistRoute: typeof AppEEventoIdChecklistRoute
   AppEEventoIdColetaRoute: typeof AppEEventoIdColetaRoute
@@ -638,15 +754,19 @@ interface AppEEventoIdRouteChildren {
   AppEEventoIdComparacaoRoute: typeof AppEEventoIdComparacaoRoute
   AppEEventoIdCompensacaoRoute: typeof AppEEventoIdCompensacaoRoute
   AppEEventoIdEquipeRoute: typeof AppEEventoIdEquipeRoute
+  AppEEventoIdEsgRoute: typeof AppEEventoIdEsgRoute
   AppEEventoIdFornecedoresRoute: typeof AppEEventoIdFornecedoresRoute
   AppEEventoIdInventarioRoute: typeof AppEEventoIdInventarioRoute
   AppEEventoIdInventarioExPostRoute: typeof AppEEventoIdInventarioExPostRoute
   AppEEventoIdLinhaDoTempoRoute: typeof AppEEventoIdLinhaDoTempoRoute
+  AppEEventoIdMaoDeObraRoute: typeof AppEEventoIdMaoDeObraRoute
   AppEEventoIdMatrizRoute: typeof AppEEventoIdMatrizRoute
   AppEEventoIdOcorrenciasRoute: typeof AppEEventoIdOcorrenciasRoute
+  AppEEventoIdPesquisaRoute: typeof AppEEventoIdPesquisaRoute
   AppEEventoIdPlanoDeAcaoRoute: typeof AppEEventoIdPlanoDeAcaoRoute
   AppEEventoIdReducaoRoute: typeof AppEEventoIdReducaoRoute
   AppEEventoIdResultadosRoute: typeof AppEEventoIdResultadosRoute
+  AppEEventoIdSocialRoute: typeof AppEEventoIdSocialRoute
   AppEEventoIdIndexRoute: typeof AppEEventoIdIndexRoute
   AppEEventoIdRelatoriosRelatorioIdRoute: typeof AppEEventoIdRelatoriosRelatorioIdRoute
   AppEEventoIdRelatoriosIndexRoute: typeof AppEEventoIdRelatoriosIndexRoute
@@ -655,6 +775,7 @@ interface AppEEventoIdRouteChildren {
 const AppEEventoIdRouteChildren: AppEEventoIdRouteChildren = {
   AppEEventoIdAcompanhamentoRoute: AppEEventoIdAcompanhamentoRoute,
   AppEEventoIdCadastroRoute: AppEEventoIdCadastroRoute,
+  AppEEventoIdCadeiaRoute: AppEEventoIdCadeiaRoute,
   AppEEventoIdCaracterizacaoRoute: AppEEventoIdCaracterizacaoRoute,
   AppEEventoIdChecklistRoute: AppEEventoIdChecklistRoute,
   AppEEventoIdColetaRoute: AppEEventoIdColetaRoute,
@@ -662,15 +783,19 @@ const AppEEventoIdRouteChildren: AppEEventoIdRouteChildren = {
   AppEEventoIdComparacaoRoute: AppEEventoIdComparacaoRoute,
   AppEEventoIdCompensacaoRoute: AppEEventoIdCompensacaoRoute,
   AppEEventoIdEquipeRoute: AppEEventoIdEquipeRoute,
+  AppEEventoIdEsgRoute: AppEEventoIdEsgRoute,
   AppEEventoIdFornecedoresRoute: AppEEventoIdFornecedoresRoute,
   AppEEventoIdInventarioRoute: AppEEventoIdInventarioRoute,
   AppEEventoIdInventarioExPostRoute: AppEEventoIdInventarioExPostRoute,
   AppEEventoIdLinhaDoTempoRoute: AppEEventoIdLinhaDoTempoRoute,
+  AppEEventoIdMaoDeObraRoute: AppEEventoIdMaoDeObraRoute,
   AppEEventoIdMatrizRoute: AppEEventoIdMatrizRoute,
   AppEEventoIdOcorrenciasRoute: AppEEventoIdOcorrenciasRoute,
+  AppEEventoIdPesquisaRoute: AppEEventoIdPesquisaRoute,
   AppEEventoIdPlanoDeAcaoRoute: AppEEventoIdPlanoDeAcaoRoute,
   AppEEventoIdReducaoRoute: AppEEventoIdReducaoRoute,
   AppEEventoIdResultadosRoute: AppEEventoIdResultadosRoute,
+  AppEEventoIdSocialRoute: AppEEventoIdSocialRoute,
   AppEEventoIdIndexRoute: AppEEventoIdIndexRoute,
   AppEEventoIdRelatoriosRelatorioIdRoute:
     AppEEventoIdRelatoriosRelatorioIdRoute,
@@ -707,6 +832,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AppRoute: AppRouteWithChildren,
   RedefinirSenhaRoute: RedefinirSenhaRoute,
+  PesquisaTokenRoute: PesquisaTokenRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

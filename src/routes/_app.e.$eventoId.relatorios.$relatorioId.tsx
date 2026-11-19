@@ -387,6 +387,41 @@ function Relatorio() {
         </p>
       </Secao>
 
+      {d.esg && (
+        <Secao titulo={SECOES.esg} quebra>
+          <p className="text-xs text-muted-foreground">Área local: {d.esg.area}.</p>
+          {d.esg.pendencias.length > 0 && (
+            <p className="rounded-lg bg-warning-soft p-2 text-xs text-warning-text">
+              Essenciais pendentes quando a versão foi gerada:{" "}
+              {d.esg.pendencias.map((p) => p.id).join(", ")}.
+            </p>
+          )}
+          <Tabela
+            cabecalho={["Código", "Indicador", "Valor", "Detalhes"]}
+            linhas={d.esg.indicadores.map((i) => [
+              `${i.id}${i.essencial ? " *" : ""}`,
+              i.nome,
+              i.valor ??
+                (i.situacao === "nao_se_aplica"
+                  ? `Não se aplica${i.justificativa ? `: ${i.justificativa}` : ""}`
+                  : "Sem dados"),
+              i.detalhes.map(([k, v]) => `${k}: ${v}`).join(" · "),
+            ])}
+          />
+          <p className="text-xs text-muted-foreground">* Indicador essencial.</p>
+          {d.esg.comentarios.length > 0 && (
+            <div className="space-y-1">
+              <h3 className="font-medium">Comentários do público em destaque</h3>
+              <ul className="list-disc space-y-1 pl-5 text-sm">
+                {d.esg.comentarios.map((c, i) => (
+                  <li key={i}>{c}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </Secao>
+      )}
+
       <section className="quebra-antes space-y-4">
         <h2 className="text-lg font-semibold">Correspondência com o framework</h2>
         {correspondencia(r.framework, d).map((t) => (

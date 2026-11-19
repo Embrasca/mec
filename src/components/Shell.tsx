@@ -9,6 +9,11 @@ import {
   AlertTriangle,
   BarChart3,
   BookOpen,
+  HardHat,
+  HeartHandshake,
+  Leaf,
+  Link2,
+  MessageSquareText,
   FileText,
   GitCompare,
   Scale,
@@ -273,6 +278,16 @@ export function Shell({ evento, children }: { evento?: EventoResumo; children: R
             { to: `${e}/comparacao`, label: "Comparação", icon: GitCompare },
             { to: `${e}/compensacao`, label: "Compensação", icon: Scale },
             { to: `${e}/relatorios`, label: "Relatórios", icon: FileText },
+          ],
+        },
+        {
+          titulo: "ESG",
+          itens: [
+            { to: `${e}/esg`, label: "Indicadores ESG", icon: Leaf },
+            { to: `${e}/mao-de-obra`, label: "Mão de obra local", icon: HardHat },
+            { to: `${e}/cadeia`, label: "Cadeia de suprimentos", icon: Link2 },
+            { to: `${e}/social`, label: "Responsabilidade social", icon: HeartHandshake },
+            { to: `${e}/pesquisa`, label: "Pesquisa de satisfação", icon: MessageSquareText },
           ],
         },
         {

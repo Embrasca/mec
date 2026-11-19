@@ -14,6 +14,7 @@ import type {
   Ocorrencia,
 } from "./metodologia/posEvento";
 import type { LinhaDaMemoria } from "./metodologia/relatorio";
+import type { IndicadorCalculado } from "./esg/indicadores";
 
 export const FRAMEWORKS = ["GRI + ISO 20121", "GRI", "ISO 20121", "GHG Protocol"] as const;
 export type Framework = (typeof FRAMEWORKS)[number];
@@ -86,6 +87,13 @@ export interface DadosDoRelatorio {
   ocorrencias: Ocorrencia[];
   fornecedores: { total: number; recebidos: number };
   checklist: { nome: string; itens: number; progresso: number; concluida: boolean }[];
+  /** Indicadores ESG (Etapa 6). Ausente em versões geradas antes dela. */
+  esg?: {
+    area: string;
+    indicadores: Omit<IndicadorCalculado, "pendencias">[];
+    pendencias: { id: string; nome: string; pendencias: string[] }[];
+    comentarios: string[];
+  };
 }
 
 export type Situacao = "atendido" | "parcial" | "nao_coberto";
@@ -114,6 +122,7 @@ export const SECOES = {
   compensacao: "6. Compensação e frase permitida",
   ocorrencias: "7. Ocorrências",
   memoria: "8. Memória de cálculo",
+  esg: "9. Indicadores ESG",
 } as const;
 
 const t3 = (v: number | undefined) =>
@@ -283,14 +292,58 @@ function gri(d: DadosDoRelatorio): ItemDeCorrespondencia[] {
       situacao: "nao_coberto",
       observacao: "A Ferramenta não calcula.",
     },
+    ...griEsg(d),
     {
-      codigo: "Outros temas GRI",
-      requisito: "Resíduos, água, social, cadeia de suprimentos",
+      codigo: "GRI 303 e 306",
+      requisito: "Água e resíduos",
       secao: "—",
       situacao: "nao_coberto",
-      observacao: "Previstos para os módulos de ESG além do GEE.",
+      observacao:
+        "Resíduos entram no inventário de GEE; água e a gestão de resíduos não são indicadores do sistema.",
     },
   ];
+}
+
+/** Conteúdos GRI atendidos pelos indicadores ESG (Etapa 6). */
+function griEsg(d: DadosDoRelatorio): ItemDeCorrespondencia[] {
+  const linhas: [string, string, string[]][] = [
+    ["GRI 2-7 e 2-8", "Empregados e trabalhadores que não são empregados", ["ML1", "ML4"]],
+    ["GRI 202", "Presença no mercado (contratação local)", ["ML2", "ML3"]],
+    ["GRI 204-1", "Proporção de gastos com fornecedores locais", ["CS1", "CS2"]],
+    [
+      "GRI 308-1 e 414-1",
+      "Fornecedores selecionados com critérios ambientais e sociais",
+      ["CS5", "CS6"],
+    ],
+    ["GRI 403-9", "Acidentes de trabalho", ["ML7"]],
+    ["GRI 404-1", "Horas de capacitação", ["ML6"]],
+    ["GRI 405-1", "Diversidade em órgãos de governança e empregados", ["ML5"]],
+    ["GRI 413-1", "Operações com engajamento da comunidade local", ["RS1", "RS2"]],
+  ];
+  return linhas.map(([codigo, requisito, ids]) => {
+    const xs = (d.esg?.indicadores ?? []).filter((i) => ids.includes(i.id));
+    const comValor = xs.filter((i) => i.situacao === "ok");
+    return {
+      codigo,
+      requisito,
+      secao: SECOES.esg,
+      situacao: !d.esg
+        ? "nao_coberto"
+        : comValor.length === ids.length
+          ? "atendido"
+          : comValor.length
+            ? "parcial"
+            : "nao_coberto",
+      observacao: !d.esg
+        ? "Versão gerada antes dos indicadores ESG."
+        : xs
+            .map(
+              (i) =>
+                `${i.id} ${i.nome}: ${i.valor ?? (i.situacao === "nao_se_aplica" ? "não se aplica" : "sem dados")}`,
+            )
+            .join("; "),
+    };
+  });
 }
 
 function iso20121(d: DadosDoRelatorio): ItemDeCorrespondencia[] {

@@ -12,6 +12,7 @@ import { eventoVisivel } from "./eventos.server";
 import { lerAcoes, lerChecklist, lerMedidas } from "./gestao.server";
 import { lerFicha } from "./governanca.server";
 import { lerInventario } from "./inventario.server";
+import { lerEsg } from "./esg.server";
 import { obterPosEventoNaTransacao } from "./posEvento.server";
 
 const uuid = z.string().uuid();
@@ -73,6 +74,7 @@ async function montarDados(sql: Sql, eventoId: string, hoje: string): Promise<Da
     situacaoPrimario: pos.resultados.qualidade.situacaoPrimario,
   });
   const { versao: _v, ...compensacao } = pos.compensacao;
+  const esg = await lerEsg(sql, ev);
   return {
     modelo: 1,
     metodologia: ev.metodologia,
@@ -138,6 +140,14 @@ async function montarDados(sql: Sql, eventoId: string, hoje: string): Promise<Da
       progresso: f.progresso,
       concluida: f.concluida,
     })),
+    esg: {
+      area: esg.area.descricao,
+      indicadores: esg.indicadores.map(({ pendencias: _p, ...i }) => i),
+      pendencias: esg.pendencias,
+      comentarios: esg.pesquisa.respostas
+        .filter((r) => r.destaque && r.comentario)
+        .map((r) => r.comentario!),
+    },
   };
 }
 
@@ -204,6 +214,11 @@ export async function gerarRelatorio(
     const dados = await montarDados(sql, evento.id, d.hoje);
     if (d.tipo === "final" && !dados.exPost.fechadoEm)
       throw new ErroDeNegocio("O relatório final exige o inventário ex-post fechado.");
+    // D2: os indicadores ESG essenciais são obrigatórios em todos os níveis.
+    if (d.tipo === "final" && dados.esg?.pendencias.length)
+      throw new ErroDeNegocio(
+        `O relatório final exige os indicadores ESG essenciais: ${dados.esg.pendencias.map((p) => p.id).join(", ")}.`,
+      );
     const hash = codigoDeIntegridade(dados);
     const [r] = await sql<{ id: string; numero: number }>(
       `insert into relatorios (evento_id, numero, tipo, framework, dados, hash, gerado_por)
