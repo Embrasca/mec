@@ -78,6 +78,8 @@ const NO_SISTEMA: Record<string, string> = {
   FORNECEDORES: "Fornecedores",
   "1 - EVENTO": "Cadastro do evento e caracterização",
   "2 - EX-ANTE": "Inventário ex-ante",
+  REDUÇÃO: "Plano de redução",
+  "C - CHECKLIST": "Checklist do nível",
   COLETA: "Coleta (previsão, para o ex-ante)",
   "FATORES e LISTAS": "Base de fatores",
 };

@@ -1,0 +1,1532 @@
+[
+  {
+    "fase": "A",
+    "nivel": 1,
+    "ordem": 1,
+    "oQueFazer": "Preencher a ficha de caracterização do evento na Aba A da Ferramenta de Cálculo.",
+    "quando": "Antes de escolher o local",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Ficha preenchida e salva"
+  },
+  {
+    "fase": "A",
+    "nivel": 1,
+    "ordem": 2,
+    "oQueFazer": "Anotar o nível calculado e qual etapa o determinou.",
+    "quando": "Logo após a ficha",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Nível registrado na Aba A da Ferramenta de Cálculo"
+  },
+  {
+    "fase": "A",
+    "nivel": 1,
+    "ordem": 3,
+    "oQueFazer": "Escrever a data em que começa a montagem e a data em que termina a retirada do lixo. Esse é o período contado.",
+    "quando": "Ao definir o cronograma",
+    "quemFaz": "Coordenação",
+    "registro": "Datas anotadas na ficha"
+  },
+  {
+    "fase": "A",
+    "nivel": 1,
+    "ordem": 4,
+    "oQueFazer": "Percorrer as dez categorias e escrever, em cada uma, se ela se aplica ou não ao evento.",
+    "quando": "Antes de contratar",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Categorias classificadas, sem nenhuma em branco"
+  },
+  {
+    "fase": "A",
+    "nivel": 1,
+    "ordem": 5,
+    "oQueFazer": "Escrever o nome de uma pessoa responsável por cada categoria que se aplica.",
+    "quando": "Junto com o item anterior",
+    "quemFaz": "Coordenação",
+    "registro": "Nome do responsável em cada categoria"
+  },
+  {
+    "fase": "A",
+    "nivel": 1,
+    "ordem": 6,
+    "oQueFazer": "Criar uma pasta única, em rede ou nuvem, para guardar todos os comprovantes, e informar o endereço à equipe.",
+    "quando": "Antes do envio dos formulários",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Pasta criada e comunicada"
+  },
+  {
+    "fase": "A",
+    "nivel": 1,
+    "ordem": 7,
+    "oQueFazer": "Pedir ao local do evento a autorização para ler o medidor de energia antes da montagem e depois da desmontagem.",
+    "quando": "Ao fechar o contrato do espaço",
+    "quemFaz": "Coordenação",
+    "registro": "Resposta por escrito ou e-mail"
+  },
+  {
+    "fase": "A",
+    "nivel": 1,
+    "ordem": 8,
+    "oQueFazer": "Enviar aos fornecedores a lista dos dados que deverão ser apresentados ao final, a partir do quadro da seção 9.7.3 do Guia, com os campos que a Ferramenta de Cálculo pede.",
+    "quando": "Ao contratar cada fornecedor",
+    "quemFaz": "Coordenação",
+    "registro": "E-mail enviado, com data"
+  },
+  {
+    "fase": "A",
+    "nivel": 1,
+    "ordem": 9,
+    "oQueFazer": "Lançar as quantidades previstas na Aba 2 da Ferramenta de Cálculo.",
+    "quando": "Até 30 dias antes",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Aba 2 da Ferramenta de Cálculo preenchida"
+  },
+  {
+    "fase": "A",
+    "nivel": 1,
+    "ordem": 10,
+    "oQueFazer": "Olhar quais categorias concentram a maior parte das emissões estimadas.",
+    "quando": "Logo após o cálculo",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Anotação das categorias principais"
+  },
+  {
+    "fase": "A",
+    "nivel": 1,
+    "ordem": 11,
+    "oQueFazer": "Escolher pelo menos três medidas para emitir menos, com responsável e prazo para cada uma.",
+    "quando": "Até 30 dias antes",
+    "quemFaz": "Coordenação e gestão climática",
+    "registro": "Três medidas de redução registradas"
+  },
+  {
+    "fase": "A",
+    "nivel": 1,
+    "ordem": 12,
+    "oQueFazer": "Avisar a equipe, em reunião ou mensagem, o que cada pessoa deverá anotar durante o evento.",
+    "quando": "Uma semana antes",
+    "quemFaz": "Coordenação",
+    "registro": "Registro da reunião ou da mensagem"
+  },
+  {
+    "fase": "A",
+    "nivel": 2,
+    "ordem": 13,
+    "oQueFazer": "Montar a matriz de coleta com uma linha por dado: o que medir, unidade, quem entrega, prazo e comprovante.",
+    "quando": "Até 90 dias antes",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Plano de coleta preenchido"
+  },
+  {
+    "fase": "A",
+    "nivel": 2,
+    "ordem": 14,
+    "oQueFazer": "Enviar a cada fornecedor a lista do que ele deve entregar (Guia, seção 9.7.3), com as unidades de medida e o prazo de entrega indicados.",
+    "quando": "Ao iniciar o serviço de cada um",
+    "quemFaz": "Coordenação",
+    "registro": "Formulários enviados, com data"
+  },
+  {
+    "fase": "A",
+    "nivel": 2,
+    "ordem": 15,
+    "oQueFazer": "Explicar ao fornecedor, por telefone ou reunião, como preencher o formulário.",
+    "quando": "Até 7 dias após o envio",
+    "quemFaz": "Coordenação",
+    "registro": "Registro do contato"
+  },
+  {
+    "fase": "A",
+    "nivel": 2,
+    "ordem": 16,
+    "oQueFazer": "Incorporar as perguntas de mobilidade ao próprio formulário de inscrição, como campos obrigatórios. Não crie um segundo formulário: o participante que precisa preencher duas coisas costuma não preencher a segunda.",
+    "quando": "Ao abrir as inscrições",
+    "quemFaz": "Responsável por mobilidade",
+    "registro": "Formulário publicado"
+  },
+  {
+    "fase": "A",
+    "nivel": 2,
+    "ordem": 17,
+    "oQueFazer": "Lançar a estimativa na Aba 2 da Ferramenta de Cálculo separando por categoria, e não em bloco único.",
+    "quando": "Até 60 dias antes",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Aba 2 da Ferramenta de Cálculo por categoria"
+  },
+  {
+    "fase": "A",
+    "nivel": 2,
+    "ordem": 18,
+    "oQueFazer": "Escrever, para cada estimativa, de onde veio o número.",
+    "quando": "Junto com o lançamento",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Coluna de premissa preenchida"
+  },
+  {
+    "fase": "A",
+    "nivel": 2,
+    "ordem": 19,
+    "oQueFazer": "Escolher medidas de redução para cada categoria que pese mais de 10% do total estimado.",
+    "quando": "Até 60 dias antes",
+    "quemFaz": "Coordenação e gestão climática",
+    "registro": "Medidas de redução registradas"
+  },
+  {
+    "fase": "A",
+    "nivel": 2,
+    "ordem": 20,
+    "oQueFazer": "Definir quem fará a conferência do resultado ao final. Precisa ser outra pessoa.",
+    "quando": "Até 60 dias antes",
+    "quemFaz": "Coordenação",
+    "registro": "Nome registrado no quadro de responsáveis"
+  },
+  {
+    "fase": "A",
+    "nivel": 2,
+    "ordem": 21,
+    "oQueFazer": "Combinar com o local do evento a leitura do medidor e o registro do consumo do período.",
+    "quando": "Ao fechar o contrato",
+    "quemFaz": "Responsável por infraestrutura",
+    "registro": "Confirmação por escrito"
+  },
+  {
+    "fase": "A",
+    "nivel": 2,
+    "ordem": 22,
+    "oQueFazer": "Reunir a equipe uma semana antes e explicar o que cada um vai registrar e onde.",
+    "quando": "7 dias antes",
+    "quemFaz": "Coordenação",
+    "registro": "Lista de presença da reunião"
+  },
+  {
+    "fase": "A",
+    "nivel": 2,
+    "ordem": 23,
+    "oQueFazer": "Conferir esta lista antes do início da montagem.",
+    "quando": "Antes da montagem",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Lista marcada"
+  },
+  {
+    "fase": "A",
+    "nivel": 3,
+    "ordem": 24,
+    "oQueFazer": "Preencher a ficha de caracterização, registrar o nível e o critério que o determinou.",
+    "quando": "No início do planejamento",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Aba A da Ferramenta de Cálculo completa"
+  },
+  {
+    "fase": "A",
+    "nivel": 3,
+    "ordem": 25,
+    "oQueFazer": "Definir limites temporal, geográfico, organizacional e operacional, incluindo exclusões justificadas.",
+    "quando": "Antes das contratações",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Limites documentados"
+  },
+  {
+    "fase": "A",
+    "nivel": 3,
+    "ordem": 26,
+    "oQueFazer": "Classificar as dez categorias e designar responsáveis por todas as aplicáveis.",
+    "quando": "Antes das contratações",
+    "quemFaz": "Coordenação e gestão climática",
+    "registro": "Categorias e responsáveis definidos"
+  },
+  {
+    "fase": "A",
+    "nivel": 3,
+    "ordem": 27,
+    "oQueFazer": "Montar o plano de coleta completo, com dado, unidade, prazo, evidência e contingência.",
+    "quando": "Até 90 dias antes",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Plano de coleta completo"
+  },
+  {
+    "fase": "A",
+    "nivel": 3,
+    "ordem": 28,
+    "oQueFazer": "Inserir nos instrumentos de contratação a obrigação de entregar os dados e evidências no prazo definido.",
+    "quando": "Antes de publicar/contratar",
+    "quemFaz": "Coordenação e contratos",
+    "registro": "Cláusulas inseridas"
+  },
+  {
+    "fase": "A",
+    "nivel": 3,
+    "ordem": 29,
+    "oQueFazer": "Incluir a retenção dos comprovantes e as medidas de redução que dependam do fornecedor.",
+    "quando": "Antes de publicar/contratar",
+    "quemFaz": "Coordenação e contratos",
+    "registro": "Cláusulas registradas"
+  },
+  {
+    "fase": "A",
+    "nivel": 3,
+    "ordem": 30,
+    "oQueFazer": "Criar repositório institucional, padrão de nomes e rotina de versionamento.",
+    "quando": "Até 60 dias antes",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Pasta e padrão comunicados"
+  },
+  {
+    "fase": "A",
+    "nivel": 3,
+    "ordem": 31,
+    "oQueFazer": "Abrir a pesquisa estruturada de mobilidade e definir estratégia de reforço.",
+    "quando": "Ao abrir inscrições",
+    "quemFaz": "Responsável por mobilidade",
+    "registro": "Formulário ativo"
+  },
+  {
+    "fase": "A",
+    "nivel": 3,
+    "ordem": 32,
+    "oQueFazer": "Calcular dois cenários no ex-ante: sem medidas e com medidas planejadas.",
+    "quando": "Até 60 dias antes",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Aba 2 da Ferramenta de Cálculo com cenários"
+  },
+  {
+    "fase": "A",
+    "nivel": 3,
+    "ordem": 33,
+    "oQueFazer": "Identificar as categorias que somam cerca de 80% das emissões estimadas.",
+    "quando": "Após o ex-ante",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Lista das categorias prioritárias"
+  },
+  {
+    "fase": "A",
+    "nivel": 3,
+    "ordem": 34,
+    "oQueFazer": "Definir meta numérica e indicador para cada categoria prioritária.",
+    "quando": "Até 60 dias antes",
+    "quemFaz": "Coordenação e gestão climática",
+    "registro": "Metas de redução registradas"
+  },
+  {
+    "fase": "A",
+    "nivel": 3,
+    "ordem": 35,
+    "oQueFazer": "Realizar capacitação da equipe, com demonstração dos formulários e da ferramenta.",
+    "quando": "Até 30 dias antes",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Lista de presença e material"
+  },
+  {
+    "fase": "A",
+    "nivel": 3,
+    "ordem": 36,
+    "oQueFazer": "Realizar briefing com fornecedores relevantes, alcançando quem estará em campo.",
+    "quando": "Até 7 dias antes",
+    "quemFaz": "Coordenação",
+    "registro": "Registro por fornecedor"
+  },
+  {
+    "fase": "A",
+    "nivel": 3,
+    "ordem": 37,
+    "oQueFazer": "Confirmar medidores, horímetro, balança e demais instrumentos das categorias prioritárias.",
+    "quando": "Até 7 dias antes",
+    "quemFaz": "Responsáveis por área",
+    "registro": "Confirmação e fotos"
+  },
+  {
+    "fase": "A",
+    "nivel": 3,
+    "ordem": 38,
+    "oQueFazer": "Designar formalmente o revisor técnico, distinto de quem produzirá o cálculo revisado.",
+    "quando": "Até 30 dias antes",
+    "quemFaz": "Coordenação",
+    "registro": "Designação registrada"
+  },
+  {
+    "fase": "A",
+    "nivel": 3,
+    "ordem": 39,
+    "oQueFazer": "Conferir a lista antes do início da montagem.",
+    "quando": "Antes da montagem",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Lista marcada"
+  },
+  {
+    "fase": "A",
+    "nivel": 4,
+    "ordem": 40,
+    "oQueFazer": "Preencher e assinar o registro formal de caracterização, enquadramento e critério que determinou o Nível 4.",
+    "quando": "No início do planejamento",
+    "quemFaz": "Coordenação e patrocinador",
+    "registro": "Registro assinado"
+  },
+  {
+    "fase": "A",
+    "nivel": 4,
+    "ordem": 41,
+    "oQueFazer": "Documentar limites temporal, geográfico, organizacional e operacional e justificar exclusões.",
+    "quando": "Antes das contratações",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Limites formalizados"
+  },
+  {
+    "fase": "A",
+    "nivel": 4,
+    "ordem": 42,
+    "oQueFazer": "Classificar todas as categorias aplicáveis e designar responsáveis formais por categoria.",
+    "quando": "Antes das contratações",
+    "quemFaz": "Coordenação",
+    "registro": "Matriz C/D completa"
+  },
+  {
+    "fase": "A",
+    "nivel": 4,
+    "ordem": 43,
+    "oQueFazer": "Montar plano de coleta completo, com fonte primária, unidade, prazo, evidência, responsável e contingência.",
+    "quando": "Até 90 dias antes",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Plano de coleta completo"
+  },
+  {
+    "fase": "A",
+    "nivel": 4,
+    "ordem": 44,
+    "oQueFazer": "Inserir nos contratos os requisitos de dados, retenção de evidências e medidas de redução aplicáveis.",
+    "quando": "Antes de publicar/contratar",
+    "quemFaz": "Contratos e coordenação",
+    "registro": "Cláusulas formalizadas"
+  },
+  {
+    "fase": "A",
+    "nivel": 4,
+    "ordem": 45,
+    "oQueFazer": "Definir plano de contingência específico para cada fonte crítica.",
+    "quando": "Até 90 dias antes",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Plano de contingência"
+  },
+  {
+    "fase": "A",
+    "nivel": 4,
+    "ordem": 46,
+    "oQueFazer": "Criar repositório institucional com controle de acesso, padrão de nomes e histórico de versões.",
+    "quando": "Até 60 dias antes",
+    "quemFaz": "Gestão documental/ferramenta",
+    "registro": "Controle de versões aberto"
+  },
+  {
+    "fase": "A",
+    "nivel": 4,
+    "ordem": 47,
+    "oQueFazer": "Calcular cenário de referência, cenário com medidas e faixas mínima/máxima para categorias acima de 5%.",
+    "quando": "Até 60 dias antes",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Ex-ante com faixas"
+  },
+  {
+    "fase": "A",
+    "nivel": 4,
+    "ordem": 48,
+    "oQueFazer": "Identificar premissas críticas e definir como serão confirmadas no ex-post.",
+    "quando": "Até 60 dias antes",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Fichas de premissa"
+  },
+  {
+    "fase": "A",
+    "nivel": 4,
+    "ordem": 49,
+    "oQueFazer": "Definir metas numéricas e indicadores para todas as categorias prioritárias.",
+    "quando": "Até 60 dias antes",
+    "quemFaz": "Coordenação e gestão climática",
+    "registro": "Aba REDUÇÃO preenchida, com responsável e prazo de cada medida"
+  },
+  {
+    "fase": "A",
+    "nivel": 4,
+    "ordem": 50,
+    "oQueFazer": "Contratar/designar verificação independente e acordar escopo, critérios e cronograma.",
+    "quando": "Até 60 dias antes",
+    "quemFaz": "Patrocinador institucional",
+    "registro": "Contrato/designação e escopo"
+  },
+  {
+    "fase": "A",
+    "nivel": 4,
+    "ordem": 51,
+    "oQueFazer": "Realizar capacitação formal da equipe e briefing por fornecedor com registro.",
+    "quando": "Até 30 e 7 dias antes",
+    "quemFaz": "Gestão climática e coordenação",
+    "registro": "Listas e registros"
+  },
+  {
+    "fase": "A",
+    "nivel": 4,
+    "ordem": 52,
+    "oQueFazer": "Confirmar em campo que fornecedores e responsáveis sabem o que medir e onde registrar.",
+    "quando": "Até 7 dias antes",
+    "quemFaz": "Coordenação",
+    "registro": "Registro da verificação"
+  },
+  {
+    "fase": "A",
+    "nivel": 4,
+    "ordem": 53,
+    "oQueFazer": "Testar medidores, horímetro, balanças, formulários e acessos à ferramenta.",
+    "quando": "Até 7 dias antes",
+    "quemFaz": "Responsáveis técnicos",
+    "registro": "Teste registrado"
+  },
+  {
+    "fase": "A",
+    "nivel": 4,
+    "ordem": 54,
+    "oQueFazer": "Criar canal formal de ocorrências e regras de aprovação de mudanças críticas.",
+    "quando": "Até 30 dias antes",
+    "quemFaz": "Coordenação e patrocinador",
+    "registro": "Canal e fluxo definidos"
+  },
+  {
+    "fase": "A",
+    "nivel": 4,
+    "ordem": 55,
+    "oQueFazer": "Conferir e assinar a lista antes do início da montagem.",
+    "quando": "Antes da montagem",
+    "quemFaz": "Coordenação e gestão climática",
+    "registro": "Lista assinada"
+  },
+  {
+    "fase": "B",
+    "nivel": 1,
+    "ordem": 1,
+    "oQueFazer": "Ler o medidor de energia antes de começar a montagem e fotografar o visor.",
+    "quando": "No primeiro dia de montagem",
+    "quemFaz": "Responsável por infraestrutura",
+    "registro": "Foto salva na pasta única"
+  },
+  {
+    "fase": "B",
+    "nivel": 1,
+    "ordem": 2,
+    "oQueFazer": "Anotar quantos litros de combustível foram colocados no gerador, a cada abastecimento.",
+    "quando": "A cada abastecimento",
+    "quemFaz": "Responsável por infraestrutura",
+    "registro": "Anotação e nota fiscal"
+  },
+  {
+    "fase": "B",
+    "nivel": 1,
+    "ordem": 3,
+    "oQueFazer": "Anotar quantas refeições e porções foram servidas, ao final de cada serviço.",
+    "quando": "Ao final de cada refeição",
+    "quemFaz": "Responsável por alimentação",
+    "registro": "Planilha ou papel com os números"
+  },
+  {
+    "fase": "B",
+    "nivel": 1,
+    "ordem": 4,
+    "oQueFazer": "Pesar o lixo separado por tipo ou, se não houver balança, contar os sacos e anotar o tipo.",
+    "quando": "Ao final de cada dia",
+    "quemFaz": "Responsável por resíduos",
+    "registro": "Anotação diária"
+  },
+  {
+    "fase": "B",
+    "nivel": 1,
+    "ordem": 5,
+    "oQueFazer": "Anotar qualquer coisa que saiu diferente do previsto: mais público, mais um dia, gerador extra.",
+    "quando": "No dia em que acontecer",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Aba OCORRÊNCIAS da Ferramenta de Cálculo"
+  },
+  {
+    "fase": "B",
+    "nivel": 1,
+    "ordem": 6,
+    "oQueFazer": "Guardar na pasta única toda nota fiscal e comprovante recebido, inclusive as diárias de hospedagem e os traslados contratados pela organização.",
+    "quando": "No mesmo dia",
+    "quemFaz": "Quem receber o documento",
+    "registro": "Arquivo na pasta"
+  },
+  {
+    "fase": "B",
+    "nivel": 1,
+    "ordem": 7,
+    "oQueFazer": "Perguntar aos participantes de onde vieram e como vieram, por formulário ou lista no credenciamento.",
+    "quando": "No credenciamento",
+    "quemFaz": "Responsável por mobilidade",
+    "registro": "Respostas salvas"
+  },
+  {
+    "fase": "B",
+    "nivel": 1,
+    "ordem": 8,
+    "oQueFazer": "Conferir, ao final de cada dia, se ficou faltando algum registro, e pedir na hora.",
+    "quando": "Ao final de cada dia",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Lista de pendências"
+  },
+  {
+    "fase": "B",
+    "nivel": 1,
+    "ordem": 9,
+    "oQueFazer": "Ler o medidor de energia depois da desmontagem e fotografar.",
+    "quando": "No último dia de desmontagem",
+    "quemFaz": "Responsável por infraestrutura",
+    "registro": "Foto salva na pasta única"
+  },
+  {
+    "fase": "B",
+    "nivel": 1,
+    "ordem": 10,
+    "oQueFazer": "Conferir esta lista antes de dispensar a equipe e os fornecedores.",
+    "quando": "Antes de encerrar",
+    "quemFaz": "Coordenação",
+    "registro": "Lista assinada ou marcada"
+  },
+  {
+    "fase": "B",
+    "nivel": 2,
+    "ordem": 11,
+    "oQueFazer": "Ler o medidor de energia antes da montagem e registrar a leitura com foto ou evidência equivalente.",
+    "quando": "No primeiro dia de montagem",
+    "quemFaz": "Responsável por infraestrutura",
+    "registro": "Leitura inicial e foto"
+  },
+  {
+    "fase": "B",
+    "nivel": 2,
+    "ordem": 12,
+    "oQueFazer": "Registrar, por equipamento, cada abastecimento de gerador com quantidade e tipo de combustível, mantendo a nota fiscal ou declaração do fornecedor.",
+    "quando": "A cada abastecimento",
+    "quemFaz": "Responsável por infraestrutura",
+    "registro": "Registro de consumo e comprovante"
+  },
+  {
+    "fase": "B",
+    "nivel": 2,
+    "ordem": 13,
+    "oQueFazer": "Recolher o formulário de cada fornecedor ao final do seu serviço.",
+    "quando": "Ao término de cada serviço",
+    "quemFaz": "Coordenação",
+    "registro": "Formulários recebidos"
+  },
+  {
+    "fase": "B",
+    "nivel": 2,
+    "ordem": 14,
+    "oQueFazer": "Conferir no mesmo dia se cada formulário contém a unidade, o período, o responsável e o comprovante previstos.",
+    "quando": "No recebimento",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Formulário conferido"
+  },
+  {
+    "fase": "B",
+    "nivel": 2,
+    "ordem": 15,
+    "oQueFazer": "Registrar as porções servidas por tipo e a quantidade de sobras informada pelo serviço de alimentação.",
+    "quando": "Ao final de cada serviço de alimentação",
+    "quemFaz": "Responsável por alimentação",
+    "registro": "Relatório do buffet/catering"
+  },
+  {
+    "fase": "B",
+    "nivel": 2,
+    "ordem": 16,
+    "oQueFazer": "Registrar rota, quilometragem, tipo de veículo e ocupação de cada serviço de transporte fretado. Para os deslocamentos que o participante faz por conta própria, use a pergunta correspondente do formulário de inscrição.",
+    "quando": "A cada viagem ou fechamento diário",
+    "quemFaz": "Responsável por mobilidade",
+    "registro": "Registro do prestador"
+  },
+  {
+    "fase": "B",
+    "nivel": 2,
+    "ordem": 17,
+    "oQueFazer": "Pesar os resíduos por fração principal e registrar o destino previsto ou realizado.",
+    "quando": "Ao final de cada dia",
+    "quemFaz": "Responsável por resíduos",
+    "registro": "Registro de pesagem"
+  },
+  {
+    "fase": "B",
+    "nivel": 2,
+    "ordem": 18,
+    "oQueFazer": "Conferir a cobertura das respostas de mobilidade. Quando as perguntas estão no formulário de inscrição, a cobertura é automática e esta tarefa se reduz a tratar as exceções: inscrições feitas antes da mudança e participantes inscritos por terceiros.",
+    "quando": "Ao longo do evento",
+    "quemFaz": "Responsável por mobilidade",
+    "registro": "Taxa de resposta acompanhada"
+  },
+  {
+    "fase": "B",
+    "nivel": 2,
+    "ordem": 19,
+    "oQueFazer": "Guardar cada evidência no repositório único no mesmo dia, com nome padronizado por categoria, data, fornecedor e tipo de documento.",
+    "quando": "No mesmo dia",
+    "quemFaz": "Quem receber o documento",
+    "registro": "Arquivos nomeados e arquivados"
+  },
+  {
+    "fase": "B",
+    "nivel": 2,
+    "ordem": 20,
+    "oQueFazer": "Realizar fechamento simplificado ao final de cada dia, verificando o que entrou, o que falta e quem deve ser acionado.",
+    "quando": "Ao final de cada dia",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Lista diária de pendências"
+  },
+  {
+    "fase": "B",
+    "nivel": 2,
+    "ordem": 21,
+    "oQueFazer": "Ler o medidor de energia após a desmontagem e registrar a leitura final com foto ou evidência equivalente.",
+    "quando": "No último dia de desmontagem",
+    "quemFaz": "Responsável por infraestrutura",
+    "registro": "Leitura final e foto"
+  },
+  {
+    "fase": "B",
+    "nivel": 2,
+    "ordem": 22,
+    "oQueFazer": "Conferir esta lista antes de dispensar equipes e fornecedores, cobrando registros que ainda possam ser obtidos em campo.",
+    "quando": "Antes de encerrar",
+    "quemFaz": "Coordenação",
+    "registro": "Lista 2.B marcada"
+  },
+  {
+    "fase": "B",
+    "nivel": 3,
+    "ordem": 23,
+    "oQueFazer": "Registrar qualquer mudança de escopo, com data, descrição e efeito esperado sobre o inventário.",
+    "quando": "No dia em que ocorrer",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Aba OCORRÊNCIAS da Ferramenta de Cálculo"
+  },
+  {
+    "fase": "B",
+    "nivel": 3,
+    "ordem": 24,
+    "oQueFazer": "Fazer fechamento diário, em horário fixo, com registro do que foi coletado, pendências e decisões.",
+    "quando": "Todo dia",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Registro diário"
+  },
+  {
+    "fase": "B",
+    "nivel": 3,
+    "ordem": 25,
+    "oQueFazer": "Validar cada dado recebido em completude, unidade, período, duplicidade, ordem de grandeza e evidência.",
+    "quando": "No recebimento",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Registro da validação"
+  },
+  {
+    "fase": "B",
+    "nivel": 3,
+    "ordem": 26,
+    "oQueFazer": "Ler medidor de energia no início e no fim do período e registrar eventuais leituras intermediárias relevantes.",
+    "quando": "Conforme plano",
+    "quemFaz": "Infraestrutura",
+    "registro": "Leituras e fotos"
+  },
+  {
+    "fase": "B",
+    "nivel": 3,
+    "ordem": 27,
+    "oQueFazer": "Registrar diariamente o horímetro e o combustível de cada gerador.",
+    "quando": "Todo dia",
+    "quemFaz": "Infraestrutura",
+    "registro": "Planilha por equipamento"
+  },
+  {
+    "fase": "B",
+    "nivel": 3,
+    "ordem": 28,
+    "oQueFazer": "Registrar transporte local por prestador, rota, quilometragem e ocupação.",
+    "quando": "A cada serviço",
+    "quemFaz": "Mobilidade",
+    "registro": "Registro do prestador"
+  },
+  {
+    "fase": "B",
+    "nivel": 3,
+    "ordem": 29,
+    "oQueFazer": "Acompanhar a taxa de resposta da pesquisa de mobilidade e reforçar quando necessário.",
+    "quando": "Todo dia",
+    "quemFaz": "Mobilidade",
+    "registro": "Percentual diário"
+  },
+  {
+    "fase": "B",
+    "nivel": 3,
+    "ordem": 30,
+    "oQueFazer": "Registrar diárias efetivas por estabelecimento e período, quando a informação estiver disponível durante o evento.",
+    "quando": "Execução",
+    "quemFaz": "Hospedagem/coordenação",
+    "registro": "Lista validada"
+  },
+  {
+    "fase": "B",
+    "nivel": 3,
+    "ordem": 31,
+    "oQueFazer": "Registrar porções, cardápios principais e desperdício/sobras de alimentação.",
+    "quando": "A cada serviço",
+    "quemFaz": "Alimentação",
+    "registro": "Relatório do buffet"
+  },
+  {
+    "fase": "B",
+    "nivel": 3,
+    "ordem": 32,
+    "oQueFazer": "Pesar resíduos por tipo com balança e guardar comprovantes de coleta/destinação.",
+    "quando": "Todo dia",
+    "quemFaz": "Resíduos",
+    "registro": "Pesagens e evidências"
+  },
+  {
+    "fase": "B",
+    "nivel": 3,
+    "ordem": 33,
+    "oQueFazer": "Monitorar os indicadores das medidas de redução e corrigir a rota quando houver desvio.",
+    "quando": "Todo dia",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Registro de ajuste"
+  },
+  {
+    "fase": "B",
+    "nivel": 3,
+    "ordem": 34,
+    "oQueFazer": "Registrar cada mudança de escopo com data, causa, efeito estimado e decisão tomada.",
+    "quando": "No momento da mudança",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Aba OCORRÊNCIAS da Ferramenta de Cálculo"
+  },
+  {
+    "fase": "B",
+    "nivel": 3,
+    "ordem": 35,
+    "oQueFazer": "Reportar à coordenação, ao final de cada dia, as lacunas críticas e decisões necessárias.",
+    "quando": "Todo dia",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Relato diário"
+  },
+  {
+    "fase": "B",
+    "nivel": 3,
+    "ordem": 36,
+    "oQueFazer": "Salvar comprovantes no repositório no mesmo dia, com nome padronizado.",
+    "quando": "No mesmo dia",
+    "quemFaz": "Quem receber",
+    "registro": "Arquivo nomeado"
+  },
+  {
+    "fase": "B",
+    "nivel": 3,
+    "ordem": 37,
+    "oQueFazer": "Conferir a lista antes de dispensar equipes e fornecedores.",
+    "quando": "Antes de encerrar",
+    "quemFaz": "Coordenação",
+    "registro": "Lista marcada"
+  },
+  {
+    "fase": "B",
+    "nivel": 4,
+    "ordem": 38,
+    "oQueFazer": "Fazer fechamento diário formal em horário fixo, com responsáveis e pendências registradas.",
+    "quando": "Todo dia",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Ata/registro diário"
+  },
+  {
+    "fase": "B",
+    "nivel": 4,
+    "ordem": 39,
+    "oQueFazer": "Registrar cada evidência com identificador, origem, responsável, data e vínculo ao dado correspondente.",
+    "quando": "No recebimento",
+    "quemFaz": "Quem receber / gestão documental",
+    "registro": "Cadeia de custódia"
+  },
+  {
+    "fase": "B",
+    "nivel": 4,
+    "ordem": 40,
+    "oQueFazer": "Validar dados em completude, unidade, período, duplicidade, ordem de grandeza, evidência e coerência com a fonte.",
+    "quando": "No recebimento",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Registro de validação"
+  },
+  {
+    "fase": "B",
+    "nivel": 4,
+    "ordem": 41,
+    "oQueFazer": "Realizar leitura de energia e demais medições conforme o plano, com registro de quem mediu e quando.",
+    "quando": "Conforme plano",
+    "quemFaz": "Responsáveis técnicos",
+    "registro": "Leituras rastreáveis"
+  },
+  {
+    "fase": "B",
+    "nivel": 4,
+    "ordem": 42,
+    "oQueFazer": "Registrar diariamente horímetro, abastecimentos e estoque aplicável dos geradores.",
+    "quando": "Todo dia",
+    "quemFaz": "Infraestrutura",
+    "registro": "Registro por equipamento"
+  },
+  {
+    "fase": "B",
+    "nivel": 4,
+    "ordem": 43,
+    "oQueFazer": "Acompanhar a cobertura da pesquisa de mobilidade, tratar exceções e documentar a extrapolação necessária.",
+    "quando": "Todo dia",
+    "quemFaz": "Mobilidade",
+    "registro": "Indicador de cobertura"
+  },
+  {
+    "fase": "B",
+    "nivel": 4,
+    "ordem": 44,
+    "oQueFazer": "Conferir dados de hospedagem, alimentação, materiais, frete e resíduos contra os registros dos fornecedores.",
+    "quando": "Diariamente / por serviço",
+    "quemFaz": "Responsáveis por categoria",
+    "registro": "Conferência cruzada"
+  },
+  {
+    "fase": "B",
+    "nivel": 4,
+    "ordem": 45,
+    "oQueFazer": "Pesar resíduos por fração e registrar a transferência ao destinatário com documento comprobatório.",
+    "quando": "Todo dia / coleta",
+    "quemFaz": "Resíduos",
+    "registro": "Pesagem e destinação"
+  },
+  {
+    "fase": "B",
+    "nivel": 4,
+    "ordem": 46,
+    "oQueFazer": "Monitorar metas e indicadores de redução e registrar ações corretivas.",
+    "quando": "Todo dia",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Registro de desempenho"
+  },
+  {
+    "fase": "B",
+    "nivel": 4,
+    "ordem": 47,
+    "oQueFazer": "Submeter à aprovação prévia qualquer mudança que altere limite, fonte crítica ou meta relevante.",
+    "quando": "Antes da mudança",
+    "quemFaz": "Coordenação e patrocinador",
+    "registro": "Aprovação registrada"
+  },
+  {
+    "fase": "B",
+    "nivel": 4,
+    "ordem": 48,
+    "oQueFazer": "Registrar cada mudança aprovada com data, causa, efeito estimado, responsável e versão afetada.",
+    "quando": "No momento da mudança",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Registro de mudança"
+  },
+  {
+    "fase": "B",
+    "nivel": 4,
+    "ordem": 49,
+    "oQueFazer": "Realizar conferência cruzada por amostragem dos registros e evidências durante o evento.",
+    "quando": "Diariamente",
+    "quemFaz": "Revisor técnico / responsável designado",
+    "registro": "Amostra conferida"
+  },
+  {
+    "fase": "B",
+    "nivel": 4,
+    "ordem": 50,
+    "oQueFazer": "Reportar diariamente à coordenação/patrocinador a cobertura dos dados, pendências críticas e decisões.",
+    "quando": "Todo dia",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Relatório diário"
+  },
+  {
+    "fase": "B",
+    "nivel": 4,
+    "ordem": 51,
+    "oQueFazer": "Garantir que toda peça pública durante o evento seja tecnicamente validada e institucionalmente aprovada.",
+    "quando": "Antes de publicar",
+    "quemFaz": "Comunicação e patrocinador",
+    "registro": "Peça aprovada"
+  },
+  {
+    "fase": "B",
+    "nivel": 4,
+    "ordem": 52,
+    "oQueFazer": "Conferir e assinar a lista antes de liberar equipes e fornecedores.",
+    "quando": "Antes de encerrar",
+    "quemFaz": "Coordenação e gestão climática",
+    "registro": "Lista assinada"
+  },
+  {
+    "fase": "C",
+    "nivel": 1,
+    "ordem": 1,
+    "oQueFazer": "Solicitar por escrito aos fornecedores os dados combinados.",
+    "quando": "Até cinco dias após",
+    "quemFaz": "Coordenação",
+    "registro": "E-mail enviado"
+  },
+  {
+    "fase": "C",
+    "nivel": 1,
+    "ordem": 2,
+    "oQueFazer": "Lançar as quantidades reais na Aba 3 da Ferramenta de Cálculo.",
+    "quando": "Até 30 dias após",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Aba 3 da Ferramenta de Cálculo preenchida"
+  },
+  {
+    "fase": "C",
+    "nivel": 1,
+    "ordem": 3,
+    "oQueFazer": "Marcar, em cada linha, a qualidade do dado: medido, informado pelo fornecedor ou estimado.",
+    "quando": "Junto com o lançamento",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Coluna de qualidade preenchida"
+  },
+  {
+    "fase": "C",
+    "nivel": 1,
+    "ordem": 4,
+    "oQueFazer": "Resolver todos os avisos que aparecerem na última coluna da Aba 3 da Ferramenta de Cálculo.",
+    "quando": "Antes de fechar",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Nenhum aviso pendente"
+  },
+  {
+    "fase": "C",
+    "nivel": 1,
+    "ordem": 5,
+    "oQueFazer": "Conferir na Aba 4 da Ferramenta de Cálculo se os mínimos do nível foram atingidos.",
+    "quando": "Após o lançamento",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Situação \"OK\" nas duas linhas"
+  },
+  {
+    "fase": "C",
+    "nivel": 1,
+    "ordem": 6,
+    "oQueFazer": "Anotar quais das três medidas de redução funcionaram e quais não, com o motivo.",
+    "quando": "Até 30 dias após",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Resultado de cada medida de redução registrado"
+  },
+  {
+    "fase": "C",
+    "nivel": 1,
+    "ordem": 7,
+    "oQueFazer": "Ver na Aba 6 da Ferramenta de Cálculo quanto sobrou para compensar.",
+    "quando": "Após fechar o cálculo",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Valor anotado"
+  },
+  {
+    "fase": "C",
+    "nivel": 1,
+    "ordem": 8,
+    "oQueFazer": "Se houver compensação, guardar o comprovante de aposentadoria dos créditos.",
+    "quando": "Ao compensar",
+    "quemFaz": "Coordenação",
+    "registro": "Comprovante na pasta única"
+  },
+  {
+    "fase": "C",
+    "nivel": 1,
+    "ordem": 9,
+    "oQueFazer": "Copiar os números da Aba 7 da Ferramenta de Cálculo para um resumo de uma página.",
+    "quando": "Até 45 dias após",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Resumo escrito"
+  },
+  {
+    "fase": "C",
+    "nivel": 1,
+    "ordem": 10,
+    "oQueFazer": "Usar em público apenas a frase que a planilha indicou.",
+    "quando": "Antes de divulgar",
+    "quemFaz": "Comunicação",
+    "registro": "Peça aprovada pela coordenação"
+  },
+  {
+    "fase": "C",
+    "nivel": 1,
+    "ordem": 11,
+    "oQueFazer": "Guardar toda a pasta de comprovantes por cinco anos.",
+    "quando": "Ao encerrar",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Pasta arquivada"
+  },
+  {
+    "fase": "C",
+    "nivel": 1,
+    "ordem": 12,
+    "oQueFazer": "Anotar tudo o que precisaria melhorar na próxima edição, sem limite de itens. Registre pelo menos o que foi difícil de obter e o que não funcionou como esperado.",
+    "quando": "Ao encerrar",
+    "quemFaz": "Coordenação e gestão climática",
+    "registro": "Anotação arquivada"
+  },
+  {
+    "fase": "C",
+    "nivel": 2,
+    "ordem": 13,
+    "oQueFazer": "Solicitar, por escrito, os dados finais combinados com os fornecedores e registrar a data da solicitação.",
+    "quando": "Até 5 dias após",
+    "quemFaz": "Coordenação",
+    "registro": "Solicitação enviada"
+  },
+  {
+    "fase": "C",
+    "nivel": 2,
+    "ordem": 14,
+    "oQueFazer": "Cobrar formalmente os fornecedores que não entregarem os dados no prazo.",
+    "quando": "Até 15 dias após",
+    "quemFaz": "Coordenação",
+    "registro": "E-mails de cobrança"
+  },
+  {
+    "fase": "C",
+    "nivel": 2,
+    "ordem": 15,
+    "oQueFazer": "Lançar as quantidades reais no inventário ex-post, substituindo as estimativas sempre que o dado primário estiver disponível.",
+    "quando": "Até 30 dias após",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Inventário ex-post atualizado"
+  },
+  {
+    "fase": "C",
+    "nivel": 2,
+    "ordem": 16,
+    "oQueFazer": "Resolver avisos de unidade, duplicidade, período, fator sem fonte e dado ausente antes do fechamento.",
+    "quando": "Antes de fechar o cálculo",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Nenhum alerta crítico pendente"
+  },
+  {
+    "fase": "C",
+    "nivel": 2,
+    "ordem": 17,
+    "oQueFazer": "Verificar se 100% das fontes aplicáveis foram tratadas, se a cobertura de dados primários é de pelo menos 50% e se a nota média de qualidade é de pelo menos 2,5.",
+    "quando": "Após o lançamento",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Patamares do Nível 2 registrados"
+  },
+  {
+    "fase": "C",
+    "nivel": 2,
+    "ordem": 18,
+    "oQueFazer": "Comparar ex-ante e ex-post por categoria.",
+    "quando": "Até 30 dias após",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Comparação por categoria"
+  },
+  {
+    "fase": "C",
+    "nivel": 2,
+    "ordem": 19,
+    "oQueFazer": "Classificar cada diferença relevante como desempenho, escala, premissa ou método, registrando a explicação.",
+    "quando": "Junto com a comparação",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Causa do desvio registrada"
+  },
+  {
+    "fase": "C",
+    "nivel": 2,
+    "ordem": 20,
+    "oQueFazer": "Avaliar cada medida de redução como concluída, parcial, não realizada ou substituída, registrando resultado e evidência.",
+    "quando": "Até 40 dias após",
+    "quemFaz": "Coordenação e gestão climática",
+    "registro": "Plano de redução atualizado"
+  },
+  {
+    "fase": "C",
+    "nivel": 2,
+    "ordem": 21,
+    "oQueFazer": "Entregar o inventário, a comparação e a pasta de evidências ao revisor interno designado.",
+    "quando": "Até 35 dias após",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Registro de entrega para revisão"
+  },
+  {
+    "fase": "C",
+    "nivel": 2,
+    "ordem": 22,
+    "oQueFazer": "Corrigir os apontamentos da revisão interna e manter registro do que foi alterado.",
+    "quando": "Até 40 dias após",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Registro de correções"
+  },
+  {
+    "fase": "C",
+    "nivel": 2,
+    "ordem": 23,
+    "oQueFazer": "Apurar as emissões residuais após as medidas de redução e calcular a quantidade a compensar.",
+    "quando": "Após fechar o inventário",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Saldo de emissões residuais apurado"
+  },
+  {
+    "fase": "C",
+    "nivel": 2,
+    "ordem": 24,
+    "oQueFazer": "Quando houver compensação, preencher o dossiê mínimo com emissões residuais, quantidade compensada, instrumento, programa/registro, projeto, vintage/seriais quando aplicável, aposentadoria e saldo.",
+    "quando": "Ao compensar",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Dossiê mínimo de compensação"
+  },
+  {
+    "fase": "C",
+    "nivel": 2,
+    "ordem": 25,
+    "oQueFazer": "Guardar o comprovante de aposentadoria dos créditos ou instrumento equivalente de compensação.",
+    "quando": "Ao compensar",
+    "quemFaz": "Coordenação",
+    "registro": "Comprovante arquivado"
+  },
+  {
+    "fase": "C",
+    "nivel": 2,
+    "ordem": 26,
+    "oQueFazer": "Elaborar relatório resumido com emissões brutas, medidas de redução, emissões residuais, compensação, limitações e principais indicadores.",
+    "quando": "Até 45 dias após",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Relatório resumido"
+  },
+  {
+    "fase": "C",
+    "nivel": 2,
+    "ordem": 27,
+    "oQueFazer": "Submeter as peças de divulgação à revisão interna e à aprovação da coordenação antes de publicar.",
+    "quando": "Antes de divulgar",
+    "quemFaz": "Comunicação e coordenação",
+    "registro": "Peça aprovada"
+  },
+  {
+    "fase": "C",
+    "nivel": 2,
+    "ordem": 28,
+    "oQueFazer": "Registrar um plano de melhoria com falha, causa, ação, responsável e prazo; arquivar evidências e inventário por cinco anos.",
+    "quando": "Ao encerrar",
+    "quemFaz": "Coordenação e gestão climática",
+    "registro": "Plano de melhoria e repositório arquivado"
+  },
+  {
+    "fase": "C",
+    "nivel": 3,
+    "ordem": 29,
+    "oQueFazer": "Classificar a qualidade e a origem de cada dado, diferenciando medição, informação de fornecedor, estimativa e proxy.",
+    "quando": "Junto com o lançamento",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Campos de qualidade preenchidos"
+  },
+  {
+    "fase": "C",
+    "nivel": 3,
+    "ordem": 30,
+    "oQueFazer": "Cobrar e consolidar os dados finais de todos os fornecedores relevantes.",
+    "quando": "Até 15 dias após",
+    "quemFaz": "Coordenação",
+    "registro": "Registros de cobrança e recebimento"
+  },
+  {
+    "fase": "C",
+    "nivel": 3,
+    "ordem": 31,
+    "oQueFazer": "Lançar dados reais, qualidade e evidências no ex-post.",
+    "quando": "Até 30 dias após",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Aba 3 da Ferramenta de Cálculo completa"
+  },
+  {
+    "fase": "C",
+    "nivel": 3,
+    "ordem": 32,
+    "oQueFazer": "Substituir estimativas por dados primários sempre que disponíveis, preservando o ex-ante original.",
+    "quando": "Junto com o lançamento",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Histórico preservado"
+  },
+  {
+    "fase": "C",
+    "nivel": 3,
+    "ordem": 33,
+    "oQueFazer": "Apurar todos os indicadores de cobertura, dados primários, evidências e intensidade.",
+    "quando": "Até 30 dias após",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Aba 4 da Ferramenta de Cálculo completa"
+  },
+  {
+    "fase": "C",
+    "nivel": 3,
+    "ordem": 34,
+    "oQueFazer": "Verificar se todas as categorias acima de 5% têm dado primário e evidência.",
+    "quando": "Até 30 dias após",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Confirmação por categoria"
+  },
+  {
+    "fase": "C",
+    "nivel": 3,
+    "ordem": 35,
+    "oQueFazer": "Comparar ex-ante e ex-post e classificar desvios em desempenho, escala, premissa ou método.",
+    "quando": "Até 30 dias após",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Análise de desvio completa"
+  },
+  {
+    "fase": "C",
+    "nivel": 3,
+    "ordem": 36,
+    "oQueFazer": "Avaliar o cumprimento das metas e medidas de redução.",
+    "quando": "Até 35 dias após",
+    "quemFaz": "Coordenação e gestão climática",
+    "registro": "Aba REDUÇÃO preenchida, com responsável e prazo de cada medida"
+  },
+  {
+    "fase": "C",
+    "nivel": 3,
+    "ordem": 37,
+    "oQueFazer": "Entregar o inventário e o repositório à conferência técnica formal.",
+    "quando": "Até 35 dias após",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Protocolo de revisão"
+  },
+  {
+    "fase": "C",
+    "nivel": 3,
+    "ordem": 38,
+    "oQueFazer": "Tratar as não conformidades e registrar cada correção.",
+    "quando": "Até 40 dias após",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Registro de tratamento"
+  },
+  {
+    "fase": "C",
+    "nivel": 3,
+    "ordem": 39,
+    "oQueFazer": "Apurar a emissão residual e documentar que as medidas viáveis foram avaliadas antes da compensação.",
+    "quando": "Até 40 dias após",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Registro da apuração"
+  },
+  {
+    "fase": "C",
+    "nivel": 3,
+    "ordem": 40,
+    "oQueFazer": "Quando houver compensação, aplicar o checklist completo e conferir a aposentadoria no registro público.",
+    "quando": "Ao compensar",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Dossiê, seriais, link e comprovante"
+  },
+  {
+    "fase": "C",
+    "nivel": 3,
+    "ordem": 41,
+    "oQueFazer": "Escrever relatório público completo, inclusive limitações, exclusões e incertezas relevantes.",
+    "quando": "Até 45 dias após",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Relatório final"
+  },
+  {
+    "fase": "C",
+    "nivel": 3,
+    "ordem": 42,
+    "oQueFazer": "Submeter toda peça pública à validação técnica antes da divulgação.",
+    "quando": "Antes de divulgar",
+    "quemFaz": "Comunicação e revisor",
+    "registro": "Registro da validação"
+  },
+  {
+    "fase": "C",
+    "nivel": 3,
+    "ordem": 43,
+    "oQueFazer": "Obter aprovação institucional dos resultados alcançados para serem divulgados.",
+    "quando": "Antes de divulgar",
+    "quemFaz": "Patrocinador institucional",
+    "registro": "Aprovação registrada"
+  },
+  {
+    "fase": "C",
+    "nivel": 3,
+    "ordem": 44,
+    "oQueFazer": "Registrar lições aprendidas e elaborar plano de melhoria com lacuna, causa, ação, responsável e prazo.",
+    "quando": "Ao encerrar",
+    "quemFaz": "Coordenação",
+    "registro": "Plano de melhoria"
+  },
+  {
+    "fase": "C",
+    "nivel": 3,
+    "ordem": 45,
+    "oQueFazer": "Arquivar o conjunto final conforme a regra institucional de retenção.",
+    "quando": "Ao encerrar",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Repositório final arquivado"
+  },
+  {
+    "fase": "C",
+    "nivel": 4,
+    "ordem": 46,
+    "oQueFazer": "Consolidar todos os dados finais, evidências e registros de mudança no repositório controlado.",
+    "quando": "Até 20 dias após",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Repositório completo"
+  },
+  {
+    "fase": "C",
+    "nivel": 4,
+    "ordem": 47,
+    "oQueFazer": "Lançar o ex-post preservando origem, qualidade, fator, versão e evidência de cada registro.",
+    "quando": "Até 30 dias após",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Aba 3 da Ferramenta de Cálculo completa"
+  },
+  {
+    "fase": "C",
+    "nivel": 4,
+    "ordem": 48,
+    "oQueFazer": "Apurar indicadores de cobertura, dados primários, evidências, qualidade e intensidade.",
+    "quando": "Até 30 dias após",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Painel de indicadores"
+  },
+  {
+    "fase": "C",
+    "nivel": 4,
+    "ordem": 49,
+    "oQueFazer": "Verificar se as fontes materiais têm dado primário e se todas as fontes aplicáveis têm evidência ou contingência documentada.",
+    "quando": "Até 30 dias após",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Matriz de conformidade"
+  },
+  {
+    "fase": "C",
+    "nivel": 4,
+    "ordem": 50,
+    "oQueFazer": "Calcular/registrar a incerteza relevante e identificar as premissas que mais influenciaram o resultado.",
+    "quando": "Até 30 dias após",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Análise de incerteza"
+  },
+  {
+    "fase": "C",
+    "nivel": 4,
+    "ordem": 51,
+    "oQueFazer": "Comparar ex-ante e ex-post e classificar cada desvio por causa.",
+    "quando": "Até 30 dias após",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Análise de desvio"
+  },
+  {
+    "fase": "C",
+    "nivel": 4,
+    "ordem": 52,
+    "oQueFazer": "Avaliar formalmente o cumprimento das metas e o desempenho das medidas.",
+    "quando": "Até 35 dias após",
+    "quemFaz": "Coordenação e gestão climática",
+    "registro": "Plano de redução avaliado"
+  },
+  {
+    "fase": "C",
+    "nivel": 4,
+    "ordem": 53,
+    "oQueFazer": "Submeter o inventário à revisão técnica interna e tratar todas as não conformidades materiais.",
+    "quando": "Antes da verificação",
+    "quemFaz": "Revisor técnico e gestão climática",
+    "registro": "Relatório de revisão e correções"
+  },
+  {
+    "fase": "C",
+    "nivel": 4,
+    "ordem": 54,
+    "oQueFazer": "Preparar e entregar ao verificador o inventário, a memória de cálculo, a base de fatores e o repositório de evidências.",
+    "quando": "Conforme cronograma",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Pacote de verificação"
+  },
+  {
+    "fase": "C",
+    "nivel": 4,
+    "ordem": 55,
+    "oQueFazer": "Responder às solicitações do verificador e corrigir desvios mantendo histórico das alterações.",
+    "quando": "Durante a verificação",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Registro de respostas e correções"
+  },
+  {
+    "fase": "C",
+    "nivel": 4,
+    "ordem": 56,
+    "oQueFazer": "Obter a declaração de verificação com escopo, asseguração, critérios e limitações.",
+    "quando": "Ao concluir a verificação",
+    "quemFaz": "Verificador independente",
+    "registro": "Declaração arquivada"
+  },
+  {
+    "fase": "C",
+    "nivel": 4,
+    "ordem": 57,
+    "oQueFazer": "Apurar as emissões residuais e comprovar que a hierarquia de mitigação foi aplicada antes de compensar.",
+    "quando": "Após revisão",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Saldo formal de emissões residuais"
+  },
+  {
+    "fase": "C",
+    "nivel": 4,
+    "ordem": 58,
+    "oQueFazer": "Quando houver compensação, revisar checklist, programa, projeto, vintage, seriais e aposentadoria no registro público.",
+    "quando": "Ao compensar",
+    "quemFaz": "Gestão climática e revisor",
+    "registro": "Dossiê completo"
+  },
+  {
+    "fase": "C",
+    "nivel": 4,
+    "ordem": 59,
+    "oQueFazer": "Escrever relatório público completo e alinhado à conclusão da verificação.",
+    "quando": "Após a verificação",
+    "quemFaz": "Responsável pela gestão climática",
+    "registro": "Relatório final"
+  },
+  {
+    "fase": "C",
+    "nivel": 4,
+    "ordem": 60,
+    "oQueFazer": "Obter aprovação formal da autoridade institucional para a divulgação pública dos resultados.",
+    "quando": "Antes de divulgar",
+    "quemFaz": "Patrocinador institucional",
+    "registro": "Aprovação assinada/registrada"
+  },
+  {
+    "fase": "C",
+    "nivel": 4,
+    "ordem": 61,
+    "oQueFazer": "Publicar somente peças validadas e manter versão final arquivada.",
+    "quando": "Ao divulgar",
+    "quemFaz": "Comunicação",
+    "registro": "Peças e versões finais"
+  },
+  {
+    "fase": "C",
+    "nivel": 4,
+    "ordem": 62,
+    "oQueFazer": "Elaborar plano formal de melhoria e atualizar indicadores históricos quando houver edições anteriores.",
+    "quando": "Ao encerrar",
+    "quemFaz": "Coordenação",
+    "registro": "Plano e indicadores"
+  },
+  {
+    "fase": "C",
+    "nivel": 4,
+    "ordem": 63,
+    "oQueFazer": "Arquivar o repositório final conforme a regra institucional de retenção e garantir transferência formal da custódia.",
+    "quando": "Ao encerrar",
+    "quemFaz": "Gestão documental",
+    "registro": "Termo/registro de arquivamento"
+  }
+]

@@ -39,3 +39,20 @@ exceto onde indicado.
 - Fechar o ex-ante exige que não haja alertas e preserva o resultado e a base usada.
 - A base de fatores do evento pode ser trocada pelo gestor só enquanto nenhum inventário
   estiver fechado ("nunca no meio de um evento").
+
+## Decisões de implementação da Etapa 3
+
+- **Checklist e plano de redução** seguem a planilha. Diferença: sem limite de 30 medidas.
+- **Exigência de redução nos Níveis 3 e 4**: como na planilha, basta uma medida com meta
+  numérica maior que zero para a conferência dar "OK". A planilha não confere se a meta está
+  nas categorias de maior peso; o sistema mostra o ex-ante por categoria, do maior para o
+  menor, para apoiar essa escolha.
+- **Matriz impacto × relevância e plano de ação** não existem na Ferramenta: vêm do
+  EventSustain, com os mesmos campos e a mesma regra de prioridade (soma ≥ 8 alta, ≥ 6
+  média). Em vez de "eixo", o tema usa uma das 10 categorias da Ferramenta ou fica como tema
+  fora do GEE. Mudança: "atrasada" deixou de ser escolhida à mão e passou a ser calculada pelo
+  prazo; e ação concluída exige 100% de progresso.
+- **Linha do tempo**: as fases vêm das datas do evento; reúne os prazos das medidas, das
+  ações e da entrega de dados dos fornecedores, e o progresso do checklist de cada fase.
+  Os itens do checklist têm "Quando" em texto (ex.: "Antes de contratar"), sem data, por isso
+  aparecem como progresso e não como marcos.

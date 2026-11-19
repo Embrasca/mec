@@ -1,0 +1,107 @@
+{
+  "nivel": 3,
+  "medidas": [
+    {
+      "categoria": "5 Alimentação",
+      "acao": "Trocar parte dos almoços com carne bovina por opções vegetarianas e com outras carnes",
+      "objetivo": "Substituir",
+      "metaPct": 30,
+      "responsavel": "Coordenação de alimentação",
+      "prazo": "2026-08-20",
+      "resultado": "Concluída",
+      "evidencia": "Contrato e relatório do buffet",
+      "esperado": {
+        "exAnte": 18.4548,
+        "metaT": 5.53644,
+        "exPost": 12.4699,
+        "diferenca": -5.9849
+      }
+    },
+    {
+      "categoria": "1 Energia",
+      "acao": "Desligar climatização e iluminação fora do horário e manter o termostato em 24 °C",
+      "objetivo": "Reduzir",
+      "metaPct": 10,
+      "responsavel": "Produção técnica",
+      "prazo": "2026-09-14",
+      "resultado": "Concluída",
+      "evidencia": "Leituras do medidor",
+      "esperado": {
+        "exAnte": 1.84386063,
+        "metaT": 0.184386063,
+        "exPost": 1.462948766,
+        "diferenca": -0.3809118639
+      }
+    },
+    {
+      "categoria": "8 Resíduos",
+      "acao": "Coleta seletiva com cooperativa e compostagem dos orgânicos",
+      "objetivo": "Evitar",
+      "metaPct": 40,
+      "responsavel": "Coordenação de limpeza",
+      "prazo": "2026-09-10",
+      "resultado": "Concluída",
+      "evidencia": "Pesagem e MTR",
+      "esperado": {
+        "exAnte": 0.36563,
+        "metaT": 0.146252,
+        "exPost": 0.2012845,
+        "diferenca": -0.1643455
+      }
+    },
+    {
+      "categoria": "2 Deslocamento",
+      "acao": "Divulgar ônibus fretado a partir de Brasília e Anápolis na inscrição",
+      "objetivo": "Substituir",
+      "metaPct": 5,
+      "responsavel": "Comunicação",
+      "prazo": "2026-08-30",
+      "resultado": "Parcial",
+      "evidencia": "Lista de passageiros do fretamento",
+      "esperado": {
+        "exAnte": 38.43328632,
+        "metaT": 1.921664316,
+        "exPost": 40.00616588,
+        "diferenca": 1.572879557
+      }
+    },
+    {
+      "categoria": "6 Materiais",
+      "acao": "Reutilizar a estrutura de madeira de outro evento e fazer banners sem data",
+      "objetivo": "Evitar",
+      "metaPct": 20,
+      "responsavel": "Cenografia",
+      "prazo": "2026-09-01",
+      "resultado": "Concluída",
+      "evidencia": "Memorial da cenografia",
+      "esperado": {
+        "exAnte": 1.26429,
+        "metaT": 0.252858,
+        "exPost": 1.00371,
+        "diferenca": -0.26058
+      }
+    },
+    {
+      "categoria": "3 Transporte no destino",
+      "acao": "Traslado coletivo entre hotéis e centro de convenções",
+      "objetivo": "Substituir",
+      "metaPct": 15,
+      "responsavel": "Logística",
+      "prazo": "2026-09-10",
+      "resultado": "Concluída",
+      "evidencia": "Nota do fretamento",
+      "esperado": {
+        "exAnte": 0.3195065718,
+        "metaT": 0.04792598576,
+        "exPost": 0.2529427026,
+        "diferenca": -0.06656386912
+      }
+    }
+  ],
+  "esperado": {
+    "registradas": 6,
+    "completas": 6,
+    "exigencia": "Metas numéricas para as categorias de maior peso, com responsável e prazo",
+    "conferencia": "OK: há metas numéricas registradas"
+  }
+}

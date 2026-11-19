@@ -69,6 +69,24 @@ import type {
   salvarColetaSchema,
   salvarFornecedorSchema,
 } from "@/servidor/servicos/inventario.server";
+import {
+  obterChecklist,
+  marcarItemDoChecklist,
+  obterPlanoDeReducao,
+  salvarMedida,
+  listarTemas,
+  salvarTema,
+  listarAcoes,
+  salvarAcao,
+  removerItemDeGestao,
+  obterLinhaDoTempo,
+} from "@/servidor/servicos/gestao.server";
+import type {
+  marcarItemSchema,
+  salvarMedidaSchema,
+  salvarTemaSchema,
+  salvarAcaoSchema,
+} from "@/servidor/servicos/gestao.server";
 import type { DadosDoEvento } from "@/domain/evento";
 
 // Sessão e usuários ----------------------------------------------------
@@ -265,3 +283,57 @@ export const fornecedorRemover = createServerFn({ method: "POST" })
   .middleware([autenticado])
   .validator((d: { eventoId: string; id: string }) => d)
   .handler(({ context, data }) => removerFornecedor(context.usuarioId, data.eventoId, data.id));
+
+// Etapa 3: checklist, plano de redução, matriz, plano de ação e linha do tempo
+
+export const checklistObter = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { eventoId: string }) => d)
+  .handler(({ context, data }) => obterChecklist(context.usuarioId, data.eventoId));
+
+export const checklistMarcar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: z.input<typeof marcarItemSchema>) => d)
+  .handler(({ context, data }) => marcarItemDoChecklist(context.usuarioId, data));
+
+export const reducaoObter = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { eventoId: string }) => d)
+  .handler(({ context, data }) => obterPlanoDeReducao(context.usuarioId, data.eventoId));
+
+export const medidaSalvar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: z.input<typeof salvarMedidaSchema>) => d)
+  .handler(({ context, data }) => salvarMedida(context.usuarioId, data));
+
+export const temasListar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { eventoId: string }) => d)
+  .handler(({ context, data }) => listarTemas(context.usuarioId, data.eventoId));
+
+export const temaSalvar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: z.input<typeof salvarTemaSchema>) => d)
+  .handler(({ context, data }) => salvarTema(context.usuarioId, data));
+
+export const acoesListar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { eventoId: string; hoje: string }) => d)
+  .handler(({ context, data }) => listarAcoes(context.usuarioId, data.eventoId, data.hoje));
+
+export const acaoSalvar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: z.input<typeof salvarAcaoSchema>) => d)
+  .handler(({ context, data }) => salvarAcao(context.usuarioId, data));
+
+export const gestaoRemover = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { eventoId: string; tipo: "medida" | "tema" | "acao"; id: string }) => d)
+  .handler(({ context, data }) =>
+    removerItemDeGestao(context.usuarioId, data.eventoId, data.tipo, data.id),
+  );
+
+export const linhaDoTempoObter = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { eventoId: string; hoje: string }) => d)
+  .handler(({ context, data }) => obterLinhaDoTempo(context.usuarioId, data.eventoId, data.hoje));

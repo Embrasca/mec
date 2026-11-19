@@ -6,6 +6,7 @@ Uso:  python3 -I scripts/extrair-metodologia.py <ferramenta.xlsx> [<outra.xlsx> 
 Gera:
   src/domain/metodologia/v3_16/textos.json        (listas, requisitos, roteiro)
   src/domain/metodologia/v3_16/inventario.json    (base de fatores, fornecedores, listas)
+  src/domain/metodologia/v3_16/checklist.json     (listas de verificação por fase e nível)
   src/domain/metodologia/__tests__/fixtures/*.json (entradas e resultados de referência)
 
 A planilha é a fonte da verdade: este script só copia, não interpreta.
@@ -237,6 +238,60 @@ def coleta(wv):
     }
 
 
+# ---------------------------------------------------------------------------
+# Etapa 3: checklist (aba C / BASE LISTAS) e plano de redução (aba REDUÇÃO)
+# ---------------------------------------------------------------------------
+
+FASES_CHECKLIST = {"A": (7, 61), "B": (67, 118), "C": (124, 186)}
+
+
+def base_checklist(caminho):
+    wb = openpyxl.load_workbook(caminho)
+    ws = wb["BASE LISTAS"]
+    itens = []
+    for r in range(4, 174):
+        if ws[f"A{r}"].value is None:
+            continue
+        itens.append({"fase": val(ws[f"A{r}"].value), "nivel": val(ws[f"B{r}"].value),
+                      "ordem": val(ws[f"C{r}"].value), "oQueFazer": val(ws[f"D{r}"].value),
+                      "quando": val(ws[f"E{r}"].value), "quemFaz": val(ws[f"F{r}"].value),
+                      "registro": val(ws[f"G{r}"].value)})
+    return itens
+
+
+def caso_checklist(caminho):
+    wv = openpyxl.load_workbook(caminho, data_only=True)
+    c = wv["C - CHECKLIST"]
+    fases = {}
+    for fase, (r0, r1) in FASES_CHECKLIST.items():
+        fases[fase] = {
+            "visiveis": [val(c[f"B{r}"].value) for r in range(r0, r1 + 1) if c[f"C{r}"].value],
+            "novos": [val(c[f"B{r}"].value) for r in range(r0, r1 + 1) if c[f"I{r}"].value == "NOVO"],
+            "feitos": {str(val(c[f"B{r}"].value)): val(c[f"G{r}"].value)
+                       for r in range(r0, r1 + 1) if c[f"C{r}"].value},
+            "progresso": val(c[f"G{r1 + 1}"].value),
+            "situacao": val(c[f"H{r1 + 1}"].value),
+        }
+    return {"nivel": val(wv["A - CARACTERIZAÇÃO"]["C108"].value), "fases": fases}
+
+
+def caso_reducao(caminho):
+    wv = openpyxl.load_workbook(caminho, data_only=True)
+    r = wv["REDUÇÃO"]
+    g = lambda ref: val(r[ref].value)
+    medidas = []
+    for i in range(8, 38):
+        if r[f"C{i}"].value is None and r[f"E{i}"].value is None:
+            continue
+        medidas.append({
+            "categoria": g(f"C{i}"), "acao": g(f"E{i}"), "objetivo": g(f"F{i}"), "metaPct": g(f"G{i}"),
+            "responsavel": g(f"I{i}"), "prazo": g(f"J{i}"), "resultado": g(f"K{i}"), "evidencia": g(f"N{i}"),
+            "esperado": {"exAnte": g(f"D{i}"), "metaT": g(f"H{i}"), "exPost": g(f"L{i}"), "diferenca": g(f"M{i}")},
+        })
+    return {"nivel": g("D4"), "medidas": medidas,
+            "esperado": {"registradas": g("F4"), "completas": g("G4"), "exigencia": g("I4"), "conferencia": g("B5")}}
+
+
 def main(arquivos):
     t = textos(arquivos[0])
     destino = os.path.join(RAIZ, "src/domain/metodologia/v3_16/textos.json")
@@ -253,6 +308,14 @@ def main(arquivos):
                 "exPost": linhas_inventario(wb["3 - EX-POST"], wv["3 - EX-POST"], True)}
     json.dump(caso_inv, open(os.path.join(fixtures, "inventario-exemplo.json"), "w"), ensure_ascii=False, indent=2)
     json.dump(coleta(wv), open(os.path.join(fixtures, "coleta-exemplo.json"), "w"), ensure_ascii=False, indent=2)
+    json.dump(base_checklist(arquivos[0]), open(destino.replace("textos.json", "checklist.json"), "w"),
+              ensure_ascii=False, indent=2)
+    json.dump(caso_reducao(arquivos[0]), open(os.path.join(fixtures, "reducao-exemplo.json"), "w"),
+              ensure_ascii=False, indent=2)
+    for arq in arquivos:
+        cc = caso_checklist(arq)
+        nome = "checklist-nivel%d.json" % cc["nivel"]
+        json.dump(cc, open(os.path.join(fixtures, nome), "w"), ensure_ascii=False, indent=2)
     for arq in arquivos:
         c = caso(arq)
         nome = "exemplo-nivel3" if c["esperado"]["nivelFinal"] == 3 else "copia-demonstracao"

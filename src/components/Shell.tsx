@@ -7,6 +7,11 @@ import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import {
   BookOpen,
+  CalendarRange,
+  Grid3x3,
+  ListChecks,
+  ListTodo,
+  TrendingDown,
   Calculator,
   ClipboardList,
   Library,
@@ -222,20 +227,45 @@ export function Shell({ evento, children }: { evento?: EventoResumo; children: R
     { to: "/instrucoes", label: "Instruções", icon: BookOpen, exact: true },
     { to: "/fatores", label: "Base de fatores", icon: Library },
   ];
-  const doEvento: ItemDeMenu[] = evento
+  const e = evento ? `/e/${evento.id}` : "";
+  const gruposDoEvento: { titulo: string; itens: ItemDeMenu[] }[] = evento
     ? [
-        { to: `/e/${evento.id}`, label: "Visão geral", icon: Gauge, exact: true },
         {
-          to: `/e/${evento.id}/caracterizacao`,
-          label: "Caracterização e nível",
-          icon: ClipboardCheck,
+          titulo: "Evento",
+          itens: [{ to: e, label: "Visão geral", icon: Gauge, exact: true }],
         },
-        { to: `/e/${evento.id}/acompanhamento`, label: "Requisitos do nível", icon: History },
-        { to: `/e/${evento.id}/fornecedores`, label: "Fornecedores", icon: Truck },
-        { to: `/e/${evento.id}/coleta`, label: "Coleta (previsão)", icon: ClipboardList },
-        { to: `/e/${evento.id}/inventario`, label: "Inventário ex-ante", icon: Calculator },
-        { to: `/e/${evento.id}/equipe`, label: "Equipe", icon: Users },
-        { to: `/e/${evento.id}/cadastro`, label: "Cadastro do evento", icon: Settings2 },
+        {
+          titulo: "Governança",
+          itens: [
+            { to: `${e}/caracterizacao`, label: "Caracterização e nível", icon: ClipboardCheck },
+            { to: `${e}/acompanhamento`, label: "Requisitos do nível", icon: History },
+            { to: `${e}/checklist`, label: "Checklist do nível", icon: ListChecks },
+          ],
+        },
+        {
+          titulo: "Pré-evento",
+          itens: [
+            { to: `${e}/fornecedores`, label: "Fornecedores", icon: Truck },
+            { to: `${e}/coleta`, label: "Coleta (previsão)", icon: ClipboardList },
+            { to: `${e}/inventario`, label: "Inventário ex-ante", icon: Calculator },
+            { to: `${e}/reducao`, label: "Plano de redução", icon: TrendingDown },
+          ],
+        },
+        {
+          titulo: "Gestão",
+          itens: [
+            { to: `${e}/matriz`, label: "Matriz impacto × relevância", icon: Grid3x3 },
+            { to: `${e}/plano-de-acao`, label: "Plano de ação", icon: ListTodo },
+            { to: `${e}/linha-do-tempo`, label: "Linha do tempo", icon: CalendarRange },
+          ],
+        },
+        {
+          titulo: "Configuração",
+          itens: [
+            { to: `${e}/equipe`, label: "Equipe", icon: Users },
+            { to: `${e}/cadastro`, label: "Cadastro do evento", icon: Settings2 },
+          ],
+        },
       ]
     : [];
   const administracao: ItemDeMenu[] = perfil?.adminPlataforma
@@ -261,11 +291,13 @@ export function Shell({ evento, children }: { evento?: EventoResumo; children: R
           <Secao itens={global} />
           {evento && (
             <div
-              className="mb-3 rounded-xl border-l-4 pl-1"
+              className="nav-compacta mb-3 rounded-xl border-l-4 pl-1"
               style={{ borderColor: evento.cor }}
               aria-label={`Evento ${evento.nome}`}
             >
-              <Secao titulo="Evento" itens={doEvento} />
+              {gruposDoEvento.map((g) => (
+                <Secao key={g.titulo} titulo={g.titulo} itens={g.itens} />
+              ))}
             </div>
           )}
           <Secao titulo="Administração" itens={administracao} />

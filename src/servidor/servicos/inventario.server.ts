@@ -305,7 +305,7 @@ interface LinhaGravada extends LinhaDeInventario {
   origem: "manual" | "coleta";
 }
 
-async function lerInventario(sql: Sql, eventoId: string, etapa: Etapa) {
+export async function lerInventario(sql: Sql, eventoId: string, etapa: Etapa) {
   const evento = await eventoVisivel(sql, eventoId);
   const base = await baseDoEvento(sql, evento);
   const ano = await anoDoInventario(sql, evento);
