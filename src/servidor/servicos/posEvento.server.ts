@@ -138,57 +138,59 @@ async function lerCompensacao(sql: Sql, eventoId: string) {
 }
 
 export async function obterPosEvento(atorId: string, eventoId: string) {
-  return comoUsuario(atorId, async (sql) => {
-    const id = uuid.parse(eventoId);
-    const post = await lerInventario(sql, id, "ex_post");
-    const ante = await lerInventario(sql, id, "ex_ante");
-    const evento = post.evento;
-    const [ficha] = await sql<{
-      participantes: number | null;
-      participantes_dia: number | null;
-      participantes_dia_soma: number | null;
-    }>(
-      `select (dados->>'participantesTotal')::double precision as participantes,
-              (dados->>'participantesDia')::double precision as participantes_dia,
-              (dados->>'participantesDiaSoma')::double precision as participantes_dia_soma
-       from caracterizacoes where evento_id = $1`,
-      [id],
-    );
-    const publico = {
-      participantes: ficha?.participantes ?? null,
-      participantesDia: ficha?.participantes_dia ?? null,
-      dias: diasDoEvento({ dataInicio: evento.dataInicio, dataFim: evento.dataFim }),
-      participantesDiaSoma: ficha?.participantes_dia_soma ?? null,
-    };
-    const temExAnte = ante.versao > 0;
-    const desvios = await sql<Desvio>(
-      "select categoria, origem, explicacao from desvios where evento_id = $1",
-      [id],
-    );
-    const compensacao = await lerCompensacao(sql, id);
-    const ocorrencias = resumirOcorrencias(await lerOcorrencias(sql, id));
-    return {
-      evento,
+  return comoUsuario(atorId, (sql) => obterPosEventoNaTransacao(sql, eventoId));
+}
+
+export async function obterPosEventoNaTransacao(sql: Sql, eventoId: string) {
+  const id = uuid.parse(eventoId);
+  const post = await lerInventario(sql, id, "ex_post");
+  const ante = await lerInventario(sql, id, "ex_ante");
+  const evento = post.evento;
+  const [ficha] = await sql<{
+    participantes: number | null;
+    participantes_dia: number | null;
+    participantes_dia_soma: number | null;
+  }>(
+    `select (dados->>'participantesTotal')::double precision as participantes,
+            (dados->>'participantesDia')::double precision as participantes_dia,
+            (dados->>'participantesDiaSoma')::double precision as participantes_dia_soma
+     from caracterizacoes where evento_id = $1`,
+    [id],
+  );
+  const publico = {
+    participantes: ficha?.participantes ?? null,
+    participantesDia: ficha?.participantes_dia ?? null,
+    dias: diasDoEvento({ dataInicio: evento.dataInicio, dataFim: evento.dataFim }),
+    participantesDiaSoma: ficha?.participantes_dia_soma ?? null,
+  };
+  const temExAnte = ante.versao > 0;
+  const desvios = await sql<Desvio>(
+    "select categoria, origem, explicacao from desvios where evento_id = $1",
+    [id],
+  );
+  const compensacao = await lerCompensacao(sql, id);
+  const ocorrencias = resumirOcorrencias(await lerOcorrencias(sql, id));
+  return {
+    evento,
+    publico,
+    exAnte: { existe: temExAnte, fechadoEm: ante.fechadoEm },
+    exPost: {
+      existe: post.versao > 0,
+      fechadoEm: post.fechadoEm,
+      pendencias: post.resultado.pendencias,
+    },
+    ocorrencias,
+    resultados: calcularResultados(
+      temExAnte ? ante.resultado : null,
+      post.resultado,
+      post.linhas,
       publico,
-      exAnte: { existe: temExAnte, fechadoEm: ante.fechadoEm },
-      exPost: {
-        existe: post.versao > 0,
-        fechadoEm: post.fechadoEm,
-        pendencias: post.resultado.pendencias,
-      },
-      ocorrencias,
-      resultados: calcularResultados(
-        temExAnte ? ante.resultado : null,
-        post.resultado,
-        post.linhas,
-        publico,
-        evento.nivel,
-      ),
-      comparacao: calcularComparacao(ante.resultado, post.resultado, desvios),
-      compensacao,
-      saldo: calcularCompensacao(post.resultado.totais.total, compensacao),
-    };
-  });
+      evento.nivel,
+    ),
+    comparacao: calcularComparacao(ante.resultado, post.resultado, desvios),
+    compensacao,
+    saldo: calcularCompensacao(post.resultado.totais.total, compensacao),
+  };
 }
 
 export const salvarDesvioSchema = z.object({

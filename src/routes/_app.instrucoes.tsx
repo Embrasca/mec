@@ -86,5 +86,6 @@ const NO_SISTEMA: Record<string, string> = {
   "5 - COMPARAÇÃO": "Comparação",
   "6 - EMISSÕES RESIDUAIS": "Compensação",
   OCORRÊNCIAS: "Ocorrências",
+  "7 - RELATÓRIO": "Relatórios",
   "FATORES e LISTAS": "Base de fatores",
 };

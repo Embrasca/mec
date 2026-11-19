@@ -4,8 +4,9 @@ Encontrados na análise das planilhas. Até a confirmação, o sistema segue a p
 exceto onde indicado.
 
 1. **Frase "Evento carbono neutro" inalcançável** — aba 7, célula B25 exige
-   `'4 - RESULTADOS'!E41="OK"`, mas E41 é o texto fixo "Não há mínimo exigido". *(Afeta a
-   Etapa 5; ainda não implementado.)*
+   `'4 - RESULTADOS'!E41="OK"`, mas E41 é o texto fixo "Não há mínimo exigido". O sistema segue
+   a planilha: a frase "Evento carbono neutro" nunca é liberada, e o teste documenta isso.
+   Basta a confirmação da coordenação para trocar a condição.
 2. **Código de fator repetido** — `E04` aparece para GLP e para energia solar (aba FATORES).
    No sistema o item é identificado pelo nome (como a própria planilha faz nas buscas), e o
    código fica só como referência.
@@ -79,3 +80,25 @@ exceto onde indicado.
 - **Compensação**: além dos números da aba 6, o sistema guarda o comprovante da aposentadoria
   ("aposentadoria comprovada, não apenas compra") e a descrição da medida omitida ("fica
   declarada"), e avisa quando faltam. O total a compensar arredonda para cima, como ROUNDUP.
+
+## Decisões de implementação da Etapa 5
+
+- **Frase permitida** reproduz a fórmula de B25, inclusive a condição de E41 (ponto 1). O
+  resumo traz os mesmos números da aba 7.
+- **Alegação pretendida**: a ficha da aba A registra a alegação que o evento quer fazer. Se ela
+  for mais forte que a frase liberada, o relatório avisa (melhoria do sistema).
+- **Versões**: cada relatório (preliminar ou final) congela todo o conteúdo e guarda um código
+  SHA-256 do conteúdo. Versões não podem ser alteradas nem apagadas (o banco não dá essa
+  permissão), e a tela confere o código ao abrir. O final exige gestor e o ex-post fechado.
+- **Frameworks**: GRI + ISO 20121 (padrão, como no EventSustain), GRI, ISO 20121 e GHG
+  Protocol. O framework escolhe as tabelas de correspondência: onde, no relatório, cada
+  requisito é tratado, e o que o sistema não cobre. Referências usadas: requisitos de relato do
+  GHG Protocol, GRI 3-1 a 3-3 e GRI 305-1 a 305-7, e os capítulos 4 a 10 da ISO 20121. O
+  Escopo 2 é só por localização (fator médio do SIN), por isso o GRI 305-2 aparece como
+  parcial.
+- **Memória de cálculo**: cada linha do ex-post com a conta escrita por extenso, os fatores, o
+  GWP, a fonte do fator (e o ano do SIN usado), a qualidade do dado e a evidência.
+- **PDF e XLSX**: o PDF sai da impressão do navegador (Imprimir / salvar PDF), com folha de
+  estilo própria em cores claras. O XLSX é gerado no próprio sistema, com 7 abas (resumo,
+  categorias, memória de cálculo, comparação, redução, ocorrências, correspondência); o texto
+  digitado entra sempre como texto, nunca como fórmula.

@@ -529,3 +529,23 @@ input[type="password"]::-webkit-strong-password-auto-fill-button {
 .nav-compacta .nav-link { min-height: 34px; padding: 6px 12px; margin: 1px 0; font-size: 13.5px; }
 .nav-compacta .nav-link svg { width: 17px; height: 17px; }
 .nav-compacta .eyebrow { padding-top: 6px; padding-bottom: 2px; }
+
+/* Impressão (relatório em PDF pelo navegador): só o conteúdo, em cores claras,
+   seja qual for o tema da tela. */
+@media print {
+  :root, .dark {
+    --background: #ffffff; --foreground: #1f2321; --card: #ffffff; --muted: #f1f0ec;
+    --muted-foreground: #555a57; --border: #d6d4ce; --brand: #2f3533;
+    color-scheme: light;
+  }
+  @page { size: A4; margin: 16mm 14mm; }
+  body { background: #fff; }
+  .app-sidebar, .app-topbar, .app-bottom, .app-main::before, .nao-imprimir, [data-sonner-toaster] { display: none !important; }
+  .app-main { margin: 0 !important; padding: 0; display: block; }
+  .app-surface { border: 0; border-radius: 0; }
+  .page-content { padding: 0 !important; }
+  .panel { box-shadow: none; break-inside: avoid-page; }
+  .quebra-antes { break-before: page; }
+  table { font-size: 10px; }
+  tr { break-inside: avoid; }
+}

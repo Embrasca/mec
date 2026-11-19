@@ -20,7 +20,7 @@ export interface FichaDoEvento {
   resultado: Enquadramento;
 }
 
-async function lerFicha(sql: Sql, eventoId: string): Promise<FichaDoEvento> {
+export async function lerFicha(sql: Sql, eventoId: string): Promise<FichaDoEvento> {
   const evento = await eventoVisivel(sql, eventoId);
   if (evento.metodologia !== METODOLOGIA_ID)
     throw new ErroDeNegocio(`Metodologia ${evento.metodologia} não suportada nesta versão.`);

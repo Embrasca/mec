@@ -322,6 +322,8 @@ def caso_pos_evento(caminho):
                             "explicacao": g(c, f"H{i}")} for i in range(5, 15)],
             "total": [g(c, f"{col}16") for col in "CDEF"],
         },
+        "relatorio": {"frase": g(wv["7 - RELATÓRIO"], "B25"),
+                      "valores": {g(wv["7 - RELATÓRIO"], f"B{i}"): g(wv["7 - RELATÓRIO"], f"C{i}") for i in range(4, 23)}},
         "residuais": {k: g(e, ref) for k, ref in
                       [("brutas", "C5"), ("residuais", "C7"), ("omissao", "C8"), ("aCompensar", "C9"),
                        ("aposentada", "C10"), ("saldo", "C11"), ("completa", "C13")]},

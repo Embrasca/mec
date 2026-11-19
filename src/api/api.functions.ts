@@ -8,6 +8,12 @@ import { createServerFn } from "@tanstack/react-start";
 import type { z } from "zod";
 import { autenticado } from "./middleware";
 import {
+  listarRelatorios,
+  obterRelatorio,
+  gerarRelatorio,
+} from "@/servidor/servicos/relatorios.server";
+import type { gerarRelatorioSchema } from "@/servidor/servicos/relatorios.server";
+import {
   listarOcorrencias,
   salvarOcorrencia,
   removerOcorrencia,
@@ -382,3 +388,20 @@ export const compensacaoSalvar = createServerFn({ method: "POST" })
   .middleware([autenticado])
   .validator((d: z.input<typeof salvarCompensacaoSchema>) => d)
   .handler(({ context, data }) => salvarCompensacao(context.usuarioId, data));
+
+// Etapa 5: relatórios
+
+export const relatoriosListar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { eventoId: string }) => d)
+  .handler(({ context, data }) => listarRelatorios(context.usuarioId, data.eventoId));
+
+export const relatorioObter = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { eventoId: string; id: string }) => d)
+  .handler(({ context, data }) => obterRelatorio(context.usuarioId, data.eventoId, data.id));
+
+export const relatorioGerar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: z.input<typeof gerarRelatorioSchema>) => d)
+  .handler(({ context, data }) => gerarRelatorio(context.usuarioId, data));

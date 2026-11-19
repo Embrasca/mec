@@ -306,6 +306,30 @@
       -0.0837271297
     ]
   },
+  "relatorio": {
+    "frase": "Emissões residuais compensadas",
+    "valores": {
+      "Nome do evento": "Seminário Nacional de Educação Profissional e Tecnológica 2026 (EXEMPLO FICTÍCIO)",
+      "Período": "15/09/2026 a 17/09/2026",
+      "Ano do inventário": 2026,
+      "Nível do evento": 3,
+      "Participantes": 850,
+      "EMISSÕES BRUTAS DO EVENTO (tCO₂e)": 60.090231,
+      "Escopo 1 (tCO₂e)": 1.085065706,
+      "Escopo 2 (tCO₂e)": 0.37788306,
+      "Escopo 3 (tCO₂e)": 58.62728223,
+      "Emissões por participante (kgCO₂e)": 70.69438941,
+      "Emissões por participante-dia (kgCO₂e)": 35.34719471,
+      "CO2 biogênico informado a parte (t)": 0,
+      "Emissões residuais (tCO₂e)": 60.090231,
+      "Quantidade compensada e aposentada (tCO₂e)": 61,
+      "Saldo não compensado (tCO₂e)": 0,
+      "Emissões com dado primário": 0.931013531,
+      "Nota média de qualidade": 3.894344207,
+      "Fonte dos fatores de emissão": "GHG Protocol Brasil 2026.0.1",
+      "Referência de GWP": "IPCC 2013 (AR5), 100 anos"
+    }
+  },
   "residuais": {
     "brutas": 60.090231,
     "residuais": 60.090231,

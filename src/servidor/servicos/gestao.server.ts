@@ -35,7 +35,7 @@ async function exigirEdicao(sql: Sql, eventoId: string): Promise<EventoResumo> {
 // Checklist do nível (aba C)
 // ---------------------------------------------------------------------
 
-async function lerChecklist(sql: Sql, evento: EventoResumo) {
+export async function lerChecklist(sql: Sql, evento: EventoResumo) {
   const linhas = await sql<{ chave: string; feito: Resposta; observacao: string | null }>(
     "select chave, feito, observacao from checklist_respostas where evento_id = $1",
     [evento.id],
@@ -94,7 +94,7 @@ export async function marcarItemDoChecklist(
 
 type MedidaGravada = Medida & { id: string };
 
-async function lerMedidas(sql: Sql, eventoId: string) {
+export async function lerMedidas(sql: Sql, eventoId: string) {
   return sql<MedidaGravada>(
     `select id::text, categoria, acao, objetivo, meta_pct as "metaPct", responsavel,
             to_char(prazo, 'YYYY-MM-DD') as prazo, resultado, evidencia
@@ -255,7 +255,7 @@ export async function salvarTema(atorId: string, entrada: z.input<typeof salvarT
 
 type AcaoGravada = Acao & { id: string; tema: string | null; medida: string | null };
 
-async function lerAcoes(sql: Sql, eventoId: string) {
+export async function lerAcoes(sql: Sql, eventoId: string) {
   return sql<AcaoGravada>(
     `select a.id::text, a.acao, a.descricao, a.tema_id::text as "temaId", a.medida_id::text as "medidaId",
             a.responsavel, to_char(a.prazo, 'YYYY-MM-DD') as prazo, a.status, a.prioridade,

@@ -9,6 +9,7 @@ import {
   AlertTriangle,
   BarChart3,
   BookOpen,
+  FileText,
   GitCompare,
   Scale,
   CalendarRange,
@@ -271,6 +272,7 @@ export function Shell({ evento, children }: { evento?: EventoResumo; children: R
             { to: `${e}/resultados`, label: "Resultados", icon: BarChart3 },
             { to: `${e}/comparacao`, label: "Comparação", icon: GitCompare },
             { to: `${e}/compensacao`, label: "Compensação", icon: Scale },
+            { to: `${e}/relatorios`, label: "Relatórios", icon: FileText },
           ],
         },
         {

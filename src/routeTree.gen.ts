@@ -38,6 +38,8 @@ import { Route as AppEEventoIdOcorrenciasRouteImport } from './routes/_app.e.$ev
 import { Route as AppEEventoIdPlanoDeAcaoRouteImport } from './routes/_app.e.$eventoId.plano-de-acao'
 import { Route as AppEEventoIdReducaoRouteImport } from './routes/_app.e.$eventoId.reducao'
 import { Route as AppEEventoIdResultadosRouteImport } from './routes/_app.e.$eventoId.resultados'
+import { Route as AppEEventoIdRelatoriosIndexRouteImport } from './routes/_app.e.$eventoId.relatorios.index'
+import { Route as AppEEventoIdRelatoriosRelatorioIdRouteImport } from './routes/_app.e.$eventoId.relatorios.$relatorioId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -189,6 +191,18 @@ const AppEEventoIdResultadosRoute = AppEEventoIdResultadosRouteImport.update({
   path: '/resultados',
   getParentRoute: () => AppEEventoIdRoute,
 } as any)
+const AppEEventoIdRelatoriosIndexRoute =
+  AppEEventoIdRelatoriosIndexRouteImport.update({
+    id: '/relatorios/',
+    path: '/relatorios/',
+    getParentRoute: () => AppEEventoIdRoute,
+  } as any)
+const AppEEventoIdRelatoriosRelatorioIdRoute =
+  AppEEventoIdRelatoriosRelatorioIdRouteImport.update({
+    id: '/relatorios/$relatorioId',
+    path: '/relatorios/$relatorioId',
+    getParentRoute: () => AppEEventoIdRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -219,6 +233,8 @@ export interface FileRoutesByFullPath {
   '/e/$eventoId/reducao': typeof AppEEventoIdReducaoRoute
   '/e/$eventoId/resultados': typeof AppEEventoIdResultadosRoute
   '/e/$eventoId/': typeof AppEEventoIdIndexRoute
+  '/e/$eventoId/relatorios/$relatorioId': typeof AppEEventoIdRelatoriosRelatorioIdRoute
+  '/e/$eventoId/relatorios/': typeof AppEEventoIdRelatoriosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -248,6 +264,8 @@ export interface FileRoutesByTo {
   '/e/$eventoId/reducao': typeof AppEEventoIdReducaoRoute
   '/e/$eventoId/resultados': typeof AppEEventoIdResultadosRoute
   '/e/$eventoId': typeof AppEEventoIdIndexRoute
+  '/e/$eventoId/relatorios/$relatorioId': typeof AppEEventoIdRelatoriosRelatorioIdRoute
+  '/e/$eventoId/relatorios': typeof AppEEventoIdRelatoriosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -280,6 +298,8 @@ export interface FileRoutesById {
   '/_app/e/$eventoId/reducao': typeof AppEEventoIdReducaoRoute
   '/_app/e/$eventoId/resultados': typeof AppEEventoIdResultadosRoute
   '/_app/e/$eventoId/': typeof AppEEventoIdIndexRoute
+  '/_app/e/$eventoId/relatorios/$relatorioId': typeof AppEEventoIdRelatoriosRelatorioIdRoute
+  '/_app/e/$eventoId/relatorios/': typeof AppEEventoIdRelatoriosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -312,6 +332,8 @@ export interface FileRouteTypes {
     | '/e/$eventoId/reducao'
     | '/e/$eventoId/resultados'
     | '/e/$eventoId/'
+    | '/e/$eventoId/relatorios/$relatorioId'
+    | '/e/$eventoId/relatorios/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -341,6 +363,8 @@ export interface FileRouteTypes {
     | '/e/$eventoId/reducao'
     | '/e/$eventoId/resultados'
     | '/e/$eventoId'
+    | '/e/$eventoId/relatorios/$relatorioId'
+    | '/e/$eventoId/relatorios'
   id:
     | '__root__'
     | '/'
@@ -372,6 +396,8 @@ export interface FileRouteTypes {
     | '/_app/e/$eventoId/reducao'
     | '/_app/e/$eventoId/resultados'
     | '/_app/e/$eventoId/'
+    | '/_app/e/$eventoId/relatorios/$relatorioId'
+    | '/_app/e/$eventoId/relatorios/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -585,6 +611,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppEEventoIdResultadosRouteImport
       parentRoute: typeof AppEEventoIdRoute
     }
+    '/_app/e/$eventoId/relatorios/': {
+      id: '/_app/e/$eventoId/relatorios/'
+      path: '/relatorios'
+      fullPath: '/e/$eventoId/relatorios/'
+      preLoaderRoute: typeof AppEEventoIdRelatoriosIndexRouteImport
+      parentRoute: typeof AppEEventoIdRoute
+    }
+    '/_app/e/$eventoId/relatorios/$relatorioId': {
+      id: '/_app/e/$eventoId/relatorios/$relatorioId'
+      path: '/relatorios/$relatorioId'
+      fullPath: '/e/$eventoId/relatorios/$relatorioId'
+      preLoaderRoute: typeof AppEEventoIdRelatoriosRelatorioIdRouteImport
+      parentRoute: typeof AppEEventoIdRoute
+    }
   }
 }
 
@@ -608,6 +648,8 @@ interface AppEEventoIdRouteChildren {
   AppEEventoIdReducaoRoute: typeof AppEEventoIdReducaoRoute
   AppEEventoIdResultadosRoute: typeof AppEEventoIdResultadosRoute
   AppEEventoIdIndexRoute: typeof AppEEventoIdIndexRoute
+  AppEEventoIdRelatoriosRelatorioIdRoute: typeof AppEEventoIdRelatoriosRelatorioIdRoute
+  AppEEventoIdRelatoriosIndexRoute: typeof AppEEventoIdRelatoriosIndexRoute
 }
 
 const AppEEventoIdRouteChildren: AppEEventoIdRouteChildren = {
@@ -630,6 +672,9 @@ const AppEEventoIdRouteChildren: AppEEventoIdRouteChildren = {
   AppEEventoIdReducaoRoute: AppEEventoIdReducaoRoute,
   AppEEventoIdResultadosRoute: AppEEventoIdResultadosRoute,
   AppEEventoIdIndexRoute: AppEEventoIdIndexRoute,
+  AppEEventoIdRelatoriosRelatorioIdRoute:
+    AppEEventoIdRelatoriosRelatorioIdRoute,
+  AppEEventoIdRelatoriosIndexRoute: AppEEventoIdRelatoriosIndexRoute,
 }
 
 const AppEEventoIdRouteWithChildren = AppEEventoIdRoute._addFileChildren(
