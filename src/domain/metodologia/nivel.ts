@@ -66,7 +66,7 @@ export interface Enquadramento {
 /** Equivalente a N() do Excel: número fica, vazio vira zero. */
 const n = (v: number | null | undefined): number => (typeof v === "number" ? v : 0);
 
-function diasDoEvento(p: PeriodoDoEvento): number | null {
+export function diasDoEvento(p: PeriodoDoEvento): number | null {
   if (!p.dataInicio || !p.dataFim) return null;
   const ms = Date.parse(`${p.dataFim}T00:00:00Z`) - Date.parse(`${p.dataInicio}T00:00:00Z`);
   if (!Number.isFinite(ms)) return null;

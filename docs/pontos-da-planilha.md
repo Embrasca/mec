@@ -16,7 +16,9 @@ exceto onde indicado.
    quando a opção escolhida fica abaixo do que os próprios números da ficha indicam (dias,
    diárias, porções, geradores, estrutura, voos, alegação). O cálculo não muda.
 5. **Categorias prioritárias (80%)** — o texto da aba 4 cita a regra, mas a coluna só testa a
-   materialidade de 5%. *(Afeta a Etapa 4.)*
+   materialidade de 5%. No sistema, a coluna "SIM - material" segue a fórmula, e uma marca
+   "Prioritária" separada aplica a regra do texto: do maior para o menor, as categorias até a
+   soma chegar a 80%.
 6. **Limites fixos de linhas** — no sistema não existem.
 
 ## Decisões de implementação das Etapas 0 e 1
@@ -56,3 +58,24 @@ exceto onde indicado.
   ações e da entrega de dados dos fornecedores, e o progresso do checklist de cada fase.
   Os itens do checklist têm "Quando" em texto (ex.: "Antes de contratar"), sem data, por isso
   aparecem como progresso e não como marcos.
+
+## Decisões de implementação da Etapa 4
+
+- **Inventário ex-post** usa a mesma tela do ex-ante, com qualidade do dado (lista da planilha,
+  nota 0 a 5) e evidência. Os alertas seguem a coluna S da aba 3, na mesma ordem: quantidade,
+  fator, qualidade, premissa (nota 2 ou menos), evidência (Nível 2 ou mais) e dado medido para
+  fonte com 5% ou mais do total (Nível 3 ou mais). O banco não aceita qualidade nem evidência
+  em linha de ex-ante.
+- **Coleta do realizado** é a mesma aba COLETA, guardada à parte da previsão; "Lançar" leva o
+  resumo ao ex-post. Linhas lançadas chegam sem qualidade nem evidência, para a equipe completar.
+- **Ocorrências**: os campos e listas da aba. O aviso da planilha ("resolva as ocorrências
+  abertas antes de fechar o inventário") virou regra: com ocorrência aberta ou em tratamento o
+  ex-post não fecha, no serviço e no banco.
+- **Resultados, comparação e compensação** reproduzem as abas 4, 5 e 6 e batem com o exemplo
+  Nível 3. Enquanto o ex-post estiver aberto, as telas avisam que o resultado é provisório.
+- **Comparação**: a origem e a explicação ficam por categoria; o sistema conta as categorias
+  com diferença ainda sem origem ("classifique a causa de cada diferença"). Se o ex-ante não
+  estiver fechado, a tela pede que seja fechado para preservar a estimativa original.
+- **Compensação**: além dos números da aba 6, o sistema guarda o comprovante da aposentadoria
+  ("aposentadoria comprovada, não apenas compra") e a descrição da medida omitida ("fica
+  declarada"), e avisa quando faltam. O total a compensar arredonda para cima, como ROUNDUP.

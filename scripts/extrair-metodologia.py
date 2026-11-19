@@ -292,6 +292,50 @@ def caso_reducao(caminho):
             "esperado": {"registradas": g("F4"), "completas": g("G4"), "exigencia": g("I4"), "conferencia": g("B5")}}
 
 
+def caso_pos_evento(caminho):
+    """Abas 4 - RESULTADOS, 5 - COMPARAÇÃO, 6 - EMISSÕES RESIDUAIS e OCORRÊNCIAS."""
+    wv = openpyxl.load_workbook(caminho, data_only=True)
+    r, c, e, o = wv["4 - RESULTADOS"], wv["5 - COMPARAÇÃO"], wv["6 - EMISSÕES RESIDUAIS"], wv["OCORRÊNCIAS"]
+    a = wv["A - CARACTERIZAÇÃO"]
+    g = lambda ws, ref: val(ws[ref].value)
+    return {
+        "participantes": g(a, "C17"), "participantesDia": g(a, "C15"), "dias": g(a, "C16"),
+        "participantesDiaSoma": g(a, "C41"), "nivel": g(a, "C108"),
+        "resultados": {
+            "principais": {k: g(r, ref) for k, ref in
+                           [("total", "C5"), ("exAnte", "C6"), ("variacao", "C7"), ("biogenico", "C8"),
+                            ("porParticipante", "C9"), ("porParticipanteDia", "C10")]},
+            "categorias": [{"categoria": g(r, f"B{i}"), "exAnte": g(r, f"C{i}"), "exPost": g(r, f"D{i}"),
+                            "participacao": g(r, f"E{i}"), "variacao": g(r, f"F{i}"), "material": g(r, f"G{i}")}
+                           for i in range(14, 24)],
+            "escoposEGases": [[g(r, f"C{i}"), g(r, f"D{i}")] for i in range(29, 35)],
+            "qualidade": {"linhas": g(r, "C38"), "pendentes": g(r, "C39"), "primario": g(r, "C40"),
+                          "minimoPrimario": g(r, "D40"), "situacaoPrimario": g(r, "E40"),
+                          "notaMedia": g(r, "C41"), "estimadas": g(r, "C42"), "fontes5": g(r, "C43"),
+                          "minimoFontes5": g(r, "D43"), "situacaoFontes5": g(r, "E43")},
+            "completude": [{"categoria": g(r, f"B{i}"), "linhas": g(r, f"C{i}"), "alertas": g(r, f"D{i}"),
+                            "semEvidencia": g(r, f"E{i}"), "situacao": g(r, f"G{i}")} for i in range(51, 61)],
+        },
+        "comparacao": {
+            "categorias": [{"categoria": g(c, f"B{i}"), "exAnte": g(c, f"C{i}"), "exPost": g(c, f"D{i}"),
+                            "diferenca": g(c, f"E{i}"), "pct": g(c, f"F{i}"), "origem": g(c, f"G{i}"),
+                            "explicacao": g(c, f"H{i}")} for i in range(5, 15)],
+            "total": [g(c, f"{col}16") for col in "CDEF"],
+        },
+        "residuais": {k: g(e, ref) for k, ref in
+                      [("brutas", "C5"), ("residuais", "C7"), ("omissao", "C8"), ("aCompensar", "C9"),
+                       ("aposentada", "C10"), ("saldo", "C11"), ("completa", "C13")]},
+        "ocorrencias": {
+            "registradas": g(o, "D4"), "abertas": g(o, "F4"), "alerta": g(o, "G4"),
+            "linhas": [{"data": str(o[f"C{i}"].value.date()) if o[f"C{i}"].value else None,
+                        "fase": g(o, f"D{i}"), "categoria": g(o, f"E{i}"), "ocorrencia": g(o, f"F{i}"),
+                        "impacto": g(o, f"G{i}"), "acao": g(o, f"H{i}"), "responsavel": g(o, f"I{i}"),
+                        "situacao": g(o, f"J{i}"), "premissa": g(o, f"K{i}")}
+                       for i in range(6, 66) if o[f"F{i}"].value],
+        },
+    }
+
+
 def main(arquivos):
     t = textos(arquivos[0])
     destino = os.path.join(RAIZ, "src/domain/metodologia/v3_16/textos.json")
@@ -311,6 +355,8 @@ def main(arquivos):
     json.dump(base_checklist(arquivos[0]), open(destino.replace("textos.json", "checklist.json"), "w"),
               ensure_ascii=False, indent=2)
     json.dump(caso_reducao(arquivos[0]), open(os.path.join(fixtures, "reducao-exemplo.json"), "w"),
+              ensure_ascii=False, indent=2)
+    json.dump(caso_pos_evento(arquivos[0]), open(os.path.join(fixtures, "pos-evento-exemplo.json"), "w"),
               ensure_ascii=False, indent=2)
     for arq in arquivos:
         cc = caso_checklist(arq)

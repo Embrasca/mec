@@ -80,6 +80,11 @@ const NO_SISTEMA: Record<string, string> = {
   "2 - EX-ANTE": "Inventário ex-ante",
   REDUÇÃO: "Plano de redução",
   "C - CHECKLIST": "Checklist do nível",
-  COLETA: "Coleta (previsão, para o ex-ante)",
+  COLETA: "Coleta (previsão e realizado)",
+  "3 - EX-POST": "Inventário ex-post",
+  "4 - RESULTADOS": "Resultados",
+  "5 - COMPARAÇÃO": "Comparação",
+  "6 - EMISSÕES RESIDUAIS": "Compensação",
+  OCORRÊNCIAS: "Ocorrências",
   "FATORES e LISTAS": "Base de fatores",
 };

@@ -8,6 +8,19 @@ import { createServerFn } from "@tanstack/react-start";
 import type { z } from "zod";
 import { autenticado } from "./middleware";
 import {
+  listarOcorrencias,
+  salvarOcorrencia,
+  removerOcorrencia,
+  obterPosEvento,
+  salvarDesvio,
+  salvarCompensacao,
+} from "@/servidor/servicos/posEvento.server";
+import type {
+  salvarOcorrenciaSchema,
+  salvarDesvioSchema,
+  salvarCompensacaoSchema,
+} from "@/servidor/servicos/posEvento.server";
+import {
   sincronizarSessao,
   listarUsuarios,
   registrarConta,
@@ -337,3 +350,35 @@ export const linhaDoTempoObter = createServerFn({ method: "POST" })
   .middleware([autenticado])
   .validator((d: { eventoId: string; hoje: string }) => d)
   .handler(({ context, data }) => obterLinhaDoTempo(context.usuarioId, data.eventoId, data.hoje));
+
+// Etapa 4: execução e pós-evento
+
+export const ocorrenciasListar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { eventoId: string }) => d)
+  .handler(({ context, data }) => listarOcorrencias(context.usuarioId, data.eventoId));
+
+export const ocorrenciaSalvar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: z.input<typeof salvarOcorrenciaSchema>) => d)
+  .handler(({ context, data }) => salvarOcorrencia(context.usuarioId, data));
+
+export const ocorrenciaRemover = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { eventoId: string; id: string }) => d)
+  .handler(({ context, data }) => removerOcorrencia(context.usuarioId, data.eventoId, data.id));
+
+export const posEventoObter = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: { eventoId: string }) => d)
+  .handler(({ context, data }) => obterPosEvento(context.usuarioId, data.eventoId));
+
+export const desvioSalvar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: z.input<typeof salvarDesvioSchema>) => d)
+  .handler(({ context, data }) => salvarDesvio(context.usuarioId, data));
+
+export const compensacaoSalvar = createServerFn({ method: "POST" })
+  .middleware([autenticado])
+  .validator((d: z.input<typeof salvarCompensacaoSchema>) => d)
+  .handler(({ context, data }) => salvarCompensacao(context.usuarioId, data));

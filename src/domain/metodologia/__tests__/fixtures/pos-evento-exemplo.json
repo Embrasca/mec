@@ -1,0 +1,358 @@
+{
+  "participantes": 850,
+  "participantesDia": 600,
+  "dias": 3,
+  "participantesDiaSoma": 1700,
+  "nivel": 3,
+  "resultados": {
+    "principais": {
+      "total": 60.090231,
+      "exAnte": 65.58115267,
+      "variacao": -0.0837271297,
+      "biogenico": 0,
+      "porParticipante": 70.69438941,
+      "porParticipanteDia": 35.34719471
+    },
+    "categorias": [
+      {
+        "categoria": "1 Energia",
+        "exAnte": 1.84386063,
+        "exPost": 1.462948766,
+        "participacao": 0.0243458669,
+        "variacao": -0.2065838696,
+        "material": null
+      },
+      {
+        "categoria": "2 Deslocamento",
+        "exAnte": 38.43328632,
+        "exPost": 40.00616588,
+        "participacao": 0.6657682158,
+        "variacao": 0.04092493012,
+        "material": "SIM - material"
+      },
+      {
+        "categoria": "3 Transporte no destino",
+        "exAnte": 0.3195065718,
+        "exPost": 0.2529427026,
+        "participacao": 0.004209381433,
+        "variacao": -0.2083333333,
+        "material": null
+      },
+      {
+        "categoria": "4 Hospedagem",
+        "exAnte": 3.654,
+        "exPost": 3.4365,
+        "participacao": 0.05718899633,
+        "variacao": -0.05952380952,
+        "material": "SIM - material"
+      },
+      {
+        "categoria": "5 Alimentação",
+        "exAnte": 18.4548,
+        "exPost": 12.4699,
+        "participacao": 0.2075195883,
+        "variacao": -0.324300453,
+        "material": "SIM - material"
+      },
+      {
+        "categoria": "6 Materiais",
+        "exAnte": 1.26429,
+        "exPost": 1.00371,
+        "participacao": 0.01670338062,
+        "variacao": -0.2061077759,
+        "material": null
+      },
+      {
+        "categoria": "7 Frete",
+        "exAnte": 1.163279153,
+        "exPost": 1.163279153,
+        "participacao": 0.01935887304,
+        "variacao": 0,
+        "material": null
+      },
+      {
+        "categoria": "8 Resíduos",
+        "exAnte": 0.36563,
+        "exPost": 0.2012845,
+        "participacao": 0.003349704214,
+        "variacao": -0.449485819,
+        "material": null
+      },
+      {
+        "categoria": "9 Digital",
+        "exAnte": 0.0825,
+        "exPost": 0.0935,
+        "participacao": 0.001555993353,
+        "variacao": 0.1333333333,
+        "material": null
+      },
+      {
+        "categoria": "10 Fugitivas",
+        "exAnte": 0,
+        "exPost": 0,
+        "participacao": 0,
+        "variacao": null,
+        "material": null
+      }
+    ],
+    "escoposEGases": [
+      [
+        1.085065706,
+        0.01805727301
+      ],
+      [
+        0.37788306,
+        0.006288593898
+      ],
+      [
+        58.62728223,
+        0.9756541331
+      ],
+      [
+        59.49623298,
+        0.9901148987
+      ],
+      [
+        0.03270508192,
+        0.0005442662039
+      ],
+      [
+        0.5612929393,
+        0.009340835107
+      ]
+    ],
+    "qualidade": {
+      "linhas": 19,
+      "pendentes": 0,
+      "primario": 0.931013531,
+      "minimoPrimario": 0.5,
+      "situacaoPrimario": "OK",
+      "notaMedia": 3.894344207,
+      "estimadas": 0.0463076225,
+      "fontes5": 0,
+      "minimoFontes5": 0,
+      "situacaoFontes5": "OK"
+    },
+    "completude": [
+      {
+        "categoria": "1 Energia",
+        "linhas": 2,
+        "alertas": 0,
+        "semEvidencia": 0,
+        "situacao": "Completa"
+      },
+      {
+        "categoria": "2 Deslocamento",
+        "linhas": 4,
+        "alertas": 0,
+        "semEvidencia": 0,
+        "situacao": "Completa"
+      },
+      {
+        "categoria": "3 Transporte no destino",
+        "linhas": 1,
+        "alertas": 0,
+        "semEvidencia": 0,
+        "situacao": "Completa"
+      },
+      {
+        "categoria": "4 Hospedagem",
+        "linhas": 1,
+        "alertas": 0,
+        "semEvidencia": 0,
+        "situacao": "Completa"
+      },
+      {
+        "categoria": "5 Alimentação",
+        "linhas": 4,
+        "alertas": 0,
+        "semEvidencia": 0,
+        "situacao": "Completa"
+      },
+      {
+        "categoria": "6 Materiais",
+        "linhas": 2,
+        "alertas": 0,
+        "semEvidencia": 0,
+        "situacao": "Completa"
+      },
+      {
+        "categoria": "7 Frete",
+        "linhas": 1,
+        "alertas": 0,
+        "semEvidencia": 0,
+        "situacao": "Completa"
+      },
+      {
+        "categoria": "8 Resíduos",
+        "linhas": 3,
+        "alertas": 0,
+        "semEvidencia": 0,
+        "situacao": "Completa"
+      },
+      {
+        "categoria": "9 Digital",
+        "linhas": 1,
+        "alertas": 0,
+        "semEvidencia": 0,
+        "situacao": "Completa"
+      },
+      {
+        "categoria": "10 Fugitivas",
+        "linhas": 0,
+        "alertas": 0,
+        "semEvidencia": 0,
+        "situacao": "Sem dados: confirme se não se aplica"
+      }
+    ]
+  },
+  "comparacao": {
+    "categorias": [
+      {
+        "categoria": "1 Energia",
+        "exAnte": 1.84386063,
+        "exPost": 1.462948766,
+        "diferenca": -0.3809118639,
+        "pct": -0.2065838696,
+        "origem": "Desempenho",
+        "explicacao": "Medida de desligamento fora do horário reduziu o consumo; o gerador funcionou menos horas que o previsto"
+      },
+      {
+        "categoria": "2 Deslocamento",
+        "exAnte": 38.43328632,
+        "exPost": 40.00616588,
+        "diferenca": 1.572879557,
+        "pct": 0.04092493012,
+        "origem": "Premissa",
+        "explicacao": "O ex-ante subestimou as distâncias dos voos; o relatório da agência trouxe os trechos reais, com mais participantes de Belém e Recife"
+      },
+      {
+        "categoria": "3 Transporte no destino",
+        "exAnte": 0.3195065718,
+        "exPost": 0.2529427026,
+        "diferenca": -0.06656386912,
+        "pct": -0.2083333333,
+        "origem": "Desempenho",
+        "explicacao": "Traslado coletivo reduziu o uso de carro; consumo do fretado menor que o proposto"
+      },
+      {
+        "categoria": "4 Hospedagem",
+        "exAnte": 3.654,
+        "exPost": 3.4365,
+        "diferenca": -0.2175,
+        "pct": -0.05952380952,
+        "origem": "Escala",
+        "explicacao": "Menos diárias que o previsto (395 contra 420)"
+      },
+      {
+        "categoria": "5 Alimentação",
+        "exAnte": 18.4548,
+        "exPost": 12.4699,
+        "diferenca": -5.9849,
+        "pct": -0.324300453,
+        "origem": "Desempenho",
+        "explicacao": "Troca de parte das refeições com carne bovina por opções vegetarianas"
+      },
+      {
+        "categoria": "6 Materiais",
+        "exAnte": 1.26429,
+        "exPost": 1.00371,
+        "diferenca": -0.26058,
+        "pct": -0.2061077759,
+        "origem": "Desempenho",
+        "explicacao": "Banners sem data e madeira reutilizada"
+      },
+      {
+        "categoria": "7 Frete",
+        "exAnte": 1.163279153,
+        "exPost": 1.163279153,
+        "diferenca": 0,
+        "pct": 0,
+        "origem": "Sem desvio relevante",
+        "explicacao": "Frete conforme o previsto"
+      },
+      {
+        "categoria": "8 Resíduos",
+        "exAnte": 0.36563,
+        "exPost": 0.2012845,
+        "diferenca": -0.1643455,
+        "pct": -0.449485819,
+        "origem": "Desempenho",
+        "explicacao": "Coleta seletiva e compostagem desviaram resíduos do aterro"
+      },
+      {
+        "categoria": "9 Digital",
+        "exAnte": 0.0825,
+        "exPost": 0.0935,
+        "diferenca": 0.011,
+        "pct": 0.1333333333,
+        "origem": "Escala",
+        "explicacao": "Audiência online maior que a prevista"
+      },
+      {
+        "categoria": "10 Fugitivas",
+        "exAnte": 0,
+        "exPost": 0,
+        "diferenca": 0,
+        "pct": null,
+        "origem": "Sem desvio relevante",
+        "explicacao": "Não houve recarga de gás refrigerante"
+      }
+    ],
+    "total": [
+      65.58115267,
+      60.090231,
+      -5.490921676,
+      -0.0837271297
+    ]
+  },
+  "residuais": {
+    "brutas": 60.090231,
+    "residuais": 60.090231,
+    "omissao": 0,
+    "aCompensar": 61,
+    "aposentada": 61,
+    "saldo": 0,
+    "completa": "SIM - quantidade suficiente"
+  },
+  "ocorrencias": {
+    "registradas": 3,
+    "abertas": 0,
+    "alerta": null,
+    "linhas": [
+      {
+        "data": "2026-09-16",
+        "fase": "Execução",
+        "categoria": "1 Energia",
+        "ocorrencia": "A leitura diária do medidor de 16/09 não foi fotografada",
+        "impacto": "Sem impacto nos dados",
+        "acao": "Usar a leitura de 17/09: o medidor é acumulativo",
+        "responsavel": "Produção técnica",
+        "situacao": "Resolvida",
+        "premissa": "Consumo do período calculado entre as leituras de 15/09 e 17/09"
+      },
+      {
+        "data": "2026-09-17",
+        "fase": "Execução",
+        "categoria": "8 Resíduos",
+        "ocorrencia": "Balança da cooperativa indisponível no último dia",
+        "impacto": "Dado medido substituído por estimativa",
+        "acao": "Contagem dos sacos de rejeito",
+        "responsavel": "Coordenação de limpeza",
+        "situacao": "Resolvida",
+        "premissa": "12 sacos de 100 L, 80% cheios, densidade 0,15 kg/L = 144 kg"
+      },
+      {
+        "data": "2026-09-12",
+        "fase": "Pré-evento",
+        "categoria": "2 Deslocamento",
+        "ocorrencia": "Um palestrante internacional passou a participar só online",
+        "impacto": "Mudança de escopo",
+        "acao": "Retirado do grupo de voos internacionais na aba COLETA",
+        "responsavel": "Coordenação do evento",
+        "situacao": "Resolvida",
+        "premissa": "Participação online não entra no transporte"
+      }
+    ]
+  }
+}

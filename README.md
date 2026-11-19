@@ -4,7 +4,7 @@ Gestão climática de eventos baseada na **Ferramenta de Cálculo de Emissões d
 O nível de exigência do evento (1 a 4) é calculado a partir da caracterização e passa a
 orientar o restante do sistema.
 
-## O que já existe (Etapas 0 a 3)
+## O que já existe (Etapas 0 a 4)
 
 | Área | O que faz |
 |---|---|
@@ -17,6 +17,8 @@ orientar o restante do sistema.
 | Checklist do nível | Aba C: os 170 itens por fase, filtrados pelo nível, com "NOVO", progresso e "FASE CONCLUÍDA" |
 | Gestão | Plano de redução (aba REDUÇÃO, com a exigência do nível), matriz impacto × relevância e plano de ação (do EventSustain), linha do tempo das três fases |
 | Pré-evento | Fornecedores (o que pedir por tipo e nível, prazo, situação, alerta), coleta com os 8 quadros (regras de mapeamento) e inventário ex-ante com alertas do nível, totais por categoria e escopo, e fechamento |
+| Execução | Ocorrências (aba OCORRÊNCIAS; aberta impede fechar o ex-post), coleta do realizado e inventário ex-post com qualidade do dado e evidência |
+| Pós-evento | Resultados (aba 4: números principais, materialidade, escopo e gás, qualidade e completude), comparação ex-ante × ex-post com origem do desvio (aba 5) e compensação (aba 6) |
 
 ### Papéis
 
@@ -83,6 +85,8 @@ npm test
   resumo da coleta).
 - `src/domain/metodologia/__tests__/gestao.test.ts`: checklist igual à aba C nos Níveis 2 e 3
   e plano de redução igual à aba REDUÇÃO do exemplo.
+- `src/domain/metodologia/__tests__/posEvento.test.ts`: alertas do ex-post e paridade com as
+  abas 4, 5, 6 e OCORRÊNCIAS do exemplo de Nível 3.
 - `src/servidor/__tests__/*.test.ts`: regras de negócio e RLS num Postgres em memória
   (PGlite) com as migrações reais.
 

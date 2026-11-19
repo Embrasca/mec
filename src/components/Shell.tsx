@@ -6,7 +6,11 @@ import { useState, type ReactNode } from "react";
 import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import {
+  AlertTriangle,
+  BarChart3,
   BookOpen,
+  GitCompare,
+  Scale,
   CalendarRange,
   Grid3x3,
   ListChecks,
@@ -48,7 +52,9 @@ interface ItemDeMenu {
 
 function ItemDoMenu({ item }: { item: ItemDeMenu }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const ativo = item.exact ? pathname === item.to : pathname.startsWith(item.to);
+  const ativo = item.exact
+    ? pathname === item.to
+    : pathname === item.to || pathname.startsWith(`${item.to}/`);
   const Icone = item.icon;
   return (
     <Link
@@ -249,6 +255,22 @@ export function Shell({ evento, children }: { evento?: EventoResumo; children: R
             { to: `${e}/coleta`, label: "Coleta (previsão)", icon: ClipboardList },
             { to: `${e}/inventario`, label: "Inventário ex-ante", icon: Calculator },
             { to: `${e}/reducao`, label: "Plano de redução", icon: TrendingDown },
+          ],
+        },
+        {
+          titulo: "Execução",
+          itens: [
+            { to: `${e}/ocorrencias`, label: "Ocorrências", icon: AlertTriangle },
+            { to: `${e}/coleta-ex-post`, label: "Coleta (realizado)", icon: ClipboardList },
+            { to: `${e}/inventario-ex-post`, label: "Inventário ex-post", icon: Calculator },
+          ],
+        },
+        {
+          titulo: "Pós-evento",
+          itens: [
+            { to: `${e}/resultados`, label: "Resultados", icon: BarChart3 },
+            { to: `${e}/comparacao`, label: "Comparação", icon: GitCompare },
+            { to: `${e}/compensacao`, label: "Compensação", icon: Scale },
           ],
         },
         {

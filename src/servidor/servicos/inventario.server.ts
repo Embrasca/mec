@@ -302,6 +302,8 @@ async function baseDoEvento(sql: Sql, evento: EventoResumo) {
 
 interface LinhaGravada extends LinhaDeInventario {
   id: string;
+  qualidade: number | null;
+  evidencia: string | null;
   origem: "manual" | "coleta";
 }
 
@@ -324,7 +326,7 @@ export async function lerInventario(sql: Sql, eventoId: string, etapa: Etapa) {
     [eventoId, etapa],
   );
   const linhas = await sql<LinhaGravada>(
-    `select id::text, fornecedor, item, descricao, quantidade, premissa, origem
+    `select id::text, fornecedor, item, descricao, quantidade, premissa, qualidade, evidencia, origem
      from inventario_linhas where evento_id = $1 and etapa = $2 order by ordem`,
     [eventoId, etapa],
   );
@@ -339,7 +341,7 @@ export async function lerInventario(sql: Sql, eventoId: string, etapa: Etapa) {
     fechadoEm: cab?.fechado_em ?? null,
     fechadoPor: cab?.fechado_por ?? null,
     linhas,
-    resultado: calcularInventario(linhas, base, ano, evento.nivel),
+    resultado: calcularInventario(linhas, base, ano, evento.nivel, etapa),
   };
 }
 
@@ -353,6 +355,8 @@ const linhaSchema = z.object({
   descricao: z.string().trim().max(200).nullable(),
   quantidade: z.number().finite().min(0, "Quantidade não pode ser negativa.").max(1e12).nullable(),
   premissa: z.string().trim().max(2000).nullable(),
+  qualidade: z.number().int().min(0).max(5).nullable().default(null),
+  evidencia: z.string().trim().max(1000).nullable().default(null),
   origem: z.enum(["manual", "coleta"]).default("manual"),
 });
 
@@ -388,13 +392,16 @@ async function gravarLinhas(
       "O inventário mudou enquanto você editava, ou já foi fechado. Recarregue para ver a versão atual.",
     );
   await sql("delete from inventario_linhas where evento_id = $1 and etapa = $2", [eventoId, etapa]);
-  const uteis = linhas.filter((l) => l.item || l.quantidade !== null || l.premissa);
+  const uteis = linhas
+    .filter((l) => l.item || l.quantidade !== null || l.premissa || l.evidencia)
+    .map((l) => (etapa === "ex_ante" ? { ...l, qualidade: null, evidencia: null } : l));
   if (uteis.length > 0)
     await sql(
-      `insert into inventario_linhas (evento_id, etapa, ordem, fornecedor, item, descricao, quantidade, premissa, origem)
-       select $1, $2, x.ordem, x.fornecedor, x.item, x.descricao, x.quantidade, x.premissa, x.origem
+      `insert into inventario_linhas (evento_id, etapa, ordem, fornecedor, item, descricao, quantidade, premissa, qualidade, evidencia, origem)
+       select $1, $2, x.ordem, x.fornecedor, x.item, x.descricao, x.quantidade, x.premissa, x.qualidade, x.evidencia, x.origem
        from jsonb_to_recordset($3::jsonb)
-         as x(ordem int, fornecedor text, item text, descricao text, quantidade double precision, premissa text, origem text)`,
+         as x(ordem int, fornecedor text, item text, descricao text, quantidade double precision, premissa text,
+              qualidade smallint, evidencia text, origem text)`,
       [eventoId, etapa, JSON.stringify(uteis.map((l, ordem) => ({ ...l, ordem })))],
     );
 }
@@ -441,6 +448,18 @@ export async function fecharInventario(
     if (atual.linhas.length === 0) throw new ErroDeNegocio("O inventário está vazio.");
     if (atual.resultado.pendencias > 0)
       throw new ErroDeNegocio(`Resolva os ${atual.resultado.pendencias} alertas antes de fechar.`);
+    if (etapa === "ex_post") {
+      const [o] = await sql<{ n: number }>(
+        "select count(*)::int as n from ocorrencias where evento_id = $1 and situacao <> 'Resolvida'",
+        [eventoId],
+      );
+      if (o && o.n > 0)
+        throw new ErroDeNegocio(
+          o.n === 1
+            ? "Resolva a ocorrência aberta ou em tratamento antes de fechar o inventário."
+            : `Resolva as ${o.n} ocorrências abertas ou em tratamento antes de fechar o inventário.`,
+        );
+    }
     await sql(
       `update inventarios set fechado_em = now(), fechado_por = $3, base_fatores_id = $4, resultado = $5
        where evento_id = $1 and etapa = $2`,
@@ -559,6 +578,8 @@ export async function lancarColetaNoInventario(atorId: string, eventoId: string,
           descricao: null,
           quantidade: r.quantidade,
           premissa: `Calculado na coleta (${r.quadro})`,
+          qualidade: null,
+          evidencia: null,
           origem: "coleta",
         });
         novas++;

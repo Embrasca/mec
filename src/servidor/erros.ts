@@ -19,7 +19,11 @@ export function mensagemSegura(erro: unknown): string {
   const e = erro as { code?: string; message?: string };
   if (e?.code === "42501") return "Você não tem permissão para esta ação.";
   if (e?.code === "23505") return "Já existe um registro com estes dados.";
-  if (e?.code === "23514" && e.message && /nível|Autor e metodologia/.test(e.message))
+  if (
+    e?.code === "23514" &&
+    e.message &&
+    /nível|Autor e metodologia|ocorrências abertas|está fechado/.test(e.message)
+  )
     return e.message;
   if (e?.code === "23514" || e?.code === "22P02" || e?.code === "23502")
     return "Dados inválidos. Revise o formulário.";
