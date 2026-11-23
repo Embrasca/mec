@@ -39,6 +39,8 @@ Migrações só acrescentam. Nunca edite uma migração já aplicada: crie outra
 - Desativar uma conta bloqueia o acesso na hora, sem apagar o histórico.
 - O acesso a cada evento é dado na tela **Equipe** do evento (gestor, equipe, revisor, leitor).
 - Redefinir senha encerra as sessões abertas da conta.
+- Só existe login por e-mail e senha: o login pelo Google, que o Neon Auth traz ligado, foi
+  desligado em 23/11/2026 (nenhuma conta o usava).
 
 ## Backup e recuperação
 
