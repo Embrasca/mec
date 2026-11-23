@@ -1,6 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { acharMunicipio, areaLocal, municipio } from "../../territorio";
-import { eventoSchema } from "../../evento";
+import {
+  acharMunicipio,
+  areaLocal,
+  eventoComMunicipioSchema as eventoSchema,
+  municipio,
+} from "../../territorio";
 import {
   equipeSchema,
   equipeVazia,

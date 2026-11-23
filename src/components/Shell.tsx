@@ -2,13 +2,14 @@
  * Moldura das telas autenticadas: menu lateral, barra do topo com o seletor de
  * evento e a conta. Visual e classes do design system do EMBRASCA.CLIMATE.
  */
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import {
   AlertTriangle,
   BarChart3,
   BookOpen,
+  Menu,
   HardHat,
   HeartHandshake,
   Leaf,
@@ -112,8 +113,8 @@ function SeletorDeEvento({ atual }: { atual: EventoResumo | undefined }) {
         {atual ? (
           <>
             <EventoMarca cor={atual.cor} nome={atual.nome} tamanho={36} />
-            <span className="min-w-0">
-              <span className="topbar-cliente-nome block">{atual.nome}</span>
+            <span className="min-w-0 overflow-hidden">
+              <span className="topbar-cliente-nome block truncate">{atual.nome}</span>
               <span className="topbar-cliente-linha">
                 {atual.cidade}/{atual.uf} · {atual.instituicao}
               </span>
@@ -129,7 +130,7 @@ function SeletorDeEvento({ atual }: { atual: EventoResumo | undefined }) {
           <div className="fixed inset-0 z-40" onClick={() => setAberto(false)} aria-hidden />
           <div
             role="listbox"
-            className="absolute left-0 z-50 mt-2 max-h-[60vh] w-80 overflow-y-auto rounded-xl border border-border bg-popover p-1.5 text-foreground shadow-lg"
+            className="absolute left-0 z-50 mt-2 max-h-[60vh] w-[min(20rem,calc(100vw-2rem))] overflow-y-auto rounded-xl border border-border bg-popover p-1.5 text-foreground shadow-lg"
           >
             <p className="px-2.5 py-1.5 text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
               Eventos
@@ -233,6 +234,16 @@ export function Shell({ evento, children }: { evento?: EventoResumo; children: R
   const { perfil } = useSessao();
   const { tema, trocar } = useTema();
   const [recolhido, setRecolhido] = useState(false);
+  const [menuAberto, setMenuAberto] = useState(false);
+  const caminho = useRouterState({ select: (s) => s.location.pathname });
+  // No celular, a gaveta fecha ao navegar e com a tecla Esc.
+  useEffect(() => setMenuAberto(false), [caminho]);
+  useEffect(() => {
+    if (!menuAberto) return;
+    const fechar = (e: KeyboardEvent) => e.key === "Escape" && setMenuAberto(false);
+    window.addEventListener("keydown", fechar);
+    return () => window.removeEventListener("keydown", fechar);
+  }, [menuAberto]);
 
   const global: ItemDeMenu[] = [
     { to: "/eventos", label: "Portfólio de eventos", icon: LayoutGrid, exact: true },
@@ -316,8 +327,9 @@ export function Shell({ evento, children }: { evento?: EventoResumo; children: R
     : [];
 
   return (
-    <div className={cn(recolhido && "sidebar-collapsed")}>
-      <aside className="app-sidebar" aria-label="Menu principal">
+    <div className={cn(recolhido && "sidebar-collapsed", menuAberto && "menu-aberto")}>
+      <div className="fundo-menu" aria-hidden onClick={() => setMenuAberto(false)} />
+      <aside className="app-sidebar" id="menu-principal" aria-label="Menu principal">
         <div className="sidebar-brand">
           <Link to="/eventos" className="brand-logo">
             <img src="/embrasca-logo.svg" alt="" />
@@ -358,7 +370,7 @@ export function Shell({ evento, children }: { evento?: EventoResumo; children: R
             <button
               type="button"
               onClick={() => setRecolhido((v) => !v)}
-              className="sidebar-tool"
+              className="sidebar-tool recolher-menu"
               aria-label={recolhido ? "Expandir menu" : "Recolher menu"}
               title={recolhido ? "Expandir menu" : "Recolher menu"}
             >
@@ -371,10 +383,24 @@ export function Shell({ evento, children }: { evento?: EventoResumo; children: R
         <div className="app-surface">
           <header className="app-topbar">
             <div className="topbar-esquerda">
+              <button
+                type="button"
+                className="botao-menu"
+                aria-label="Abrir o menu"
+                aria-controls="menu-principal"
+                aria-expanded={menuAberto}
+                onClick={() => setMenuAberto(true)}
+              >
+                <Menu className="size-5" />
+              </button>
               <SeletorDeEvento atual={evento} />
             </div>
             <div className="flex shrink-0 items-center gap-2">
-              {evento && <NivelBadge nivel={evento.nivel} sobreEscuro />}
+              {evento && (
+                <span className="topbar-nivel">
+                  <NivelBadge nivel={evento.nivel} sobreEscuro />
+                </span>
+              )}
               <Conta />
             </div>
           </header>

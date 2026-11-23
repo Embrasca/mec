@@ -198,10 +198,12 @@ const recurso = z.object({
   pessoas: inteiro(100_000_000),
 });
 
-export const naoSeAplicaSchema = z.record(
-  z.string(),
-  z.object({ justificativa: z.string().trim().min(5, "Justifique.").max(1000) }),
-);
+export const naoSeAplicaSchema = z
+  .record(
+    z.string(),
+    z.object({ justificativa: z.string().trim().min(5, "Justifique.").max(1000) }),
+  )
+  .refine((r) => Object.keys(r).length <= 30, "Indicadores demais.");
 
 export const registroEsgSchema = z.object({
   acessibilidade: z.record(z.enum(RECURSOS_DE_ACESSIBILIDADE), recurso),

@@ -46,8 +46,15 @@ export function FormularioDoEvento({
   async function aoEnviar(e: FormEvent) {
     e.preventDefault();
     const r = eventoSchema.safeParse(d);
-    if (!r.success) {
-      setErros(Object.fromEntries(r.error.issues.map((i) => [String(i.path[0]), i.message])));
+    if (!r.success || d.municipioIbge === null) {
+      setErros({
+        ...(r.success
+          ? {}
+          : Object.fromEntries(r.error.issues.map((i) => [String(i.path[0]), i.message]))),
+        ...(d.municipioIbge === null
+          ? { municipioIbge: "Escolha o município na lista da UF." }
+          : {}),
+      });
       return;
     }
     setErros({});

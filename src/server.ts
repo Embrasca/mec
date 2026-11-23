@@ -56,19 +56,54 @@ function isH3SwallowedErrorBody(body: string): boolean {
   }
 }
 
+/**
+ * Cabeçalhos de segurança em toda resposta. A CSP só admite o próprio site, as
+ * fontes do Google e o Neon (login); scripts de outros domínios são bloqueados.
+ * Os scripts em linha continuam permitidos porque a hidratação do TanStack e o
+ * script do tema os usam.
+ */
+const CSP = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline'",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "font-src 'self' data: https://fonts.gstatic.com",
+  "img-src 'self' data: blob:",
+  `connect-src 'self' https://*.neon.tech${import.meta.env.DEV ? " ws://localhost:* ws://127.0.0.1:*" : ""}`,
+  "frame-ancestors 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "object-src 'none'",
+].join("; ");
+
+function comCabecalhos(response: Response): Response {
+  // Algumas respostas têm cabeçalhos imutáveis; nesse caso copia.
+  const r = new Response(response.body, response);
+  const h = r.headers;
+  h.set("Content-Security-Policy", CSP);
+  h.set("X-Content-Type-Options", "nosniff");
+  h.set("X-Frame-Options", "DENY");
+  h.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  h.set("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=()");
+  if (!import.meta.env.DEV)
+    h.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+  return r;
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     const hostname = hostnameOf(request);
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response, hostname);
+      return comCabecalhos(await normalizeCatastrophicSsrResponse(response, hostname));
     } catch (error) {
       console.error(error);
-      return new Response(renderErrorPage(describeError(error), hostname), {
-        status: 500,
-        headers: { "content-type": "text/html; charset=utf-8" },
-      });
+      return comCabecalhos(
+        new Response(renderErrorPage(describeError(error), hostname), {
+          status: 500,
+          headers: { "content-type": "text/html; charset=utf-8" },
+        }),
+      );
     }
   },
 };

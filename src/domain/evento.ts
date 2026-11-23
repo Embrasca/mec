@@ -1,6 +1,5 @@
 import { z } from "zod";
 import { normalizarCor, problemaDaCor } from "./cor";
-import { acharMunicipio, municipio } from "./territorio";
 
 export const UFS = [
   "AC",
@@ -62,22 +61,11 @@ export const eventoSchema = z
   .refine((e) => e.dataFim >= e.dataInicio, {
     message: "A data de término não pode ser anterior à de início.",
     path: ["dataFim"],
-  })
-  .transform((e, ctx) => {
-    const m =
-      e.municipioIbge !== null ? municipio(e.municipioIbge) : acharMunicipio(e.cidade, e.uf);
-    if (!m || m.uf !== e.uf) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: "Escolha o município na lista da UF.",
-        path: ["municipioIbge"],
-      });
-      return z.NEVER;
-    }
-    return { ...e, cidade: m.nome, municipioIbge: m.id };
   });
 
 export type DadosDoEvento = z.input<typeof eventoSchema>;
+// A conferência do município com a lista do IBGE fica em `territorio`
+// (eventoComMunicipioSchema), para a lista não ir a todas as telas.
 
 export const PAPEIS = ["gestor", "equipe", "revisor", "leitor"] as const;
 export type Papel = (typeof PAPEIS)[number];

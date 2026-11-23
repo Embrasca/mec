@@ -145,3 +145,16 @@ Os 27 indicadores propostos foram aprovados sem retirada. As decisões e coment�
   primário só contam com o ex-post.
 - **Desempenho**: as funções da Vercel passaram a rodar em São Paulo (`gru1`), na mesma região
   do banco Neon (`sa-east-1`).
+
+## Decisões de implementação da Etapa 8 (endurecimento)
+
+- **Segurança:** teste que exige RLS em todas as tabelas e `search_path` fixo nas funções
+  privilegiadas; cabeçalhos HTTP de segurança (CSP, HSTS e outros); dependências com correção
+  atualizadas; limite de tamanho em todo objeto de chaves livres validado no servidor.
+- **Desempenho:** a lista do IBGE deixou de ir para todas as telas e passou a carregar só onde
+  se escolhe município (cerca de 70 KB compactados a menos no carregamento inicial). A
+  conferência do município do evento fica no servidor.
+- **Celular:** o menu virou gaveta, com os nomes de cada item; o nome do evento no topo é
+  cortado com reticências, e o selo do nível só aparece nas telas largas. Nenhuma tela rola na
+  horizontal num celular de 390 px.
+- **Operação:** guia em `docs/operacao.md`.

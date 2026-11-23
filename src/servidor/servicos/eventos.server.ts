@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { eventoComMunicipioSchema } from "@/domain/territorio";
 import { eventoSchema, PAPEIS, type Papel } from "@/domain/evento";
 import { METODOLOGIA_ID, type Nivel } from "@/domain/metodologia/v3_16";
 import { auditar, comoUsuario, type Sql } from "../db.server";
@@ -70,7 +71,9 @@ export async function obterEvento(atorId: string, eventoId: string) {
   return comoUsuario(atorId, (sql) => eventoVisivel(sql, z.string().uuid().parse(eventoId)));
 }
 
-export const novoEventoSchema = eventoSchema.and(z.object({ gestorId: z.string().uuid() }));
+export const novoEventoSchema = eventoComMunicipioSchema.and(
+  z.object({ gestorId: z.string().uuid() }),
+);
 
 export async function criarEvento(atorId: string, entrada: z.input<typeof novoEventoSchema>) {
   const d = novoEventoSchema.parse(entrada);
@@ -122,7 +125,7 @@ export async function atualizarEvento(
   eventoId: string,
   entrada: z.input<typeof eventoSchema>,
 ) {
-  const d = eventoSchema.parse(entrada);
+  const d = eventoComMunicipioSchema.parse(entrada);
   return comoUsuario(atorId, async (sql) => {
     const atual = await eventoVisivel(sql, eventoId);
     if (!atual.podeGerir)

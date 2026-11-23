@@ -66,7 +66,7 @@ export const salvarItemSchema = z.object({
   eventoId: z.string().uuid(),
   lista: z.enum(["equipe", "material", "acao_social"]),
   id: z.string().uuid().nullable(),
-  dados: z.record(z.unknown()),
+  dados: z.record(z.unknown()).refine((r) => Object.keys(r).length <= 40, "Campos demais."),
 });
 
 export async function salvarItem(atorId: string, entrada: z.input<typeof salvarItemSchema>) {

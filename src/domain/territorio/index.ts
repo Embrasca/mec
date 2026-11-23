@@ -6,6 +6,8 @@
  *
  * Os dados vêm de `ibge.json`, gerado por `scripts/gerar-territorio.py`.
  */
+import { z } from "zod";
+import { eventoSchema } from "../evento";
 import dados from "./ibge.json";
 
 export interface Municipio {
@@ -72,3 +74,20 @@ export function descreverArea(a: AreaLocal | null): string {
   if (!a) return "Informe o município do evento no cadastro para definir a área local.";
   return `${a.regioes.join(" e ")} (${a.municipios.size} município${a.municipios.size === 1 ? "" : "s"})`;
 }
+
+/**
+ * Cadastro do evento com o município conferido na lista do IBGE. Sem o código,
+ * procura pelo nome digitado (eventos antigos). Usado pelo servidor.
+ */
+export const eventoComMunicipioSchema = eventoSchema.transform((e, ctx) => {
+  const m = e.municipioIbge !== null ? municipio(e.municipioIbge) : acharMunicipio(e.cidade, e.uf);
+  if (!m || m.uf !== e.uf) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      message: "Escolha o município na lista da UF.",
+      path: ["municipioIbge"],
+    });
+    return z.NEVER;
+  }
+  return { ...e, cidade: m.nome, municipioIbge: m.id };
+});

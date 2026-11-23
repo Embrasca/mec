@@ -4,7 +4,7 @@ Gestão climática de eventos baseada na **Ferramenta de Cálculo de Emissões d
 O nível de exigência do evento (1 a 4) é calculado a partir da caracterização e passa a
 orientar o restante do sistema.
 
-## O que já existe (Etapas 0 a 7)
+## O que já existe (Etapas 0 a 8)
 
 | Área | O que faz |
 |---|---|
@@ -29,6 +29,10 @@ orientar o restante do sistema.
 - **Gestor do evento**: edita o cadastro, monta a equipe e confirma o enquadramento.
 - **Equipe**: preenche a caracterização e o acompanhamento.
 - **Revisor** e **Leitor**: consultam, sem editar.
+
+## Operação
+
+Publicação, contas, backup, limites e o que fazer em caso de incidente: `docs/operacao.md`.
 
 ## Segurança
 
