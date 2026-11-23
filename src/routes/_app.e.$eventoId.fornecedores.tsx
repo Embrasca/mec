@@ -4,7 +4,15 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Plus } from "lucide-react";
 import { toast } from "sonner";
-import { Carregando, Falha, formatarData, PageHeader, Panel, Vazio } from "@/components/kit";
+import {
+  Carregando,
+  Falha,
+  formatarData,
+  PageHeader,
+  PainelExpansivel,
+  Panel,
+  Vazio,
+} from "@/components/kit";
 import { SeloAlerta } from "@/components/TabelaEditavel";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -63,7 +71,10 @@ function Fornecedores() {
         title="Fornecedores"
         description="O que pedir a cada tipo de fornecedor e o acompanhamento do que já chegou. O fornecedor contratado consolida e entrega os dados dos seus subcontratados."
       />
-      <Panel title="Parte 1 — O que pedir a cada tipo de fornecedor" hint={NOTA_PRAZO}>
+      <PainelExpansivel
+        title={`Parte 1 — O que pedir a cada tipo de fornecedor (${TIPOS.length} tipos)`}
+      >
+        <p className="mb-3 text-xs text-muted-foreground">{NOTA_PRAZO}</p>
         <p className="mb-4 rounded-lg bg-info-soft p-3 text-sm text-info-text">
           {entrega ? (
             <>
@@ -95,7 +106,7 @@ function Fornecedores() {
             </tbody>
           </table>
         </div>
-      </Panel>
+      </PainelExpansivel>
 
       <Panel
         title="Parte 2 — Acompanhamento por fornecedor"

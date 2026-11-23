@@ -1,5 +1,5 @@
-import type { ReactNode } from "react";
-import { AlertTriangle, Loader2 } from "lucide-react";
+import { useId, useState, type ReactNode } from "react";
+import { AlertTriangle, ChevronRight, Loader2 } from "lucide-react";
 import { textoSobre } from "@/domain/cor";
 import { V3_16, type Nivel } from "@/domain/metodologia/v3_16";
 import { cn } from "@/lib/utils";
@@ -29,6 +29,55 @@ export function Panel({
         </div>
       )}
       {children}
+    </section>
+  );
+}
+
+/**
+ * Painel que começa fechado: o cabeçalho (título, resumo e ações) fica sempre
+ * visível; o conteúdo só é montado quando a pessoa abre.
+ */
+export function PainelExpansivel({
+  title,
+  resumo,
+  actions,
+  children,
+}: {
+  title: string;
+  resumo?: ReactNode;
+  actions?: ReactNode;
+  children: ReactNode;
+}) {
+  const [aberto, setAberto] = useState(false);
+  const id = useId();
+  return (
+    <section className="panel">
+      <div className="flex flex-wrap items-center gap-3 p-5">
+        <button
+          type="button"
+          aria-expanded={aberto}
+          aria-controls={id}
+          onClick={() => setAberto((a) => !a)}
+          className="flex min-w-0 flex-1 items-center gap-2 rounded-md text-left text-sm font-semibold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <ChevronRight
+            aria-hidden
+            className={cn("size-4 shrink-0 transition-transform", aberto && "rotate-90")}
+          />
+          <span>{title}</span>
+        </button>
+        {(resumo || actions) && (
+          <div className="flex flex-wrap items-center gap-3">
+            {resumo}
+            {actions}
+          </div>
+        )}
+      </div>
+      {aberto && (
+        <div id={id} className="px-5 pb-5">
+          {children}
+        </div>
+      )}
     </section>
   );
 }

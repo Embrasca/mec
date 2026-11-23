@@ -1,10 +1,9 @@
 /** Aba "C - CHECKLIST" da Ferramenta: listas de verificação do nível, fase por fase. */
-import { useId, useState } from "react";
-import { ChevronRight } from "lucide-react";
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { Carregando, Falha, PageHeader, Panel } from "@/components/kit";
+import { Carregando, Falha, PageHeader, PainelExpansivel, Panel } from "@/components/kit";
 import { Progress } from "@/components/ui/progress";
 import { situacaoDaFase, type ItemVisivel, type Resposta } from "@/domain/metodologia/checklist";
 import { useEvento } from "@/lib/evento-atual";
@@ -65,27 +64,11 @@ type FaseVisivel = Awaited<ReturnType<typeof checklistObter>>["fases"][number];
 
 /** Fase em painel expansível: o cabeçalho mostra o progresso; os itens só aparecem ao abrir. */
 function Fase({ fase: f }: { fase: FaseVisivel }) {
-  const [aberta, setAberta] = useState(false);
-  const id = useId();
   return (
-    <section className="panel">
-      <div className="flex flex-wrap items-center gap-3 p-5">
-        <button
-          type="button"
-          aria-expanded={aberta}
-          aria-controls={id}
-          onClick={() => setAberta((a) => !a)}
-          className="flex min-w-0 flex-1 items-center gap-2 rounded-md text-left text-sm font-semibold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-        >
-          <ChevronRight
-            aria-hidden
-            className={cn("size-4 shrink-0 transition-transform", aberta && "rotate-90")}
-          />
-          <span>
-            {f.nome} — {f.itens.length} itens
-          </span>
-        </button>
-        <div className="flex items-center gap-3">
+    <PainelExpansivel
+      title={`${f.nome} — ${f.itens.length} itens`}
+      resumo={
+        <>
           <Progress
             className="w-40"
             value={f.progresso * 100}
@@ -101,31 +84,30 @@ function Fase({ fase: f }: { fase: FaseVisivel }) {
           >
             {porcentagem(f.progresso, 0)} · {situacaoDaFase(f)}
           </span>
-        </div>
+        </>
+      }
+    >
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[900px] text-sm">
+          <thead className="text-left text-xs text-muted-foreground">
+            <tr>
+              <th className="w-10 py-2 pr-2 font-medium">Nº</th>
+              <th className="py-2 pr-3 font-medium">O que fazer, exatamente</th>
+              <th className="py-2 pr-3 font-medium">Quando</th>
+              <th className="py-2 pr-3 font-medium">Quem faz</th>
+              <th className="py-2 pr-3 font-medium">O que fica registrado</th>
+              <th className="py-2 pr-3 font-medium">Feito?</th>
+              <th className="py-2 font-medium">Observação</th>
+            </tr>
+          </thead>
+          <tbody>
+            {f.itens.map((i) => (
+              <Linha key={i.chave} item={i} />
+            ))}
+          </tbody>
+        </table>
       </div>
-      {aberta && (
-        <div id={id} className="overflow-x-auto px-5 pb-5">
-          <table className="w-full min-w-[900px] text-sm">
-            <thead className="text-left text-xs text-muted-foreground">
-              <tr>
-                <th className="w-10 py-2 pr-2 font-medium">Nº</th>
-                <th className="py-2 pr-3 font-medium">O que fazer, exatamente</th>
-                <th className="py-2 pr-3 font-medium">Quando</th>
-                <th className="py-2 pr-3 font-medium">Quem faz</th>
-                <th className="py-2 pr-3 font-medium">O que fica registrado</th>
-                <th className="py-2 pr-3 font-medium">Feito?</th>
-                <th className="py-2 font-medium">Observação</th>
-              </tr>
-            </thead>
-            <tbody>
-              {f.itens.map((i) => (
-                <Linha key={i.chave} item={i} />
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
-    </section>
+    </PainelExpansivel>
   );
 }
 

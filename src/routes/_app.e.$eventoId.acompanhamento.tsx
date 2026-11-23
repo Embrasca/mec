@@ -1,9 +1,9 @@
 /** Aba B da Ferramenta: o que o nível exige e o que já foi feito. */
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { Carregando, Falha, PageHeader, Panel } from "@/components/kit";
+import { Carregando, Falha, PageHeader, PainelExpansivel, Panel } from "@/components/kit";
 import { Progress } from "@/components/ui/progress";
 import { V3_16 } from "@/domain/metodologia/v3_16";
 import { useEvento } from "@/lib/evento-atual";
@@ -58,44 +58,61 @@ function Acompanhamento() {
             />
           }
         >
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[960px] text-sm">
-              <thead className="text-left text-xs text-muted-foreground">
-                <tr>
-                  <th className="py-2 pr-3 font-medium">Requisito</th>
-                  {V3_16.designacoes.map((d, i) => (
-                    <th
-                      key={d}
-                      className={cn(
-                        "py-2 pr-3 font-medium",
-                        evento.nivel === i + 1 && "text-foreground",
-                      )}
-                    >
-                      Nível {i + 1}
-                    </th>
-                  ))}
-                  <th className="py-2 pr-3 font-medium">Já foi feito?</th>
-                  <th className="py-2 font-medium">Observação</th>
-                </tr>
-              </thead>
-              <tbody>
-                {agrupar(dados.data.linhas).map(([fase, linhas]) => (
-                  <Fragment key={fase}>
+          <p className="text-sm text-muted-foreground">
+            Abra cada fase para ver e marcar os requisitos.
+          </p>
+        </Panel>
+      )}
+      {dados.data &&
+        agrupar(dados.data.linhas).map(([fase, linhas]) => {
+          const feitos = linhas.filter((l) => l.feito === "Sim").length;
+          return (
+            <PainelExpansivel
+              key={fase}
+              title={`${fase} — ${linhas.length} requisitos`}
+              resumo={
+                <>
+                  <Progress
+                    className="w-40"
+                    value={(feitos / linhas.length) * 100}
+                    aria-label={`Progresso: ${fase}`}
+                  />
+                  <span className="text-xs text-muted-foreground tabular-nums">
+                    {feitos} de {linhas.length} feitos
+                  </span>
+                </>
+              }
+            >
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-[960px] text-sm">
+                  <thead className="text-left text-xs text-muted-foreground">
                     <tr>
-                      <th colSpan={7} className="eyebrow bg-muted/60 px-2 py-1.5 text-left">
-                        {fase}
-                      </th>
+                      <th className="py-2 pr-3 font-medium">Requisito</th>
+                      {V3_16.designacoes.map((d, i) => (
+                        <th
+                          key={d}
+                          className={cn(
+                            "py-2 pr-3 font-medium",
+                            evento.nivel === i + 1 && "text-foreground",
+                          )}
+                        >
+                          Nível {i + 1}
+                        </th>
+                      ))}
+                      <th className="py-2 pr-3 font-medium">Já foi feito?</th>
+                      <th className="py-2 font-medium">Observação</th>
                     </tr>
+                  </thead>
+                  <tbody>
                     {linhas.map((l) => (
                       <Linha key={l.requisito} linha={l} />
                     ))}
-                  </Fragment>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </Panel>
-      )}
+                  </tbody>
+                </table>
+              </div>
+            </PainelExpansivel>
+          );
+        })}
     </>
   );
 }

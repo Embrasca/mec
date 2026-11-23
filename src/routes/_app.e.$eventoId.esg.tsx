@@ -5,13 +5,14 @@ import { useMutation } from "@tanstack/react-query";
 import { AlertTriangle, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 import { SeloEsg, useAtualizarEsg, useEsg } from "@/components/esg";
-import { Carregando, Falha, PageHeader, Panel } from "@/components/kit";
+import { Carregando, Falha, PageHeader, PainelExpansivel, Panel } from "@/components/kit";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { EIXOS_ESG, type IndicadorCalculado } from "@/domain/esg/indicadores";
 import { useEvento } from "@/lib/evento-atual";
+import { cn } from "@/lib/utils";
 import { esgSalvarRegistro } from "@/api/api.functions";
 
 export const Route = createFileRoute("/_app/e/$eventoId/esg")({
@@ -85,24 +86,39 @@ function PainelEsg() {
           justificados.
         </p>
       )}
-      {EIXOS_ESG.map((e) => (
-        <Panel
-          key={e.id}
-          title={e.nome}
-          actions={
-            <Button asChild size="sm" variant="outline">
-              <Link to={TELA[e.id]} params={{ eventoId: evento.id }}>
-                Abrir
-              </Link>
-            </Button>
-          }
-        >
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[640px] text-sm">
-              <tbody className="divide-y divide-border align-top">
-                {indicadores
-                  .filter((i) => i.eixo === e.id)
-                  .map((i) => (
+      {EIXOS_ESG.map((e) => {
+        const doEixo = indicadores.filter((i) => i.eixo === e.id);
+        const abertos = doEixo.filter(
+          (i) => i.essencial && (i.situacao === "pendente" || i.situacao === "sem_dados"),
+        ).length;
+        return (
+          <PainelExpansivel
+            key={e.id}
+            title={`${e.nome} — ${doEixo.length} indicadores`}
+            resumo={
+              <span
+                className={cn(
+                  "rounded-full px-2.5 py-0.5 text-xs font-medium",
+                  abertos
+                    ? "bg-warning-soft text-warning-text"
+                    : "bg-success-soft text-success-text",
+                )}
+              >
+                {abertos ? `${abertos} essencial(is) pendente(s)` : "Essenciais em dia"}
+              </span>
+            }
+            actions={
+              <Button asChild size="sm" variant="outline">
+                <Link to={TELA[e.id]} params={{ eventoId: evento.id }}>
+                  Abrir
+                </Link>
+              </Button>
+            }
+          >
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[640px] text-sm">
+                <tbody className="divide-y divide-border align-top">
+                  {doEixo.map((i) => (
                     <tr key={i.id}>
                       <td className="w-12 py-2 pr-2 font-mono text-xs text-muted-foreground">
                         {i.id}
@@ -133,11 +149,12 @@ function PainelEsg() {
                       </td>
                     </tr>
                   ))}
-              </tbody>
-            </table>
-          </div>
-        </Panel>
-      ))}
+                </tbody>
+              </table>
+            </div>
+          </PainelExpansivel>
+        );
+      })}
       {marcando && (
         <NaoSeAplica
           indicador={marcando}

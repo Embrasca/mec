@@ -1,7 +1,7 @@
 /** Aba INÍCIO da Ferramenta: o caminho, os níveis e as regras gerais. */
 import { createFileRoute } from "@tanstack/react-router";
 import { Shell } from "@/components/Shell";
-import { NivelBadge, PageHeader, Panel } from "@/components/kit";
+import { NivelBadge, PageHeader, PainelExpansivel, Panel } from "@/components/kit";
 import { NIVEIS, V3_16 } from "@/domain/metodologia/v3_16";
 
 export const Route = createFileRoute("/_app/instrucoes")({
@@ -39,10 +39,10 @@ function Instrucoes() {
         </ol>
         <p className="mt-3 text-sm">Vale o maior nível entre as etapas. {V3_16.notaSoSobe}</p>
       </Panel>
-      <Panel
-        title="O caminho, etapa por etapa"
-        hint="As etapas marcadas como próximas versões ainda não estão no sistema."
-      >
+      <PainelExpansivel title={`O caminho, etapa por etapa — ${V3_16.roteiro.length} etapas`}>
+        <p className="mb-3 text-xs text-muted-foreground">
+          As etapas marcadas como próximas versões ainda não estão no sistema.
+        </p>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead className="text-left text-xs text-muted-foreground">
@@ -67,7 +67,7 @@ function Instrucoes() {
             </tbody>
           </table>
         </div>
-      </Panel>
+      </PainelExpansivel>
     </Shell>
   );
 }
